@@ -15,7 +15,7 @@ const ap = new APlayer({
 		{
             name: '随机',
             artist: 'Artist',
-            lrc: '',
+            lrc: '/music/lrc/请倾听.lrc',
             cover: 'https://bolerat.github.io/assets/avatar.png',
             url: 'https://jx.618g.com/kuwo.php'
                   },
