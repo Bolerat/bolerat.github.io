@@ -20,8 +20,8 @@ const ap = new APlayer({
             url: 'https://jx.618g.com/kuwo.php'
                   },
 		 
-        ]
-		[
+        
+		
 		{
             name: 'Believer',
             artist: 'Imagine Dragons',
@@ -30,8 +30,8 @@ const ap = new APlayer({
             url: '/music/song/Believer.mp3'
                   },
 		 
-        ]
-		[
+        
+		
 		{
             name: '勾指起誓',
             artist: '洛天依 / ilem',
@@ -40,8 +40,8 @@ const ap = new APlayer({
             url: '/music/song/勾指起誓.mp3'
                   },
 		 
-        ]
-		[
+        
+		
 		{
             name: 'No Fear',
             artist: 'Greyson Chance',
@@ -50,8 +50,8 @@ const ap = new APlayer({
             url: '/music/song/No Fear.mp3'
                   },
 		 
-        ]
-		[
+        
+		
 		{
             name: '愿',
             artist: '宫阁',
@@ -60,7 +60,7 @@ const ap = new APlayer({
             url: '/music/song/愿.mp3'
                   },
 		 
-        ][
+        
 		{
             name: '东京不太热',
             artist: '洛天依',
@@ -69,7 +69,7 @@ const ap = new APlayer({
             url: '/music/song/东京不太热.mp3'
                   },
 		 
-        ][
+        
 		{
             name: '欧若拉',
             artist: '夏苏烦',
