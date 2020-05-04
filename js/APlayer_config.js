@@ -27,7 +27,7 @@ const ap = new APlayer({
             artist: 'Imagine Dragons',
             lrc: '/music/lrc/Believer.lrc',
             cover: 'https://bolerat.github.io/assets/avatar.png',
-            url: 'http://dl.stream.qqmusic.qq.com/C100003uk0GY3wjLw8.m4a?fromtag=38'
+            url: '/music/song/Believer.mp3'
                   },
 		 
         
