@@ -16,7 +16,7 @@ const ap = new APlayer({
             name: '随机',
             artist: 'Artist',
             lrc: '/music/lrc/请倾听.lrc',
-            cover: 'https://bolerat.github.io/assets/avatar.png',
+            cover: '/assets/avatar.png',
             url: 'https://jx.618g.com/kuwo.php'
                   },
 		 
@@ -26,7 +26,7 @@ const ap = new APlayer({
             name: 'aimai',
             artist: 'aimai',
             lrc: '/music/lrc/aimai.lrc',
-            cover: 'https://bolerat.github.io/assets/avatar.png',
+            cover: '/assets/avatar.png',
             url: '/music/song/aimai.mp3'
                   },
 		 
@@ -36,18 +36,18 @@ const ap = new APlayer({
             name: 'Heading Home',
             artist: 'AW',
             lrc: '/music/lrc/HeadingHome.lrc',
-            cover: 'https://bolerat.github.io/assets/avatar.png',
+            cover: '/assets/avatar.png',
             url: '/music/song/HeadingHome.mp3'
                   },
 		 
         
 		
 		{
-            name: 'Strong',
-            artist: 'strong',
+            name: 'Stronger',
+            artist: 'stronger',
             lrc: '/music/lrc/stronger.lrc',
-            cover: 'https://bolerat.github.io/assets/avatar.png',
-            url: '/music/song/strong.mp3'
+            cover: '/assets/avatar.png',
+            url: '/music/song/stronger.mp3'
                   },
 		 
         
@@ -56,7 +56,7 @@ const ap = new APlayer({
             name: 'Hope not',
             artist: 'black pink',
             lrc: '/music/lrc/HopeNot.lrc',
-            cover: 'https://bolerat.github.io/assets/avatar.png',
+            cover: '/assets/avatar.png',
             url: '/music/song/HopeNot.mp3'
                   },
 		 
@@ -65,7 +65,7 @@ const ap = new APlayer({
             name: 'Blame',
             artist: 'Blame',
             lrc: '/music/lrc/Blame.lrc',
-            cover: 'https://bolerat.github.io/assets/avatar.png',
+            cover: '/assets/avatar.png',
             url: '/music/song/Blame.mp3'
                   },
 		 
