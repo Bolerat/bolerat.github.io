@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bolerat.github.io/posts/51462/</loc>
+    <lastmod>2020-08-08</lastmod>
+  </url>  <url>
+    <loc>https://bolerat.github.io/posts/7053/</loc>
+    <lastmod>2020-08-08</lastmod>
+  </url>  <url>
     <loc>https://bolerat.github.io/posts/21678/</loc>
     <lastmod>2020-07-20</lastmod>
   </url>  <url>
@@ -11,9 +17,6 @@
     <lastmod>2020-07-05</lastmod>
   </url>  <url>
     <loc>https://bolerat.github.io/posts/d95d7e09/</loc>
-    <lastmod>2020-07-05</lastmod>
-  </url>  <url>
-    <loc>https://bolerat.github.io/posts/7053/</loc>
     <lastmod>2020-07-05</lastmod>
   </url>
 </urlset>
