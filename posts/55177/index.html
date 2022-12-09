@@ -90,7 +90,7 @@ var _hmt = _hmt || [];
 
 
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -104,7 +104,7 @@ var _hmt = _hmt || [];
 			<img src="/assets/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">Bolerat</a></h1>
 		</hgroup>
 		
 
@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
 				<img src="/assets/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">Bolerat</h1>
 			</hgroup>
 			
 			
@@ -260,9 +260,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>数据结构模板收集</p>
-<span id="more"></span>
+<a id="more"></a>
 
-<h3 id="单链表（数组模拟–静态）"><a href="#单链表（数组模拟–静态）" class="headerlink" title="单链表（数组模拟–静态）"></a>单链表（数组模拟–静态）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">## 单链表操作（数组模拟链表--静态链表） </span><br><span class="line">const int N=100010;</span><br><span class="line">int head,e[N],ne[N],idx;</span><br><span class="line">void init()&#123;</span><br><span class="line">	head=-1;</span><br><span class="line">	idx=0;	</span><br><span class="line">&#125;</span><br><span class="line">//x插入到头结点 </span><br><span class="line">void add_to_head(int x)&#123;</span><br><span class="line">	ne[idx]=head;</span><br><span class="line">	head=idx;</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line">//x插入到第k个节点后 </span><br><span class="line">void add(int x,int k)&#123;</span><br><span class="line">	ne[idx]=ne[k];</span><br><span class="line">	ne[k]=idx;</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line">//将下标是k的点后面的点删除 </span><br><span class="line">void remove(int k) &#123;</span><br><span class="line">	ne[k]=ne[ne[k]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="单链表（数组模拟–静态）"><a href="#单链表（数组模拟–静态）" class="headerlink" title="单链表（数组模拟–静态）"></a>单链表（数组模拟–静态）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">## 单链表操作（数组模拟链表--静态链表） </span><br><span class="line">const int N&#x3D;100010;</span><br><span class="line">int head,e[N],ne[N],idx;</span><br><span class="line">void init()&#123;</span><br><span class="line">	head&#x3D;-1;</span><br><span class="line">	idx&#x3D;0;	</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;x插入到头结点 </span><br><span class="line">void add_to_head(int x)&#123;</span><br><span class="line">	ne[idx]&#x3D;head;</span><br><span class="line">	head&#x3D;idx;</span><br><span class="line">	e[idx]&#x3D;x;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;x插入到第k个节点后 </span><br><span class="line">void add(int x,int k)&#123;</span><br><span class="line">	ne[idx]&#x3D;ne[k];</span><br><span class="line">	ne[k]&#x3D;idx;</span><br><span class="line">	e[idx]&#x3D;x;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;将下标是k的点后面的点删除 </span><br><span class="line">void remove(int k) &#123;</span><br><span class="line">	ne[k]&#x3D;ne[ne[k]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -438,6 +438,30 @@ var _hmt = _hmt || [];
   
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '33917e4ff2bfb1f08ac2',
+  	clientSecret: 'f490af02f13db4f90011a347f13c1fe5127a0d45',
+  	repo: 'bolerat.github.io',
+  	owner: 'Bolerat',
+  	admin: ['Bolerat'],
+  	id: 'Sat Dec 03 2022 00:45:00 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+  
+
           </div>
         </div>
       </div>
@@ -593,6 +617,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">信息安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">社会工程学</a>
               </li>
              
@@ -601,15 +637,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">信息安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MC</a>
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color3">文摘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,18 +658,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">阿婆主</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文摘</a>
               </li>
              
               <li class="article-tag-list-item">

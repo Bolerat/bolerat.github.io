@@ -92,7 +92,7 @@ var _hmt = _hmt || [];
 
 
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -106,7 +106,7 @@ var _hmt = _hmt || [];
 			<img src="/assets/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">Bolerat</a></h1>
 		</hgroup>
 		
 
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
 				<img src="/assets/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">Bolerat</h1>
 			</hgroup>
 			
 			
@@ -261,17 +261,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目链接：<a target="_blank" rel="noopener" href="https://www.ctfer.vip/problem/384">https://www.ctfer.vip/problem/384</a></p>
-<span id="more"></span>
+        <p>题目链接：<a href="https://www.ctfer.vip/problem/384" target="_blank" rel="noopener">https://www.ctfer.vip/problem/384</a></p>
+<a id="more"></a>
 <h3 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h3><p><strong>在阅读代码后发现，当对网站传入一个post型的参数id和一个get型的参数json且满足if条件的内容，则能传回一个flag<br>于是在查阅相关资料后</strong>   </p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">json_decode这个函数是对JSON格式的字符串进行编码</span><br><span class="line"></span><br><span class="line">参数json：待解码的json string格式的字符串，所以我们需要传入get型的参数json并且对他进行解码</span><br><span class="line"></span><br><span class="line">JSON 格式的字符串</span><br><span class="line">$json = &#x27;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#x27;;</span><br><span class="line">其中a为键，php为a的键值。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">实例：</span><br><span class="line"></span><br><span class="line">  &lt;?php$json = &#x27;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#x27;;</span><br><span class="line">  $json_Class=json_decode($json);</span><br><span class="line">  $json_Array=json_decode($json, true);</span><br><span class="line">  print_r($json_Class);</span><br><span class="line">  print_r($json_Array);</span><br><span class="line">  ?&gt;</span><br><span class="line">  程序输出：</span><br><span class="line"></span><br><span class="line">  stdClass Object (</span><br><span class="line">  [a] =&gt; php</span><br><span class="line">  [b] =&gt; mysql</span><br><span class="line">  [c] =&gt; 3 )</span><br><span class="line">  Array (</span><br><span class="line">  [a] =&gt; php</span><br><span class="line">  [b] =&gt; mysql</span><br><span class="line">  [c] =&gt; 3 )</span><br></pre></td></tr></table></figure>
-<p><strong>于是我们利用传入一个post为id&#x3D;wllNB，再传入json为{“x”:”wllm”}，即可获得动态的flag</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">json_decode这个函数是对JSON格式的字符串进行编码</span><br><span class="line"></span><br><span class="line">参数json：待解码的json string格式的字符串，所以我们需要传入get型的参数json并且对他进行解码</span><br><span class="line"></span><br><span class="line">JSON 格式的字符串</span><br><span class="line">$json &#x3D; &#39;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#39;;</span><br><span class="line">其中a为键，php为a的键值。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">实例：</span><br><span class="line"></span><br><span class="line">  &lt;?php$json &#x3D; &#39;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#39;;</span><br><span class="line">  $json_Class&#x3D;json_decode($json);</span><br><span class="line">  $json_Array&#x3D;json_decode($json, true);</span><br><span class="line">  print_r($json_Class);</span><br><span class="line">  print_r($json_Array);</span><br><span class="line">  ?&gt;</span><br><span class="line">  程序输出：</span><br><span class="line"></span><br><span class="line">  stdClass Object (</span><br><span class="line">  [a] &#x3D;&gt; php</span><br><span class="line">  [b] &#x3D;&gt; mysql</span><br><span class="line">  [c] &#x3D;&gt; 3 )</span><br><span class="line">  Array (</span><br><span class="line">  [a] &#x3D;&gt; php</span><br><span class="line">  [b] &#x3D;&gt; mysql</span><br><span class="line">  [c] &#x3D;&gt; 3 )</span><br></pre></td></tr></table></figure>
+<p><strong>于是我们利用传入一个post为id=wllNB，再传入json为{“x”:”wllm”}，即可获得动态的flag</strong></p>
 <img src="/pic/ctf_3.jpg" alt="1" style="zoom:50%" />    
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考：https://www.cnblogs.com/kode00/p/16856963.html     </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;kode00&#x2F;p&#x2F;16856963.html</span><br></pre></td></tr></table></figure>
       
 
       
@@ -438,6 +438,30 @@ var _hmt = _hmt || [];
   
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '33917e4ff2bfb1f08ac2',
+  	clientSecret: 'f490af02f13db4f90011a347f13c1fe5127a0d45',
+  	repo: 'bolerat.github.io',
+  	owner: 'Bolerat',
+  	admin: ['Bolerat'],
+  	id: 'Thu Dec 08 2022 23:52:00 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+  
+
           </div>
         </div>
       </div>
@@ -593,6 +617,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">信息安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">社会工程学</a>
               </li>
              
@@ -601,15 +637,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">信息安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MC</a>
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color3">文摘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,18 +658,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">阿婆主</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文摘</a>
               </li>
              
               <li class="article-tag-list-item">
