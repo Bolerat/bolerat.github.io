@@ -44,10 +44,12 @@ var _hmt = _hmt || [];
 <meta property="og:site_name" content="Bolerat">
 <meta property="og:description" content="题目链接: https:&#x2F;&#x2F;ctf.bugku.com&#x2F;challenges&#x2F;detail&#x2F;id&#x2F;196.html">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bolerat.github.io/pic/ctf_4.jpg">
 <meta property="article:published_time" content="2022-12-11T06:04:42.000Z">
-<meta property="article:modified_time" content="2022-12-11T06:32:12.531Z">
+<meta property="article:modified_time" content="2022-12-11T06:35:27.965Z">
 <meta property="article:author" content="Bolerat">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bolerat.github.io/pic/ctf_4.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Bolerat" type="application/atom+xml">
   
@@ -260,7 +262,14 @@ var _hmt = _hmt || [];
         <p>题目链接: <a href="https://ctf.bugku.com/challenges/detail/id/196.html" target="_blank" rel="noopener">https://ctf.bugku.com/challenges/detail/id/196.html</a>   </p>
 <a id="more"></a>    
 <h1 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h1><p>通过查看源代码，发现：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">You know, in the flask, We often set a secret_key variable.   </span><br><span class="line">&#96;&#96;&#96;    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">果然没有思路就看看源代码，就会有发现。    </span><br><span class="line">于是就读取所有config变量，其中secret_key变量，就是需要找的flag所在。so:    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;    </span><br><span class="line">&#x2F;?flag&#x3D;&#123;&#123;config.items()&#125;&#125;</span><br><span class="line">&#96;&#96;&#96;    </span><br><span class="line"></span><br><span class="line">于是得到：    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;img src&#x3D;&quot;&#x2F;pic&#x2F;ctf_4.jpg&quot; alt&#x3D;&quot;1&quot; style&#x3D;&quot;zoom:50%&quot; &#x2F;&gt;    </span><br><span class="line"></span><br><span class="line"># flask之ssti模版注入      </span><br><span class="line">算了，还是贴大佬的教程吧，Orz。    </span><br><span class="line">&#96;&#96;&#96;    </span><br><span class="line">https:&#x2F;&#x2F;xz.aliyun.com&#x2F;t&#x2F;3679</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You know, in the flask, We often set a secret_key variable.</span><br></pre></td></tr></table></figure>
+<p>果然没有思路就看看源代码，就会有发现。<br>于是就读取所有config变量，其中secret_key变量，就是需要找的flag所在。so:    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?flag&#x3D;&#123;&#123;config.items()&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>于是得到：    </p>
+<img src="/pic/ctf_4.jpg" alt="1" style="zoom:50%" />    
+
+<h1 id="flask之ssti模版注入"><a href="#flask之ssti模版注入" class="headerlink" title="flask之ssti模版注入"></a>flask之ssti模版注入</h1><p>算了，还是贴大佬的教程吧，Orz。    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xz.aliyun.com&#x2F;t&#x2F;3679</span><br></pre></td></tr></table></figure>
       
 
       
@@ -361,7 +370,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WP"><span class="toc-number">1.</span> <span class="toc-text">WP</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WP"><span class="toc-number">1.</span> <span class="toc-text">WP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flask之ssti模版注入"><span class="toc-number">2.</span> <span class="toc-text">flask之ssti模版注入</span></a></li></ol>
                     </div>
                 </span>
             </div>
