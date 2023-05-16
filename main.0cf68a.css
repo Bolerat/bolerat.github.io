@@ -3527,3 +3527,17 @@ a.pswp__share--download:hover {
   line-height: 45px;
   font-size: 15px;
 }
+
+@media screen and (max-width:800px) {
+.page-header {
+    position: relative;
+    border: 1px solid #fff;
+    /* margin: 5px 30px 4px 30px; */
+    background: #fff;
+    -webkit-transition: all 0.2s ease-in;
+    height: 45px;
+    font-family: '微软雅黑';
+    border-radius: 5px;
+    padding-left: 2px;
+}
+}

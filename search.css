@@ -125,3 +125,34 @@
     color: #999;
     cursor: pointer
 }
+
+/* 手机端 */
+@media screen and (max-width:800px) {
+.local-search {
+    position: absolute;
+    text-align: left;
+    display:inline-block;
+    margin-bottom: 0px;
+    right: -5%;
+}
+.local-search-plugin .local-search-input-cls {
+    opacity: .6;
+    width: 100px;
+    transition: all .3s;
+}
+.local-search-result-cls {
+    right: 2px;
+}
+.local-search-result-cls ul {
+    width: 360px;
+    max-height: 400px;
+    min-height: 0;
+    height: auto;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 4px 10px #7dc3d8;
+    margin-top: 20px;
+}
+}
