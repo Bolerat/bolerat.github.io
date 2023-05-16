@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
   
     <link rel="icon" href="/assets/favicon.png">
   
-  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css"><link rel="stylesheet" type="text/css" href="/./search.css">
   <style type="text/css">
   
     #container.show {
@@ -217,6 +217,37 @@ var _hmt = _hmt || [];
 </nav>
 
       <div id="wrapper" class="body-wrap">
+	  
+		
+<div class="page-header" style="">
+    
+    <span>🍻  
+        <span id="jinrishici-sentence" title="今日诗词">正在加载今日诗词....</span>
+    </span>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+    
+    <script type="text/javascript" src="/js/search.js"></script>
+    <span id="local-search" class="local-search local-search-plugin" style="">
+      <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+      <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+      <div id="local-search-result" class="local-search-result-cls"></div>
+    </span>
+
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        if ($('.local-search').size()) {
+          $.getScript('/js/search.js', function() {
+            searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+          });
+        }
+    </script>
+    
+</div>
+
+
+  <div id="wrapper" class="body-wrap">
+	  
         <div class="menu-l">
           <div class="canvas-wrap">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
@@ -544,7 +575,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
+                <a href="javascript:void(0)" class="js-tag color5">C/C++语言基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,7 +591,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">C/C++语言基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">文摘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">毕业</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,14 +612,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法竞赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">毕业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文摘</a>
               </li>
             
             <div class="clearfix"></div>
