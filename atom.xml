@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bolerat</title>
+  
+  
+  <link href="https://bolerat.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://bolerat.github.io/"/>
+  <updated>2023-05-15T15:47:21.078Z</updated>
+  <id>https://bolerat.github.io/</id>
+  
+  <author>
+    <name>Bolerat</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pip的使用以及国内pip镜像源</title>
+    <link href="https://bolerat.github.io/posts/39627/"/>
+    <id>https://bolerat.github.io/posts/39627/</id>
+    <published>2023-05-15T14:30:00.000Z</published>
+    <updated>2023-05-15T15:47:21.078Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>直接用<code>pip install</code>安装Python包<strong>太慢了</strong>，经常<strong>time out</strong>，所以用国内镜像源来进行pip安装会更快。</p><a id="more"></a><h3 id="pip是什么"><a href="#pip是什么" class="headerlink" title="pip是什么"></a>pip是什么</h3><p> pip 是一个现代的，通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。注：pip 已内置于 Python 3.4 和 2.7 及以上版本，其他版本需另行安装。（来自<strong>百度百科</strong>）</p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip install -i http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple</span><br><span class="line">&#x2F;&#x2F;阿里云 ，其中-i表示用后面的镜像源下载包</span><br><span class="line"></span><br><span class="line">pip install  -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple jwt</span><br><span class="line">&#x2F;&#x2F;例子，用清华源下载jwt（ctf常用的一个库）</span><br></pre></td></tr></table></figure><p>更多用法可见 <a href="https://pip.pypa.io/en/stable/cli/pip_install/" target="_blank" rel="noopener">pip install</a></p><h3 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">阿里云：</span><br><span class="line">https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;</span><br><span class="line">百度：</span><br><span class="line">https:&#x2F;&#x2F;mirror.baidu.com&#x2F;pypi&#x2F;simple&#x2F;</span><br><span class="line">豆瓣：</span><br><span class="line">http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F;</span><br><span class="line">清华：</span><br><span class="line">https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple&#x2F;</span><br><span class="line">中科大：</span><br><span class="line">https:&#x2F;&#x2F;pypi.mirrors.ustc.edu.cn&#x2F;simple&#x2F;</span><br></pre></td></tr></table></figure><p>你也可以访问<a href="https://mirrors.cernet.edu.cn/" target="_blank" rel="noopener">校园网镜像站</a></p><h3 id="常用pip命令"><a href="#常用pip命令" class="headerlink" title="常用pip命令"></a>常用pip命令</h3><p>来自<strong>百度百科</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">pip  [options]</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">install  安装包安装</span><br><span class="line">download 下载下载包</span><br><span class="line">uninstall  卸载卸载包</span><br><span class="line">freeze  冻结按需求格式安装的包的输出</span><br><span class="line">list 列表列出已安装的包</span><br><span class="line">show  显示已安装软件包的信息</span><br><span class="line">check  检查已安装的软件包是否具有兼容的依赖项</span><br><span class="line">config  配置管理本地和全局配置</span><br><span class="line">search  搜索PyPI查找包</span><br><span class="line">wheel  根据您的需求构建轮子</span><br><span class="line">hash  包存档的哈希计算值</span><br><span class="line">completion 用于命令完成的辅助命令</span><br><span class="line">debug  显示对调试有用的信息</span><br><span class="line">help  帮助显示命令的帮助</span><br></pre></td></tr></table></figure><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">百度百科（pip）：https:&#x2F;&#x2F;baike.baidu.com&#x2F;item&#x2F;PIP&#x2F;20435212</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;直接用&lt;code&gt;pip install&lt;/code&gt;安装Python包&lt;strong&gt;太慢了&lt;/strong&gt;，经常&lt;strong&gt;time out&lt;/strong&gt;，所以用国内镜像源来进行pip安装会更快。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="pip" scheme="https://bolerat.github.io/tags/pip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于getchar与while</title>
+    <link href="https://bolerat.github.io/posts/44515/"/>
+    <id>https://bolerat.github.io/posts/44515/</id>
+    <published>2023-02-04T04:28:00.000Z</published>
+    <updated>2023-02-04T04:34:38.602Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>值得注意的是记得<strong>初始化</strong>字符数组和while中运算符的<strong>优先级</strong>     </p><a id="more"></a>     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">char s;</span><br><span class="line">char s2[1001]&#x3D;&#123;&#125;,s1[2]&#x3D;&#123;&#125;;</span><br><span class="line">while((s&#x3D;getchar())!&#x3D;&#39;\n&#39;)&#123;</span><br><span class="line">s1[0]&#x3D;s;</span><br><span class="line">strcat(s2,s1);</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;s2;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;值得注意的是记得&lt;strong&gt;初始化&lt;/strong&gt;字符数组和while中运算符的&lt;strong&gt;优先级&lt;/strong&gt;     &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C/C++语言基础" scheme="https://bolerat.github.io/tags/C-C-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>令人难以理解的操作</title>
+    <link href="https://bolerat.github.io/posts/54247/"/>
+    <id>https://bolerat.github.io/posts/54247/</id>
+    <published>2023-01-01T12:27:00.000Z</published>
+    <updated>2023-01-01T12:38:42.282Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>刚做完Pat跨年赛的考试，然后账号没了？      </p><a id="more"></a>     <h3 id="难以理解"><a href="#难以理解" class="headerlink" title="难以理解"></a>难以理解</h3><p>或许我是个蒟蒻吧，我只做了几道题。      </p><img src="/pic/patwatt.jpg" alt="1" style="zoom:50%" />          <p>冷静分析：我怀疑是因为这是去年冬季考试老师给我的考试账号吧，所以我的老师<strong>或许</strong>有权限删除我的账号。<strong>但是</strong>我还是无法理解。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;刚做完Pat跨年赛的考试，然后账号没了？      &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Bugku CTF]Simple_SSTI_1</title>
+    <link href="https://bolerat.github.io/posts/13499/"/>
+    <id>https://bolerat.github.io/posts/13499/</id>
+    <published>2022-12-11T06:04:00.000Z</published>
+    <updated>2022-12-11T06:38:09.411Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接: <a href="https://ctf.bugku.com/challenges/detail/id/196.html" target="_blank" rel="noopener">https://ctf.bugku.com/challenges/detail/id/196.html</a>   </p><a id="more"></a>    <h1 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h1><p>通过查看源代码，发现：   </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You know, in the flask, We often set a secret_key variable.</span><br></pre></td></tr></table></figure><p>果然没有思路就看看源代码，就会有发现。<br>于是就读取所有config变量，其中secret_key变量，就是需要找的flag所在。so:    </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?flag&#x3D;&#123;&#123;config.items()&#125;&#125;</span><br></pre></td></tr></table></figure><p>于是得到：    </p><img src="/pic/ctf_4.jpg" alt="1" style="zoom:50%" />    <h1 id="flask之ssti模版注入"><a href="#flask之ssti模版注入" class="headerlink" title="flask之ssti模版注入"></a>flask之ssti模版注入</h1><p>算了，还是贴大佬的教程吧，Orz。    </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xz.aliyun.com&#x2F;t&#x2F;3679</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;题目链接: &lt;a href=&quot;https://ctf.bugku.com/challenges/detail/id/196.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ctf.bugku.com/challenges/detail/id/196.html&lt;/a&gt;   &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[NSSCTF][SWPUCTF 2021 新生赛]jicao</title>
+    <link href="https://bolerat.github.io/posts/5696/"/>
+    <id>https://bolerat.github.io/posts/5696/</id>
+    <published>2022-12-08T15:52:00.000Z</published>
+    <updated>2022-12-08T17:02:00.219Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接：<a href="https://www.ctfer.vip/problem/384" target="_blank" rel="noopener">https://www.ctfer.vip/problem/384</a></p><a id="more"></a><h3 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h3><p><strong>在阅读代码后发现，当对网站传入一个post型的参数id和一个get型的参数json且满足if条件的内容，则能传回一个flag<br>于是在查阅相关资料后</strong>   </p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">json_decode这个函数是对JSON格式的字符串进行编码</span><br><span class="line"></span><br><span class="line">参数json：待解码的json string格式的字符串，所以我们需要传入get型的参数json并且对他进行解码</span><br><span class="line"></span><br><span class="line">JSON 格式的字符串</span><br><span class="line">$json &#x3D; &#39;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#39;;</span><br><span class="line">其中a为键，php为a的键值。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">实例：</span><br><span class="line"></span><br><span class="line">  &lt;?php$json &#x3D; &#39;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#39;;</span><br><span class="line">  $json_Class&#x3D;json_decode($json);</span><br><span class="line">  $json_Array&#x3D;json_decode($json, true);</span><br><span class="line">  print_r($json_Class);</span><br><span class="line">  print_r($json_Array);</span><br><span class="line">  ?&gt;</span><br><span class="line">  程序输出：</span><br><span class="line"></span><br><span class="line">  stdClass Object (</span><br><span class="line">  [a] &#x3D;&gt; php</span><br><span class="line">  [b] &#x3D;&gt; mysql</span><br><span class="line">  [c] &#x3D;&gt; 3 )</span><br><span class="line">  Array (</span><br><span class="line">  [a] &#x3D;&gt; php</span><br><span class="line">  [b] &#x3D;&gt; mysql</span><br><span class="line">  [c] &#x3D;&gt; 3 )</span><br></pre></td></tr></table></figure><p><strong>于是我们利用传入一个post为id=wllNB，再传入json为{“x”:”wllm”}，即可获得动态的flag</strong></p><img src="/pic/ctf_3.jpg" alt="1" style="zoom:50%" />    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;kode00&#x2F;p&#x2F;16856963.html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://www.ctfer.vip/problem/384&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.ctfer.vip/problem/384&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[NSSCTF][SWPUCTF 2021 新生赛]gift_F12</title>
+    <link href="https://bolerat.github.io/posts/11193/"/>
+    <id>https://bolerat.github.io/posts/11193/</id>
+    <published>2022-12-08T14:48:00.000Z</published>
+    <updated>2022-12-08T15:13:11.801Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接：<a href="https://www.ctfer.vip/problem/382" target="_blank" rel="noopener">https://www.ctfer.vip/problem/382</a></p><a id="more"></a><h2 id="进入环境，发现是个有趣-的gift"><a href="#进入环境，发现是个有趣-的gift" class="headerlink" title="进入环境，发现是个有趣~的gift"></a>进入环境，发现是个有趣~的gift</h2><img src="/pic/ctf_2 (1).jpg" alt="1" style="zoom:50%" /><h2 id="由题目f12，我直接按f12，就发现："><a href="#由题目f12，我直接按f12，就发现：" class="headerlink" title="由题目f12，我直接按f12，就发现："></a>由题目f12，我直接按f12，就发现：</h2><img src="/pic/ctf_2 (3).jpg" alt="1" style="zoom:50%" /><h2 id="but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了"><a href="#but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了" class="headerlink" title="but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了"></a>but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了</h2><img src="/pic/ctf_2 (2).jpg" alt="1" style="zoom:50%" />]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://www.ctfer.vip/problem/382&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.ctfer.vip/problem/382&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSRF 服务器端请求伪造（学长分享）</title>
+    <link href="https://bolerat.github.io/posts/26804/"/>
+    <id>https://bolerat.github.io/posts/26804/</id>
+    <published>2022-12-06T06:23:42.000Z</published>
+    <updated>2023-05-15T14:22:51.856Z</updated>
+    
+    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">输入密码，查看文章</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="4cb0e133612f7f3dd0a6b4f6aee31a23bff3dfefab78918fc91fcbb84b673d1a">f2c883db8d6d1726eb0d8e6b18498352b497601e36ec99fd9c6b567bb2fd41454724c1ec020b8719be7237837ca00a152c2335abf1dc3b0a8175f4a1adfded9e086501f26de4b8e5d2b99dbd3ea7def678e06bcd58e0968fb802252cb5e6225b43fc159a5ce321b2f2087526d55aa2ce684c237a02a6b99d10bb9b4493fc360eccdfa7b6585571de98fc728d8233e818f9d7f5cfa8f6a5e29069e72522d610e42e10f9add761e93a0370795afc39e8d86a18c98df28ae2bd45404062ae28fd71868e43a140c6da279d1b1db56227f12858992208d81a766683f145e247a9127762d76db9400fdbd92e4b9ebf3cb7a8dfc0d4209cc2cd7a4ee3d56a78a3abcbbb3d91ca6abd4dd526db0a0d7aaf86d6141473e1e536e640f2cb62e7005295052da90d3ee5f07e0330b724d03d02dee978b4523a99844d4a39adf0039811953da8184d1a9deecce11b76e5b5fa3a8de6f48e3ac22dfdf5ec62bb1c9af15ff157d0a079ba2d6a7ef4e3dcf27bcb7bc2864761588ef05a3c1fcd7f2bf95a12c1496619443afe74265f8d29e0c05b039ca6cd027fcaf8ca009157657a4ae1b136b2099777bc865a4dfcde966d51e1eae353b06cd3105209c092a4eb01625f3c61a78fc5230beb0921ef4f4987aa3833832a8b81b508974528de03c505852f80f144a14ab51ced59f500c8632fefb4572f2339d1d6c2b9d684c17ee86be2c64383920c047d41b5c87807e9841c224d4aabd81a677226556a7e52e5a03a67af8a995cc0f670cafbb0ce3834c0eccba985f31dfdf9b27c9e642ba0741ac7da3b39d03582f2e1899c6ace43715273eb2aba53b4da46fcb507ab4d0fe4e8c346ba1f8d020e6dac987eede1740d9ee4ba1d11a9aa914a3be7cff1cf9d6e77e79628828f1608ffc438d9f4649643bc447919f9b38cbbc5ea99a763dbdfb4a3ee461e83e835e165637e457bcecbc514c967b6e9e70df6313713ec4d71204c612f1e83a6b9d0468e99c28e34db75dba1932d536020e7eedf9d0e1fec0fa9c539bd3d79a7b9ab442ea2aaf33c4f2c7d924167cdc7ef996f2ef12a415ff04888e1b1fefe1ce1f2243b0461e87485a81a957ca22eedbe51c091568144f17ce3d36b7083819b976c8281815cc364abf01fe697ed48043d5ed6f6f187546905ff12d42a502c63ebb0215868830c76658e5bd7201136efa81850043833ea8630d5276e740255ee16d40e03381b6b48b606ff0a5fd3b29d88998f110e7a3e1c6518e8f3057a2145a6ed297601d9c791d54f7896fdfb75343b79dabbd98126b7eb2f81b1ced1595359bded72dd6a3428a934d5eb3ddd3a9fa58df204b9e5d3b05e3412e607eeee5da6c7f7c824449addd1fa0777e10c572ce96cc38c8305fa5c809e60eab6fff279dca67590026f97cc71ccc7c64ef6d10d4ce7bb4a0e0825c5f0b3b56a33f783d45e1b307f630c8d89b7ddd7e7e3ba7f09f4e6e00056b7e585645b5c8404c9f2a500d1d95f789a3c91a7c6934cf9d3c08c7d76c3c8785bd783338f9267c1467f63630c6c8d122da558c6b3d6a532c5526d7ffad73c9096443491578f4c4e14b6d94412fb2d4d2f0cd62fb1f1a61cc80d74a89b42dfef24a4ff068ae8226e76e3f7a6e1577e7dc2f51786d534b5dc42e75e06c9aa03aae128a93cd677839de5434dd69310924f3a8db7427c749270aefcf0447487a459c58eaeeac15408928d1a148e67bf9d38ff5b4de683ed0f55405ba0d38dc3f2eb639eba75baa164b33e2936561ab1594dcb2f41d01d698211fa6e963f3563061e03ecead5e37ee38fb3ce46ad4a20da470c9961079fac0a2d5544007bf4655995bfaff23b7ca1f03b37d92d5b2182c710a59b8a2f6fcba0357eeb7af4a5ed29c3d7aecbb301875e3fdb0bee96a0ef220697a5b697b17c80659477cd5597ed5deb3b225c2d9491253a33480b9f173b8e56b91cd4052103721b8f190230c04fecc049000694af1ceccb431ad97d8639af7024c609fa74d019d123b51a8eeecdd50f869e0cb79f2572533541403af3dc7457e75d3fb2062c881307123e3a6045caa16b879ee3c99e96538e19bc381bbb136eba7af44c41fd87c1ea3da2445e5baff85cbd2a8c0f806155947dad30025a23baca63d67c16dc738ad7b671c09e4cce934b78b1ea67a97ef1e1b96e27a039e30f5a4b200f41cce114ae064c73f96eb3dde6c8afb6911959b58323a82834e35de9a160c2bccdc717240a08279adf9e3511cc7d1fbf62adb1470c659726230a0f31ccb6c14887837584252b500c908b0eadaf31a93020d6c16831eca25e141eedc33739aeb6530e60c87c323a3efeeff6ec91ba0172bb2bff4425ad9c4532c05e0fbecd27d1fa3bfcef82f79955b63f75a760d31a6f4c898a8e8c23f3e0821bfde6e16fb487891120abc171e5159a12d15c961074db609bb7556d50837dbfc760bf59347c73adb089b2eb8bb1be71c6e0e004741b4f40f9c5e9ba710a5332ea047cb57b7d16e4529ffc48adfcce8180d8369a5c83b9837a55fcc560765be5037bac7e3bcb96e065e973f938893cc41ceef33c3f0cbff103c7d81a8ec4d0dfc2b254b273352df01a907d555f41b951f3871e80ccaec86245fffab38b34644e8d1668f8cae9d3576128b834ff615bd0909703d3c49813a0d97d2b601cadd43c44ef93dbe3734fdc589ed1062112aa2388db806be647cceed485674c6936e142d18ea6f777026d570815d9cdb42e59712f8b3a757453fcdfbc82e425d8d810a02be659082309da88e9db89f582d64641bcd106c63117d7cd440a7088931f12635dcc8cbd3a1f5cec63de15fed84def12789c6b30ea0538f5754b5064a42bb0f3c2633bdd8089c8222e6b731b37943cbb0eed5c8ad4e199b958a0d6275ccc04d45978f132b19671ad1856f3570ea0a22fece4c56f69f4cadbc610660af83d75bf9e58eef68488a91a0a1ddcc56947d38f0214cf7b567f019d95106391c9e6921e655e0df4364402d7d3c8728bcceebe4c2732d6277a856e6484922f245ac55af291302d50156dd7ab5f93d9c5ae5b8d39677b0a2cd93dcb225415f1e1b585399e5a3b2808696e0ca7f108c4d875c65a45a660f8468526ecb3d05c36691c0e488e353ade6ab0bd49b6e336dff69a01904a332d318c655bb138f1f89b8e835e0feaf96eba13224e87e6c71f82abde30140e696b8c8cc6c1c1f7d626a99e19f223d4e301a9871fca2eeacb4788d9060821bc4dc5685c9af5929268e5734660e7d9aa272ae7465ab706a7c6290d83fe64c9512924ff9e3c81cec6da975e1669275545dbf8c7d7c6911ce32286011e8ee685a93ec24cc7d6582555756551e4e876dc0efee431017f1c257dc7e7da1040931b52ae4ed2ccb621c427b22448335a48318acd5679377e1512b9bdb6444be1b3530c750eaa75e57ce18d07ade53e6fb7089d5b31e3e79c4ebf4dd660a219b122fe53f25c28d6c42ef64561fccf929e639c207916b8e9365e3736aeaa38a94179dd43025c42d4cbb4c100244497345c501782b43837f811afa5b10a113c5437a18610f2bec6392e9eea25d7c614c2fdde8d91ceef1bc946070f0a170821946fb0255057ed02a7cfb2c7dbc617ad988130eca5fe2c1b554f3dfc66a24344013ab510be39f5e7d40acba83d06ce5cb02d36a5a95c66ef45bb0b2fc81a5feb242ea1b7b78d6ce435b0d12d1ee7402e0ab62f0312cf6501aa6816b3a1235cd56e51ec33febcf42de85d457603ce9e198872abf10504846828d60ab56eab96df7a87f9b8feb7161f6da9738a32abae9efaedaa8d8497a9a0b5fa911279237c4c85a30a8d83fd8ec138be8ad318d4b9758ed1bd0c14874636ab29fbcc476dd2e616887c7c6649beed42ccc607892114179f7b22212545537c878a9a4a4dfff916e3291c5db8d6027b82c4f753944300056399ed6c1df502d78b040bc7311943a6eea6ed99477d8a8e6fa3edf61caf85b0c11f928cae22a9f7c895b0a470a4740c44cc8dcf583b8d3a85a74fb3cc89fbf67a24b748ba0d8dadcf4a44b694b36a549d292e99e2e7096a55f6a544e5e201aeb910ce95c4c28a62dbb147d591aadac70473fe29356c77674915c05a7f0499782af49ad0e3e51fe83fb4532a69b660e4f84f5756feb9345a0bd43f3c53408c58dfd4ab2f71de6489105a2c8913e11a31c0a51dbb4f1a301254f33e3cfe61554e68664e8763faaea5d9c1e686203e0fdcab59995a8570d4edcb431133b9f9aae208d4b82d790d6a16a8ce0d9df3be57520e49960132cdcfbe0196fbad77710b13672008390799771e1cbefd65593311b280fc1d8cfb1d831cc926e9481e2af76efcc99ccba4982f6c66110b0d3d076c83557f0268f3adce5b3c47f06017178143b0122e39bcc4648fdaa7c2b997d20cdee17aa9e8ae3dfab3c24a6c02e74ef3f6f854deabfc6466d2f00bc9d5e7c64876ea7f7a196a358f4fc7ee6b4cfcdbece7c5de75bfb369e2062a0a10ca1db924bd435597bca2bf6206b97e15540d7527dbddec3dd08b0d673093ddc094e10898c21cba881897ca0c755c233b0df26b70e70f3721e4c8deb1ff6d9351f7e7960150eb67c45440c25ae500d12d71a7a11c006130e29479c4912d0c0cadae17c4fce4a10a5638b947224a14c9f0680120604d9e384518357d4555c34eddc25781f59b9a4e4155a28df2913dc0aff9cd7a097cbb7cfab025d775176081a25ad4f9d5faa4fe393400a10dfcba0b67d7d6728ffbb747f01c149f8fa1ec95764b229062711151de7fff6b9eeb20906012e422ee5a21fe040ad246e50791246a0f38352aaedf6233d97b3f3599b923811b0cf697fedeca52403d6d4667973f89ab2caff87c583416a17b604d9aee7ab44e0458e0f5a1ed7c6236f39a65c396237c3122820b1af5706573c88c22c4b6cf7f1bf360516441560ebcf38e4eb0c2ef914c644f4e11f146b1d386949b01b352e84fd8cb536d67611d5c0374e7ad0873bcf3accdc898163e3d66318ece5368615feef348ac2c368242e71f898203f18f0c244b690998cc8297c02fcdd1eb4ee1efdaff48924a4f022a16645a07edb28d52594e14d72a01fa905d020b58a75f02a05267427437cc31ab2ec2a58265017fee30a3b3e909cc55891808ec71c7fdf09347f80e1845bbae89af89998aeb1062ea4764a67481d84524045505af5fc3d7acd69e21210f1f1e613900f3f1f58ae825f2764e757ece1ed3c3fa00a6e70407a5a85abbadd949192820b981e92b2971ebf221eb573b28412821898b555c25f26efe0231585bfaeefdd0b18609d10d094ee4949430e18b7a8b61a099c255f11f50302207905ca823122d6ea8599a9e845af33ecf29bb0756c6f5394c69f4ab52547e9b94bd57b305cd262dbe44659e0cf4d38235475aed509e0e06e5097693bf6dc1f88ec0b8c5b4224493cb2c3ed6bb6fa2871f243026a84bb0e3d6e9676ed03c61d7090ed7658f2a9c7cca6ef289a6e4bade1bb48775dacbc8bc781f78311322d35da93beaef90ecc557283ddee4a42eddaf9c67043317762626c1564924846ab82a1815de6f717c7d6c3faddf6de9add0fcd9f76724afd130fd8ca94f278b2082e4ba1f19a90022bdc7b3d576601f4d444bff3aa0c7a96cc55dbb7a5cc27be952a19944566ff90630d80c1982fe7a86ebe314ae9bb344869323dd7d66bbcbade9e57ccdfc8c23b74f4cac04507259569f07764573f40d31cb7428417eba8d5b8d25c94aa312cb2639885070378f81921855ed15593b934ca1b4c4fb0a6e9a7e9e6bcbd7a870b737901ab23931f05ad3cb3de3534eb5ac1dea71a04ad996c65b79a7e641233040c84248865e8c02a311217b7d2b0a0d51ab7890b522152040f092174ef61a1752d79672d639a213a75cb0f5527de977d30b790a109fe330bb153d825482c7c8d74c55ecbe0140986fce39e7ec3178578b68d6286f8c26cac00ddaa08b95c5a807d3b82caf7446511c2ef390be5a88fc8ffb02cddfe93dcecdaf57024ec8dee782bdbbed9188cbae12ce73c9fe02ecff8fccb61e1e0414a573abeeea427b22a6e06fd1e64bcf468b6ee1c69bcd7de3e9e299c80b93633f1e91045242efcdc678e227ae7a5d995bcc8961301308b7053421b617cc86b3502213e916262e4286371c4b59ea1ea386cd2b712bca5663bd1d3a56f2f0cd21e813031d0e3a7fa641f2e4f9cea2f88cc020b7cad18b8194ecfaab73fc6faf2e079caef2e728b18a6e9e92a1502e15988f09776959df77df63c130ce3a720e986721cf91aefa74447f8575c45433902d778f7059aa0d1e8d193bcf7a0af4203aa3a42d9d6e28ea5639926cfac9854637361536299ca29050ca1b6bbbbfd4ed9d2563617831ff35426d64cbdb66020b159830ce6e9df9ea87db628503da55a46780465ac6c40eb8881381e9e75f9e70687b7da5b1e6a4f0be464b8f38e6562d14f34ed74f26beeedcd5333b08dff7ca7b1c407a7f0b63d78331d3e217360581ab51595537875fca54258b68521c5d370494e58a280873f242fc912d070fb48baec60f2a40a73db2a0d4166119913a3a8e80e0c1a620c579c47308a7bf9c1d731f00765372b0e2cc1df45271a94dc68c6cb3d72f69ae975ba56c92def576628fe9aba69ce31f23b4410d81db4bf31af40143c07a065f0bf027da010be509e8e5b5f08dac379c4eeb5cac9741b7083d7337ea4889a2a73c128883899e2634e5e5aef007e9532e0863bc60498589411c29b3d7077030f57b459c8f516e0ccb1dece13f600c6d47e6f1133f0b2b574ce61b7b5e59a61d3bef93c18a7e0eae0df009086efa5e5dc23241ab03fc7a0294c04848d7018bb5f6681972e93034882097b125751ce34748d64828467969d461d0eef8fb7c916b5cd28a1f39e906d889e8f488270d9d84e901eb9d3d93cff58367c4c80be55f3016a706758ea9a7cea31de077dfe7c87710bf15b9f0dd8d6334a405e54a5109935270fcab781c38c962095b0e8cb280ad455d910c214c46fbb0cde088796f8a36900dbd731ca95b8c7e7a2ed7d42a9910e844d654ac584384b47c2853fefb02b6a6e0551b31bb7c757314ae61f49f3e634b1e05dc04614b8601a2ad206477cf18e23de36ace6428f383951f3487baedc1eaba1e30a4c6c4df73e9ae0b3c83dee5bc3aae5aa046d497cec2ca20cf32aa5d7848fa01e6484c6883c0872c7252ba64c10f1385987b30e3863366d9bba98d030661d92c377ebb6f5512c46060b2bc1dec7e9a67417bc9d75b3c8556f81231c31551ac816150458c2e277332101295f581022c5872ccf7b6cf5b32447a2e2b87c458d8d3feddbca0bd6192a3d296bcd10b7c5754f20725842f1e3c63efe9b52a01884dc4ffc03312b930e1135840dab725255a54ec90538aed5049293d9d7093036bb530ee6edf3fc017b24afc9b0dbb491755699a8d5f731934943d388a4f2a9a082a4dfb258a77757dceecda8c0e090e6b44adbb158fadf2581406a810139fce77f3c3ca3f1414436a9f76de6bfea614c3b00420425f03db979a7513eb935b02714645596bd256b5e3dbccf6f0d721242728870a32b402c138998a2e707187a51c97148b47c7a2987e06473d20a70c12168b35e77578aeb9801a57f8eccf7e39acfb89c9cb56ea117656f08b6fc4d26ef8079edac56c820d9bfe2437785eb4e2c70ba707e4e5f33226183af8b2d54a6fc6e5485057c3217adcd7b94d66616fcecda324fd35ce965e97802c5237a42e6d1023a8eaa599d8497d93cc2ccaded1545b0688b5e0d7a7a9b11e025ee6a09808f3ca824f8e48d0bfaa2cebdcda237c8f39e9411f972bb0bf9f64337eab9a7ac3e97ccde17ccf35991b04d804f6cb5d0399fc39d6b3638605c18d55126fe6bbebe88f926e3e23414607555c581ca374bf5fe255cbe84abd48bd07a27e4f4b98fe7471957b78fe4747941c357b3dd3db06feddfe3c20c4127fc90e62529b97e6a8a21f99512ed7d4c570fb651758a5f9df8823a71adfd6348018722b9cfc92030e38179479a6f42aa3b65f7730d9999a0e1886d137f13c1f1938dff85ea6debad44af9122ba077b5c9cb18fbfb6ae16af689029a5d87dc2674dba524a5a9b73fff86980650b8a0e977cf9758bce35d0e655baab33fbc494b35ec9796d2e5489ce2af8af8f4973ce31cbb0ed40b76b7e12e286f9d62146ce1509d789207185a77ac1911c02da6358d67460613b688b772b96f1ce73dc195b7f2929631b99db1c71dc8b88eefce1f3a649d57b66750f29294da9001ef75c13cf82f36c3e93916f5c75dd179a42720a9837c6401e2b93480da68fc7298e46455926dd9ae92e7fa14683405a3839629d1e9d9ef315033c416102a05f71225ece6b762675feb984fb87363d7140d501905f08d17952870313b8d701737eb65d4d33c3261cf67c712f8cab63d097f5794842b7195c47b248029edef71c39218e5516158f25895d5135182758c2c78575e83e707bd16eb7cf1660d9b646f9dff4feb436b087b9639a39be849ca87aa5507ebe5aca2a7519828beaa3c91329cd0d2cb604a15ecad24b3314e77e683e29a2128373c1664f6879fada97ab2d3f508b24771fc56f3359de7f5891d7d360fb47e8633c1735e0b3a439b5acc415a47e31e8f7b776be6cbab6cb5692bb54bfb9fbb127411c4f4e07d7246252e3b034e9909f040b255694d0b2871b9f1c0bedfd88e3a9f0d7e3ebee5326c256f051106a86e623a77b08a0139571194e719847d3673c9577eec9cb053c7feae90e229391297968f2f9a74a5490c94bb4efe4050560a6589e9a6955b2287408765572697f653acc499679a494f8ab100c07b4ae49141dabcf654874c293963eb8c2999fd824049a0cb1e6de220653ec6a108482ab9c86d197ca94d068e1895135b12e74fc2f9f5cd9ddf0abf67f18ad5850124c824316702e829a046b41f362c00f94af65e9ee12145facd1d4ed90e4fdb994e3e2551e3166f594381d8829b80e98a71491d5ac7035a1cc172e0a29af23d7c63e75acaaafd44e6ddefa113f9f2943f1ec804fbf8d436588c956cabc046a6fd27ec14c39fd0b47f89d7d30ae3c3b33acfe7adefdcd08b376d859efa1dc90c9fc2d2500fe199559c6a0b037efdd1c56acf729b05a3a0303b41a620989348f757c577c727edc7ba5cb6496db1c0bbdcc377b77c2e72edd6fe285291cd03bd4360238eab31d57a0267682a26ff7b5a7902235669712059b0f95449613026065150dda962e054fe3825b3fd9d549e061ec2b209208d77393c37d92fcd7655a932b20f5d9c777870804842c830ff81b39cd3e29d9cb206eb5b29848f9fa4d1b270edebaf1e3fcc9c13362266789dc7857a92f8f645527e9f004cbe2769c8ea849171abfaab1cfe5e5106f67a9caa60e66a904ac153d234591ff65133e405a733ee0820619ad4ac867b54a7d87aa5799feac4b87f61967b4b75060e6a08edfb06cee0a607007f51b076fafb9d88841bd75a27030c58be3457c5fc632a776419a7d6c752bc60216581fbf27aefb003680447369f9b296619897ffd1ecbdbf51480600115cee8d4dd77226d099d960b57d0be99d61e9934da44250546a45e0e058d83376e82bbeb2847ad83b7c17b08d0317932e2e522e270e0e5c6279958993799ca643e756b4f6b8e63b33678633e5efcc89434bad38f0fd4eb158fb339e3631f39d650836af6c4d61d8e81a0fbde37b3c30127fcffd6e04e0076da333b7c0a7410f2383807994cbda6dd9397f2a2a527a61940e32173b53071975c14e62358691735246f4eeef900222df03d16a020217a28d3d88ad1e278fcc4821376c00ed39e029128407e591e7d9d92677d38871060e04fc4e8109a68d9ad3124c05b9b40478fa1e5414e74dd0f9b632dc55743165f6134013b4a29b59fbde2948bbd15bee714df3530d02ada8a22a99d4b3ce5ba8760f015949c003dd60bd2106a61f9832c5cfc4ac187200526ecda3f184b17d76ea715d2cc2e45a59df49528e8c88003e6c9cc992071f1f93850a0e8e9b809b927d9ca23bf385927bdb807dbac4adbbe5b3a2e5d36c7a699e773d4137dff3036a2fcad2e3d0b4119d6af1cdb412b2450eacd15928d9bf59ad41957f660f306e6015edde7cb08ad2742e1d214f8b51db2279b8952e8e1336ee7af24a295d6984d48d43967fa960ac36f0cabd1f5036691324d6badf30827ecb12c1d1c4e1864ebaca64a7d5b81c5141b81fbf7fe03ab3edb3fdce12dd225b90e5c57026b7d6e4c0a454274992d196ee6f314c8b1db6b95c62941ad03962156bd5b7dd702a69171431a9837a905a3b1e25505b5f8cbaf563a8060ee9a93bb47442f41047beb7212b01fff68af9f236d1889576006cd50f781787bc3622fbf1f737efebafae2baadfe142e4e5357d2fe89619a6998c732808513edea358dd988d7f3d60ae90e5c9ad935a63dc63456cb740d8bace92c07b06431110ef285ea6691c50f5ff2d278bbc61c3bf3d81cc40447a8cd737b60482a7df17092cbf359a914cae30c7d486cedd7fcc0886d36e1b628a8487ae4c2d0f533a4e035490a492677162a74d168111a4dfd675da9304c73ef7f6e18c496454b43c7ed542e6e5987366db82c9e97ec00a8dea7d43491b1a9a78c4cc478138a928e331ecff300a76799de19ff2a91a45dc676529ab0d1a4ed283f62b6a91ecbc96b0f0976e8739f38883e1f1ebbb0e6d215bd380f62e5e51046256f484e33ae2382c37c05dfa954bae6b9bc45b5c8c76b7dfd220350aebdcf702b271c3b00538c50578b8ae35cbc411fef670d9b38a886de5e8ace972aec0b02377fbe09f0bc97c64d309008363f79279f70fb049ba9836964c718857ded155db13bf3b1800e72002fbd03202d415a92ab241e328055096b2d57cdc8a28d9d5acc16a4d4814ec034928ac8013d7e881c26918f961b7b3f337dce7482d4d0b18ada89ffa8750f1379401d4f71c6b5ccca6faf0ba62922c429243985e9797a66b0</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    
+    
+    <summary type="html">已加密</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>板子-数据结构</title>
+    <link href="https://bolerat.github.io/posts/55177/"/>
+    <id>https://bolerat.github.io/posts/55177/</id>
+    <published>2022-12-02T16:45:00.000Z</published>
+    <updated>2022-12-09T17:06:53.747Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>数据结构模板收集</p><a id="more"></a><h3 id="单链表（数组模拟–静态）"><a href="#单链表（数组模拟–静态）" class="headerlink" title="单链表（数组模拟–静态）"></a>单链表（数组模拟–静态）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">## 单链表操作（数组模拟链表--静态链表） </span><br><span class="line">const int N&#x3D;100010;</span><br><span class="line">int head,e[N],ne[N],idx;</span><br><span class="line">void init()&#123;</span><br><span class="line">head&#x3D;-1;</span><br><span class="line">idx&#x3D;0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;x插入到头结点 </span><br><span class="line">void add_to_head(int x)&#123;</span><br><span class="line">ne[idx]&#x3D;head;</span><br><span class="line">head&#x3D;idx;</span><br><span class="line">e[idx]&#x3D;x;</span><br><span class="line">idx++;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;x插入到第k个节点后 </span><br><span class="line">void add(int x,int k)&#123;</span><br><span class="line">ne[idx]&#x3D;ne[k];</span><br><span class="line">ne[k]&#x3D;idx;</span><br><span class="line">e[idx]&#x3D;x;</span><br><span class="line">idx++;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;将下标是k的点后面的点删除 </span><br><span class="line">void remove(int k) &#123;</span><br><span class="line">ne[k]&#x3D;ne[ne[k]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;数据结构模板收集&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="数据结构" scheme="https://bolerat.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="算法竞赛" scheme="https://bolerat.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Bugku CTF]社工-进阶收集</title>
+    <link href="https://bolerat.github.io/posts/27934/"/>
+    <id>https://bolerat.github.io/posts/27934/</id>
+    <published>2022-11-29T16:13:00.000Z</published>
+    <updated>2022-11-29T16:32:54.615Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接：<a href="https://ctf.bugku.com/challenges/detail/id/188.html" target="_blank" rel="noopener">https://ctf.bugku.com/challenges/detail/id/188.html</a></p><a id="more"></a><h2 id="先看题目-保护原著，已注释awa"><a href="#先看题目-保护原著，已注释awa" class="headerlink" title="先看题目(保护原著，已注释awa)"></a>先看题目(保护原著，已注释awa)</h2><!-- <img src="/pic/ctf_1.png" alt="1" style="zoom:50%" /> --><h2 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h2><p>1.根据图片提示再百度识图，得到地址为西安大雁塔。</p><img src="/pic/ctf_1 (1).jpg" alt="1" style="zoom:50%" /><img src="/pic/ctf_1 (2).jpg" alt="1" style="zoom:50%" /><p>2.进入社工神器百度地图，依据“地铁”相关信息发现小美住在航天城和韦曲南两个站点之间，依据距离画圆发现在“兰乔国际城”，其小区名字拼音则为flag</p><img src="/pic/ctf_1 (3).jpg" alt="1" style="zoom:50%" /><img src="/pic/ctf_1 (4).jpg" alt="1" style="zoom:50%" />]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://ctf.bugku.com/challenges/detail/id/188.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ctf.bugku.com/challenges/detail/id/188.html&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="社会工程学" scheme="https://bolerat.github.io/tags/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/"/>
+    
+    <category term="MISC" scheme="https://bolerat.github.io/tags/MISC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>收到一封来自5年前的自己的信</title>
+    <link href="https://bolerat.github.io/posts/3624/"/>
+    <id>https://bolerat.github.io/posts/3624/</id>
+    <published>2022-07-20T12:52:00.000Z</published>
+    <updated>2022-07-20T13:06:13.712Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h6 id="高中毕业后的这个夜晚｜收到一封来自5年前的自己的信"><a href="#高中毕业后的这个夜晚｜收到一封来自5年前的自己的信" class="headerlink" title="高中毕业后的这个夜晚｜收到一封来自5年前的自己的信"></a>高中毕业后的这个夜晚｜收到一封来自5年前的自己的信</h6><p><strong>When you want to grow, you have grown.</strong></p><a id="more"></a><img src="/pic/2020.7.20.jpg" alt="2020.7.20" style="zoom:50%" />]]></content>
+    
+    
+    <summary type="html">&lt;h6 id=&quot;高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&quot;&gt;&lt;a href=&quot;#高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&quot; class=&quot;headerlink&quot; title=&quot;高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&quot;&gt;&lt;/a&gt;高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&lt;/h6&gt;&lt;p&gt;&lt;strong&gt;When you want to grow, you have grown.&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="毕业" scheme="https://bolerat.github.io/tags/%E6%AF%95%E4%B8%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>万里挑一</title>
+    <link href="https://bolerat.github.io/posts/51462/"/>
+    <id>https://bolerat.github.io/posts/51462/</id>
+    <published>2020-08-08T02:52:00.000Z</published>
+    <updated>2020-08-08T03:12:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>看到<strong>何同学</strong>发布的六百万合影后，我也去找了我．</p><a id="more"></a><p><strong>降维打击后：</strong></p><img src="/pic/htx.png" alt="六百万的合影" style="zoom:50%" /><p><strong>人工打击后：</strong></p><img src="/pic/htx2.jpg" alt="六百万合影" style="zoom:50%" /><pre><code>来源：  1.【何同学】我拍了一张600万人的合影...(https://www.bilibili.com/video/BV1Nt4y1D7pW)(https://www.youtube.com/watch?v=IlDxH-Jtqnw)  2.六百万合影全景(https://ssl-offical.720yun.com/product/static/20190416/47vkOedyzqb/1555385618.html?scene_id=52207583)</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;看到&lt;strong&gt;何同学&lt;/strong&gt;发布的六百万合影后，我也去找了我．&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Bilibili" scheme="https://bolerat.github.io/tags/Bilibili/"/>
+    
+    <category term="全景" scheme="https://bolerat.github.io/tags/%E5%85%A8%E6%99%AF/"/>
+    
+    <category term="阿婆主" scheme="https://bolerat.github.io/tags/%E9%98%BF%E5%A9%86%E4%B8%BB/"/>
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MC炼药图解</title>
+    <link href="https://bolerat.github.io/posts/25201/"/>
+    <id>https://bolerat.github.io/posts/25201/</id>
+    <published>2020-07-20T05:08:00.000Z</published>
+    <updated>2020-07-20T05:15:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>…</p><a id="more"></a><img src="/pic/ly.jpg" alt="炼药图" style="zoom:50%" /><p><strong>忽略水印(滑稽</strong></p><p><strong>ps:火药加药水可以做成喷溅式的</strong></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;…&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="MC" scheme="https://bolerat.github.io/tags/MC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>鬼灭之刃@.@</title>
+    <link href="https://bolerat.github.io/posts/21678/"/>
+    <id>https://bolerat.github.io/posts/21678/</id>
+    <published>2020-07-07T03:08:00.000Z</published>
+    <updated>2020-07-20T05:16:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>…（防止图片加载影响网页速度）</strong></p><a id="more"></a><img src="/pic/gm.png" alt="伊之助" style="zoom:50%" />]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;…（防止图片加载影响网页速度）&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="动漫" scheme="https://bolerat.github.io/tags/%E5%8A%A8%E6%BC%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>摄影构图points</title>
+    <link href="https://bolerat.github.io/posts/7053/"/>
+    <id>https://bolerat.github.io/posts/7053/</id>
+    <published>2020-07-05T14:33:00.000Z</published>
+    <updated>2020-08-08T03:05:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><pre><code>照片画面上的布局，结构…使客观对象比现实生活更富有表现力和艺术感染力…主体突出，恰当衬托以陪体和背景…简洁、多样、统一、均衡。——百度百科</code></pre><p>　　简单了解定义后知道一张照片是点线交织、色彩光影的配合体。但如何表现作品内容，使它具有和谐统一的结构才是首要。</p><a id="more"></a><h4 id="构图法"><a href="#构图法" class="headerlink" title="构图法　"></a>构图法　</h4><ul><li>点构图<ul><li>中心构图（突出中心，但要避免空荡）</li><li>三分点构图（元素放交点，不平衡放对应点）</li></ul></li><li>线构图<ul><li>对称线（常用于镜面，线条感）</li><li>三分线（自认为最管用，要注意上下三分线的取舍）</li><li>对角线（运动物体很直观）</li><li>曲线（景观，道路）</li><li>引导线（延伸质感）</li></ul></li><li>面构图<ul><li>前景（不要过于盲目取前景）</li><li>框架（透小观大）</li><li>填充</li><li>重复（有逻辑的重复，对称美感）</li><li>对比（鲜明）</li><li>留白（小清新）</li></ul></li></ul><h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><p>　　拍摄人物时，利用黄金分割，将人的身体或脸部置于黄金分割线或点上，都会具有强烈的表现力。而将画面的重心放在恰当的地方，可以获得饱满的画面感，彰显图画的内涵。<br>　　合理利用三分点美化。<br>　　红叶应衬绿叶，但作为陪体的绿叶，可不能喧宾夺主，而是以之来衬托内涵和情节，这样一来整幅图画就显有内涵了。<br>　　值得注意的空白部分，空白并非主体，但或不可缺，可以用空白衬主体，创造画面感。<br>　　总之，最终目的就是一个——<strong>好看！！！</strong>。  </p><pre><code>参考：   1.摄影构图（百度百科）   2.6分钟让你学会构图(https://www.bilibili.com/video/BV1Q64y1T7ox)</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;照片画面上的布局，结构…使客观对象比现实生活更富有表现力和艺术感染力…主体突出，恰当衬托以陪体和背景…简洁、多样、统一、均衡。——百度百科&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;　　简单了解定义后知道一张照片是点线交织、色彩光影的配合体。但如何表现作品内容，使它具有和谐统一的结构才是首要。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="摄影" scheme="https://bolerat.github.io/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>摘录</title>
+    <link href="https://bolerat.github.io/posts/29540/"/>
+    <id>https://bolerat.github.io/posts/29540/</id>
+    <published>2020-02-23T12:24:00.000Z</published>
+    <updated>2020-07-05T14:53:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="你永远有做不完的事"><a href="#你永远有做不完的事" class="headerlink" title="你永远有做不完的事"></a>你永远有做不完的事</h4><pre><code>记住，在你离开人世的那一天，还是会留下未完的事需要别人代劳，而且也一定会有人来代劳的！别浪费了生命的每一分每一秒，再做无谓的惋惜。</code></pre><a id="more"></a><h4 id="匆匆"><a href="#匆匆" class="headerlink" title="匆匆"></a>匆匆</h4><pre><code>在逃去如飞的日子里，在千门万户的世界里的我能做些什么呢？只有徘徊罢了，只有匆匆罢了；在八千多日的匆匆里，除徘徊外，又剩些什么呢？</code></pre><h4 id="给感到不安的你"><a href="#给感到不安的你" class="headerlink" title="给感到不安的你"></a>给感到不安的你</h4><pre><code>心灵的行李没有形体，包包并不会因此变重。相反，心灵的行李会增重，渐渐重压在自己身上。不是把焦点放在明天或后天，也不是明年或十年后，而是把精神集中在“现在”这一刻。假使你已经预测到未来“可能会发生那样的情况”，在事情实际发生前，何不把那些预想都忘掉呢？只要以这种态度定下基本的思维方式，我想“不安的未来”也将会离你愈来愈远。</code></pre><h4 id="信客"><a href="#信客" class="headerlink" title="信客"></a>信客</h4><pre><code>老信客声辩不清，满脸凄伤，拿起那把剪红绸的剪刀直扎自己的手。第二天，他掂着那只伤痕累累的手找到了同村刚从上海落魄回来的年轻人，进门便说：“我名誉糟蹋了，可这乡间不能没有信客。”年轻信客上路后，一路上都遇到对老信客的询问。大半辈子的风尘苦旅，整整一条路都认识他。流落在外的游子，年年月月都等着他的脚步声。现在，他正躲在山间坟场边的破草房里，夜夜失眠，在黑暗中睁着眼，迷迷乱乱地回想着一个个码头，一条条船只，一个个面影。</code></pre><h4 id="有病呻吟"><a href="#有病呻吟" class="headerlink" title="有病呻吟"></a>有病呻吟</h4><pre><code>感冒最磨人的地方不是痛，而是下床拿温水吃药都觉得乏力。这时候，自然会想起有个爱人多好。有理由怀疑，本来对恋爱伴侣已达到可有可无心态的单身族，不介意困身而失去自由，就是小病一刻。</code></pre><h4 id="贴秋膘"><a href="#贴秋膘" class="headerlink" title="贴秋膘"></a>贴秋膘</h4><pre><code>秋风一起，胃口大开，想吃点好的，增加一点营养，补偿补偿夏天的损失，北方人谓之“贴秋膘”。</code></pre><h4 id="一个人住的第三年"><a href="#一个人住的第三年" class="headerlink" title="一个人住的第三年"></a>一个人住的第三年</h4><pre><code>会有一种节奏，慢慢地从四面八方流淌过来，让我觉得这个世界以一种与以往不一样的方式存在着，我能够清晰地听到自己，听到自己的身体里也在发出与之相应的微弱的声音。几年的时间，一个人必须要自己生活着，才是对的，否则怎么能够听到自己的节奏。一旦它流淌出来，走在马路上，坐在地铁里，独自待着的时候，与朋友在一起的时候，任何时候，它都会在那儿兀自发着自己的声音，这是属于你的声音，身体的一部分，不用再担心流失。</code></pre><h4 id="袋鼠佳日"><a href="#袋鼠佳日" class="headerlink" title="袋鼠佳日"></a>袋鼠佳日</h4><pre><code>我们早上六点醒来，拉开窗帘，一瞬间便看出这是个袋鼠佳日。我们洗脸，吃饭，喂猫，洗衣服，之后戴上太阳帽出门。</code></pre><h4 id="波心"><a href="#波心" class="headerlink" title="波心"></a>波心</h4><pre><code>萍水相逢，两人都太过吝啬，不肯付出感情。 于是事情过后，各散来西；城市人的感情，原应如此。 我是天上的一块云，偶年投影在你的波心。</code></pre><h4 id="哭"><a href="#哭" class="headerlink" title="哭"></a>哭</h4><pre><code>当众人都哭时，应该允许有的人不哭。当哭成为一种表演时，更应该允许有的人不哭。</code></pre><h4 id="在黑暗中并肩行走"><a href="#在黑暗中并肩行走" class="headerlink" title="在黑暗中并肩行走"></a>在黑暗中并肩行走</h4><pre><code>每个人对于别人来说都是一个秘密，我们应该顺应这个事实。相爱的人们也只是“在黑暗中并肩行走”，所能做到的仅是各自努力追求心中的光明，并互相感受到这种努力，互相鼓励，而“不需要注视别人的脸和探视别人的心灵”。我们对自己又真正理解了多少?一个人懂得了自己理解自己之困难，他就不会强求别人完全理解自己，也不会奢望自己完全理解别人了。然而，同样的朝圣热情使我们相信，也许存在着同一个圣地。作为有灵魂的存在物，人的伟大和悲壮尽在于此了。</code></pre><h4 id="志气与欲望"><a href="#志气与欲望" class="headerlink" title="志气与欲望"></a>志气与欲望</h4><pre><code>在这个时代的青年，能够把自己安排对了的很少。</code></pre><h4 id="简单的调查"><a href="#简单的调查" class="headerlink" title="简单的调查"></a>简单的调查</h4><pre><code>少校躺在床铺上，望着挂在墙壁钉子上的那顶包着布的钢盔和那副雪镜，听到比宁从地板上走过的脚步声，心想，这小鬼，不知道他有没有对我撒谎。</code></pre><h4 id="明日又天涯"><a href="#明日又天涯" class="headerlink" title="明日又天涯"></a>明日又天涯</h4><pre><code>有谁，在这世界上，不是孤独的生，不是孤独的死？</code></pre><h4 id="没有时间的话，请离开"><a href="#没有时间的话，请离开" class="headerlink" title="没有时间的话，请离开"></a>没有时间的话，请离开</h4><pre><code>一个男人愿意给一个女人多少时间，就是他有多爱她。你不可能说：我爱你，但我没有时间陪你。</code></pre><h4 id="集体早操"><a href="#集体早操" class="headerlink" title="集体早操"></a>集体早操</h4><pre><code>因为我的世界里，已经没有什么人群，没有什么聚会不能够不去。我站在广场上，人很多，声音很多，但是没有广播在播放：第一节，伸展运动……</code></pre><h4 id="河流最蓝的地方"><a href="#河流最蓝的地方" class="headerlink" title="河流最蓝的地方"></a>河流最蓝的地方</h4><pre><code>那段时间，连最简单的食品都受到诡计和掺假的威胁。没有哪一天报纸不提到在市场上又有惊人的发现：奶酪是用塑料做的；牛油有蜡烛的成分；蔬果类含砷杀虫剂的浓缩比例比所含的维他命还要高；为了把鸡养肥而塞给它们的一些合成药丸可能会让只吃一只鸡腿的人都变笨。</code></pre><h4 id="人生的意义与价值"><a href="#人生的意义与价值" class="headerlink" title="人生的意义与价值"></a>人生的意义与价值</h4><pre><code>根据我个人的观察，对世界上绝大多数人来说，人生一无意义，二无价值。他们也从来不考虑这样的哲学问题。走运时，手里攥满了钞票，白天两顿美食城，晚上一趟卡拉0K，玩一点小权术，耍一点小聪明，甚至恣睢骄横，飞扬跋扈，昏昏沉沉，浑浑噩噩，等到钻入了骨灰盒，也不明白自己为什么活过一生。 其中不走运的则穷困潦倒，终日为衣食奔波，愁眉苦脸，长吁短叹。即使日子还能过得去的，不愁衣食，能够温饱，然而也终日忙忙碌碌，被困于名缰，被缚于利索。同样是昏昏沉沉，浑浑噩噩，不知道为什么活过一生。在人类社会发展的长河中，我们每一代人都有自己的任务，而且是绝非可有可无的。如果人生真有意义与价值的话，其意义与价值就在于对人类发展的承上启下，承前启后的责任感。</code></pre><h4 id="快手刘"><a href="#快手刘" class="headerlink" title="快手刘"></a>快手刘</h4><pre><code>我上高中是在外地。人一走，留在家乡的童年和少年就像合上的书。往昔美好的故事，亲切的人物，甜醉的情景，就像鲜活花瓣夹在书页里，再翻开都变成了干枯了的回忆。谁能使过去的一切复活？那去世的外婆，不知去向的挚友，妈妈乌黑的卷发，久已遗失的那些美丽的书，那跑丢了的蓝眼睛的小白猫……还有快手刘。</code></pre><h4 id="走钢丝的演员"><a href="#走钢丝的演员" class="headerlink" title="走钢丝的演员"></a>走钢丝的演员</h4><pre><code>走钢丝的演员本想往回走，照人们希望的那样去做，可是他已经不再像开始那样心如止水、步履轻盈了。因为他意识到自己的处境是多么危险，再加上歇了那么久，所以他紧张、手脚僵硬，结果脚下一滑，摔了下来。他倒在地上，意识逐渐变得模糊；终于，在那一刻，他感觉自己得到了解脱。</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;你永远有做不完的事&quot;&gt;&lt;a href=&quot;#你永远有做不完的事&quot; class=&quot;headerlink&quot; title=&quot;你永远有做不完的事&quot;&gt;&lt;/a&gt;你永远有做不完的事&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;记住，在你离开人世的那一天，还是会留下未完的事需要别人代劳，而且也一定会有人来代劳的！别浪费了生命的每一分每一秒，再做无谓的惋惜。&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="文摘" scheme="https://bolerat.github.io/tags/%E6%96%87%E6%91%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="https://bolerat.github.io/posts/d95d7e09/"/>
+    <id>https://bolerat.github.io/posts/d95d7e09/</id>
+    <published>2020-02-21T14:24:00.000Z</published>
+    <updated>2020-07-05T14:53:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="毫不尴尬的说"><a href="#毫不尴尬的说" class="headerlink" title="毫不尴尬的说"></a>毫不尴尬的说</h3><p>没有什么好说的啊…<br>任重而道远…</p><a id="more"></a><p>我会好好维护的博客的…</p><h3 id="算了，真没什么好说的"><a href="#算了，真没什么好说的" class="headerlink" title="算了，真没什么好说的"></a>算了，真没什么好说的</h3><p>仅此纪念</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World.</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;毫不尴尬的说&quot;&gt;&lt;a href=&quot;#毫不尴尬的说&quot; class=&quot;headerlink&quot; title=&quot;毫不尴尬的说&quot;&gt;&lt;/a&gt;毫不尴尬的说&lt;/h3&gt;&lt;p&gt;没有什么好说的啊…&lt;br&gt;任重而道远…&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+</feed>
