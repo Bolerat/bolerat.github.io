@@ -485,11 +485,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MC</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color3">MC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,23 +513,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">C/C++语言基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">毕业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动漫</a>
+                <a href="javascript:void(0)" class="js-tag color3">摄影</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">文摘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">毕业</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +534,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法竞赛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动漫</a>
               </li>
             
             <div class="clearfix"></div>
@@ -640,7 +640,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Student &amp; Oier &amp; Acmer &amp; Ctfer.欢迎通过邮箱与我交流。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">:Student &amp; Oier &amp; Acmer &amp; Ctfer. :欢迎通过邮箱与我交流。</div>
   	  	
     	</section>
     
@@ -716,3 +716,41 @@ MathJax.Hub.Queue(function() {
   </div>
 </body>
 </html>
+
+
+
+
+<script>
+    // 移动设备侦测
+    var isMobile = {
+      Android: function () {
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function () {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
+
+    if(isMobile.any()){
+        //手机端取消搜索功能
+        $('.local-search').css("display","none");
+    }
+
+    if ($('.local-search').size() && !isMobile.any()) {
+      $.getScript('/js/search.js', function() {
+        searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+      });
+    }
+</script>
