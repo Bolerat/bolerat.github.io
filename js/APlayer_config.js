@@ -12,17 +12,16 @@ const ap = new APlayer({
     listFolded: false,
 
     audio: [
-		
-		
-      {
-            name: 'Heading Home',
-            artist: 'AW',
-            lrc: '/music/lrc/HeadingHome.lrc',
+		{
+            name: '随机',
+            artist: 'Artist',
+            lrc: '/music/lrc/请倾听.lrc',
             cover: '/assets/avatar.png',
-            url: '/music/song/HeadingHome.mp3'
+            url: 'https://api.uomg.com/api/rand.music?sort=热歌榜&format=mp3'
                   },
 		 
-
+        
+		
 		{
             name: 'aimai',
             artist: 'aimai',
@@ -32,6 +31,15 @@ const ap = new APlayer({
                   },
 		 
         
+		
+		{
+            name: 'Heading Home',
+            artist: 'AW',
+            lrc: '/music/lrc/HeadingHome.lrc',
+            cover: '/assets/avatar.png',
+            url: '/music/song/HeadingHome.mp3'
+                  },
+		 
         
 		
 		{
@@ -42,7 +50,7 @@ const ap = new APlayer({
             url: '/music/song/stronger.mp3'
                   },
 		 
-      
+        
 		
 		{
             name: 'Hope not',
