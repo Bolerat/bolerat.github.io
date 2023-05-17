@@ -13,12 +13,45 @@ const ap = new APlayer({
 
     audio: [
 		{
-            name: '随机',
+            name: '热歌榜',
             artist: 'Artist',
             lrc: '/music/lrc/请倾听.lrc',
             cover: 'http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg',
             url: 'https://api.uomg.com/api/rand.music?sort=热歌榜&format=mp3'
                   },
+		
+		{
+            name: '新歌榜',
+            artist: 'Artist',
+            lrc: '/music/lrc/请倾听.lrc',
+            cover: 'http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg',
+            url: 'https://api.uomg.com/api/rand.music?sort=新歌榜&format=mp3'
+                  },
+				  
+	    {
+            name: '飙升榜',
+            artist: 'Artist',
+            lrc: '/music/lrc/请倾听.lrc',
+            cover: 'http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg',
+            url: 'https://api.uomg.com/api/rand.music?sort=飙升榜&format=mp3'
+                  },
+				  
+		{
+            name: '抖音榜',
+            artist: 'Artist',
+            lrc: '/music/lrc/请倾听.lrc',
+            cover: 'http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg',
+            url: 'https://api.uomg.com/api/rand.music?sort=抖音榜&format=mp3'
+                  },
+		
+{
+            name: '电音榜',
+            artist: 'Artist',
+            lrc: '/music/lrc/请倾听.lrc',
+            cover: 'http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg',
+            url: 'https://api.uomg.com/api/rand.music?sort=电音榜&format=mp3'
+                  },
+				
 		 
         /*
 		
