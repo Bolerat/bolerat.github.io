@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>test</title>
+      <link href="/posts/63534/"/>
+      <url>/posts/63534/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测试</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pip的使用以及国内pip镜像源</title>
       <link href="/posts/39627/"/>
       <url>/posts/39627/</url>
