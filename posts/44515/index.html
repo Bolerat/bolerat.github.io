@@ -35,16 +35,19 @@ var _hmt = _hmt || [];
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://bolerat.github.io">
-  <title>留言墙 | Bolerat</title>
+  <title>关于getchar与while | Bolerat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="留言墙">
-<meta property="og:url" content="https://bolerat.github.io/wall/index.html">
+  <meta name="description" content="值得注意的是记得初始化字符数组和while中运算符的优先级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于getchar与while">
+<meta property="og:url" content="https://bolerat.github.io/posts/44515/index.html">
 <meta property="og:site_name" content="Bolerat">
+<meta property="og:description" content="值得注意的是记得初始化字符数组和while中运算符的优先级">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-17T06:49:29.574Z">
-<meta property="article:modified_time" content="2023-05-17T06:49:29.574Z">
+<meta property="article:published_time" content="2023-02-04T04:28:00.000Z">
+<meta property="article:modified_time" content="2023-05-17T07:13:42.784Z">
 <meta property="article:author" content="Bolerat">
+<meta property="article:tag" content="C&#x2F;C++语言基础">
 <meta name="twitter:card" content="summary">
   
   
@@ -233,7 +236,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-关于getchar与while" class="article article-type-post " itemscope itemprop="blogPost">
   
   <div class="article-inner">
   
@@ -243,7 +246,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      留言墙
+      关于getchar与while
     </h1>
   
 
@@ -254,8 +257,8 @@ var _hmt = _hmt || [];
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/wall/index.html" class="archive-article-date">
-  	<time datetime="2023-05-17T06:49:29.574Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-17</time>
+<a href="/posts/44515/" class="archive-article-date">
+  	<time datetime="2023-02-04T04:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-04</time>
 </a>
         
 
@@ -263,21 +266,78 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>值得注意的是记得<strong>初始化</strong>字符数组和while中运算符的<strong>优先级</strong>     </p>
+<a id="more"></a>     
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	char s;</span><br><span class="line">	char s2[1001]&#x3D;&#123;&#125;,s1[2]&#x3D;&#123;&#125;;</span><br><span class="line">	while((s&#x3D;getchar())!&#x3D;&#39;\n&#39;)&#123;</span><br><span class="line">		s1[0]&#x3D;s;</span><br><span class="line">		strcat(s2,s1);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;s2;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
 		   <!-- 添加版权声明 -->
 		
 	
-	  <div class="declare" hidden="hidden"></div>
+	  <div class="declare">
+		<strong>本文作者：</strong>
+		
+		  Bolerat
+		
+		<br>
+		<strong>本文链接：</strong>
+		<a href="https://bolerat.github.io/posts/44515/" title="关于getchar与while" target="_blank">https://bolerat.github.io/posts/44515/</a>
+		<br>
+		<strong>版权声明：</strong>
+		本博客所有文章除特别声明外，均采用
+		<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+		进行许可。转载请注明出处！
+		
+		  <br>
+		  <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+		
+	  </div>
 	
 		  <!-- 添加版权声明 -->		
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>请杯Java<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/pic/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">C/C++语言基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -328,7 +388,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bolerat.github.io//wall/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bolerat.github.io//posts/44515/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,6 +400,25 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/posts/39627/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          pip的使用以及国内pip镜像源
+        
+      </div>
+    </a>
+  
+  
+    <a href="/posts/54247/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">令人难以理解的操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -353,6 +432,19 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    该文章没有目录
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 	<div id="tp-weather-widget"></div>
@@ -406,7 +498,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="关于getchar与while" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -486,7 +578,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
