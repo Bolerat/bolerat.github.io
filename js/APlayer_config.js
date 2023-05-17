@@ -16,17 +16,17 @@ const ap = new APlayer({
             name: '随机',
             artist: 'Artist',
             lrc: '/music/lrc/请倾听.lrc',
-            cover: '/assets/avatar.png',
+            cover: 'http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg',
             url: 'https://api.uomg.com/api/rand.music?sort=热歌榜&format=mp3'
                   },
 		 
-        
+        /*
 		
 		{
             name: 'aimai',
             artist: 'aimai',
             lrc: '/music/lrc/aimai.lrc',
-            cover: '/assets/avatar.png',
+            cover: '/assets/song.png',
             url: '/music/song/aimai.mp3'
                   },
 		 
@@ -36,7 +36,7 @@ const ap = new APlayer({
             name: 'Heading Home',
             artist: 'AW',
             lrc: '/music/lrc/HeadingHome.lrc',
-            cover: '/assets/avatar.png',
+            cover: '/assets/song.png',
             url: '/music/song/HeadingHome.mp3'
                   },
 		 
@@ -46,7 +46,7 @@ const ap = new APlayer({
             name: 'Stronger',
             artist: 'stronger',
             lrc: '/music/lrc/stronger.lrc',
-            cover: '/assets/avatar.png',
+            cover: '/assets/song.png',
             url: '/music/song/stronger.mp3'
                   },
 		 
@@ -56,7 +56,7 @@ const ap = new APlayer({
             name: 'Hope not',
             artist: 'black pink',
             lrc: '/music/lrc/HopeNot.lrc',
-            cover: '/assets/avatar.png',
+            cover: '/assets/song.png',
             url: '/music/song/HopeNot.mp3'
                   },
 		 
@@ -65,10 +65,10 @@ const ap = new APlayer({
             name: 'Blame',
             artist: 'Blame',
             lrc: '/music/lrc/Blame.lrc',
-            cover: '/assets/avatar.png',
+            cover: '/assets/song.png',
             url: '/music/song/Blame.mp3'
                   },
 		 
-		 
+		 */
         ]
 });
