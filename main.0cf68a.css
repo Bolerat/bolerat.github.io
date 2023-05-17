@@ -3507,5 +3507,9 @@ a.pswp__share--download:hover {
     text-decoration:underline
 }
 
-
+@media screen and (max-width: 800px) {
+    .aplayer {
+        opacity:0.8;
+    }
+}
 

@@ -93,6 +93,38 @@ var _hmt = _hmt || [];
 </head>
 
 <body>
+
+
+<!-- 《添加--APlayer音乐播放器,详见: https://aplayer.js.org/#/zh-Hans/ -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+    <div id="aplayer" style="text-align:left;z-index: 10;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/color-thief-don@2.0.2/src/color-thief.js"></script>
+
+    <!-- 为方便修改，添加一个配置文件，修改时直接修改配置文件即可。 -->
+    <script type="text/javascript" src="/js/APlayer_config.js"></script>
+
+    <!-- 根据封面自适应主题色，主要是作用于进度条 -->
+    <script type="text/javascript">
+          const colorThief = new ColorThief();
+          const setTheme = (index) => {
+            if (!ap.list.audios[index].theme) {
+              colorThief.getColorAsync(ap.list.audios[index].cover, function(color) {
+                ap.theme(`rgb(${color[0]}, ${color[1]}, ${color[2]})`, index);
+              });
+            }
+          };
+          setTheme(ap.list.index);
+          ap.on('listswitch', (data) => {
+            setTheme(data.index);
+          });
+    </script>
+
+<!-- 添加--APlayer音乐播放器》 -->
+
+
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
@@ -144,34 +176,13 @@ var _hmt = _hmt || [];
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
-			<!-- 《左侧边栏添加--APlayer音乐播放器：详见：https://aplayer.js.org/#/zh-Hans/ -->
 			
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-
-				<div id="aplayer" style="text-align:left"></div>
-				<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-				<script src="https://cdn.jsdelivr.net/npm/color-thief-don@2.0.2/src/color-thief.js"></script>
-
-				<!-- 为方便修改，添加一个配置文件，修改时直接修改配置文件即可。 -->
-				<script type="text/javascript" src="/js/APlayer_config.js"></script>
-
-				<!-- 根据封面自适应主题色，主要是作用于进度条 -->
-				<script type="text/javascript">
-					  const colorThief = new ColorThief();
-					  const setTheme = (index) => {
-						if (!ap.list.audios[index].theme) {
-						  colorThief.getColorAsync(ap.list.audios[index].cover, function(color) {
-							ap.theme(`rgb(${color[0]}, ${color[1]}, ${color[2]})`, index);
-						  });
-						}
-					  };
-					  setTheme(ap.list.index);
-					  ap.on('listswitch', (data) => {
-						setTheme(data.index);
-					  });       
-				</script>
 			
-			<!-- 左侧边栏添加--APlayer音乐播放器》 -->
+			
+			
+			
+			
+			
 		</nav>
 			
 	</header>		
@@ -708,15 +719,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">C/C++语言基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,14 +751,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">C/C++语言基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">摄影</a>
               </li>
              
@@ -752,15 +763,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动漫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法竞赛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动漫</a>
               </li>
             
             <div class="clearfix"></div>
