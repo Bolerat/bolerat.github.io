@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-05-17T07:15:23.673Z</updated>
+  <updated>2023-05-17T09:13:36.824Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决优化后的aplayer无法在电脑端置顶</title>
+    <link href="https://bolerat.github.io/posts/38459/"/>
+    <id>https://bolerat.github.io/posts/38459/</id>
+    <published>2023-05-17T09:02:00.000Z</published>
+    <updated>2023-05-17T09:13:36.824Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对左侧层数进行调整</p><a id="more"></a><h3 id="z-index属性"><a href="#z-index属性" class="headerlink" title="z-index属性"></a>z-index属性</h3><p>   <strong>z-index</strong>是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系。（来自<strong>百度百科</strong>）</p><h3 id="设置z-index属性"><a href="#设置z-index属性" class="headerlink" title="设置z-index属性"></a>设置z-index属性</h3><p><strong>注意</strong>：z-index只对定位元素有作用。要设置非static的定位属性（position），z-index才会生效。</p><p>将<code>yilia\layout\layout.ejs</code>中的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;container&quot; q-class&#x3D;&quot;show:isCtnShow&quot;&gt;</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;container&quot; q-class&#x3D;&quot;show:isCtnShow&quot; style&#x3D;&quot;position:relative; z-index:  0;&quot;&gt;</span><br></pre></td></tr></table></figure><p>本解决方法是针对<a href="https://www.yansheng.fun/article/bf60dd05.html" target="_blank" rel="noopener">hexo+yilia添加APlayer音乐播放器</a><br>中的问题：<code>播放器在pc端反而不显示，会被左侧栏挡住，只在手机端显示</code>进行解决，同时也因为我也遇到这种情况，就做了优化。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;对左侧层数进行调整&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="博客搭建" scheme="https://bolerat.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>pip的使用以及国内pip镜像源</title>
@@ -194,27 +213,6 @@
     <category term="MISC" scheme="https://bolerat.github.io/tags/MISC/"/>
     
     <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>收到一封来自5年前的自己的信</title>
-    <link href="https://bolerat.github.io/posts/3624/"/>
-    <id>https://bolerat.github.io/posts/3624/</id>
-    <published>2022-07-20T12:52:00.000Z</published>
-    <updated>2023-05-17T07:14:24.385Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h6 id="高中毕业后的这个夜晚｜收到一封来自5年前的自己的信"><a href="#高中毕业后的这个夜晚｜收到一封来自5年前的自己的信" class="headerlink" title="高中毕业后的这个夜晚｜收到一封来自5年前的自己的信"></a>高中毕业后的这个夜晚｜收到一封来自5年前的自己的信</h6><p><strong>When you want to grow, you have grown.</strong></p><a id="more"></a><img src="/pic/2020.7.20.jpg" alt="2020.7.20" style="zoom:50%" />]]></content>
-    
-    
-    <summary type="html">&lt;h6 id=&quot;高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&quot;&gt;&lt;a href=&quot;#高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&quot; class=&quot;headerlink&quot; title=&quot;高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&quot;&gt;&lt;/a&gt;高中毕业后的这个夜晚｜收到一封来自5年前的自己的信&lt;/h6&gt;&lt;p&gt;&lt;strong&gt;When you want to grow, you have grown.&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-    <category term="毕业" scheme="https://bolerat.github.io/tags/%E6%AF%95%E4%B8%9A/"/>
     
   </entry>
   
