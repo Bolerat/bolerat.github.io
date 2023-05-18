@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Blog安卓版</title>
+      <link href="/posts/25776/"/>
+      <url>/posts/25776/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="/assets/blog.apk">安卓安装包</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 博客搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决优化后的aplayer无法在电脑端置顶</title>
       <link href="/posts/38459/"/>
       <url>/posts/38459/</url>

@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-05-17T09:13:36.824Z</updated>
+  <updated>2023-05-18T04:08:07.050Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog安卓版</title>
+    <link href="https://bolerat.github.io/posts/25776/"/>
+    <id>https://bolerat.github.io/posts/25776/</id>
+    <published>2023-05-18T04:07:00.000Z</published>
+    <updated>2023-05-18T04:08:07.050Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="/assets/blog.apk">安卓安装包</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="博客搭建" scheme="https://bolerat.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>解决优化后的aplayer无法在电脑端置顶</title>
@@ -190,29 +212,6 @@
     <category term="数据结构" scheme="https://bolerat.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="算法竞赛" scheme="https://bolerat.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Bugku CTF]社工-进阶收集</title>
-    <link href="https://bolerat.github.io/posts/27934/"/>
-    <id>https://bolerat.github.io/posts/27934/</id>
-    <published>2022-11-29T16:13:00.000Z</published>
-    <updated>2023-05-17T07:14:58.379Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接：<a href="https://ctf.bugku.com/challenges/detail/id/188.html" target="_blank" rel="noopener">https://ctf.bugku.com/challenges/detail/id/188.html</a></p><a id="more"></a><h2 id="先看题目-保护原著，已注释awa"><a href="#先看题目-保护原著，已注释awa" class="headerlink" title="先看题目(保护原著，已注释awa)"></a>先看题目(保护原著，已注释awa)</h2><!-- <img src="/pic/ctf_1.png" alt="1" style="zoom:50%" /> --><h2 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h2><p>1.根据图片提示再百度识图，得到地址为西安大雁塔。</p><img src="/pic/ctf_1 (1).jpg" alt="1" style="zoom:50%" /><img src="/pic/ctf_1 (2).jpg" alt="1" style="zoom:50%" /><p>2.进入社工神器百度地图，依据“地铁”相关信息发现小美住在航天城和韦曲南两个站点之间，依据距离画圆发现在“兰乔国际城”，其小区名字拼音则为flag</p><img src="/pic/ctf_1 (3).jpg" alt="1" style="zoom:50%" /><img src="/pic/ctf_1 (4).jpg" alt="1" style="zoom:50%" />]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://ctf.bugku.com/challenges/detail/id/188.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ctf.bugku.com/challenges/detail/id/188.html&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="社会工程学" scheme="https://bolerat.github.io/tags/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/"/>
-    
-    <category term="MISC" scheme="https://bolerat.github.io/tags/MISC/"/>
     
   </entry>
   
