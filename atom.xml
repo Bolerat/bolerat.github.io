@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-05-20T17:04:23.531Z</updated>
+  <updated>2023-05-20T17:04:54.624Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Memos</title>
+    <title>练习赛Memos</title>
     <link href="https://bolerat.github.io/posts/52558/"/>
     <id>https://bolerat.github.io/posts/52558/</id>
     <published>2023-05-20T16:39:48.000Z</published>
-    <updated>2023-05-20T17:04:23.531Z</updated>
+    <updated>2023-05-20T17:04:54.624Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>练习赛Memos</p><a id="more"></a><ul><li><p>Algorithm</p><ul><li><a href="https://codeforces.com/contests" target="_blank" rel="noopener">Codeforce比赛</a></li><li><a href="https://www.luogu.com.cn/contest/list" target="_blank" rel="noopener">洛谷比赛</a></li><li><a href="https://pintia.cn/problem-sets/my" target="_blank" rel="noopener">PTA题目练习集赛</a></li><li><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank" rel="noopener">牛客竞赛</a></li></ul></li><li><p>CTF</p><ul><li><a href="https://iscc.isclab.org.cn/" target="_blank" rel="noopener">ISCC</a></li><li><a href="https://adworld.xctf.org.cn/contest/list" target="_blank" rel="noopener">攻防世界赛事中心</a></li><li><a href="https://www.ctfhub.com/#/calendar" target="_blank" rel="noopener">CTFHub赛事中心</a></li></ul></li></ul>]]></content>
     
