@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-05-18T04:08:07.050Z</updated>
+  <updated>2023-05-20T17:04:23.531Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Memos</title>
+    <link href="https://bolerat.github.io/posts/52558/"/>
+    <id>https://bolerat.github.io/posts/52558/</id>
+    <published>2023-05-20T16:39:48.000Z</published>
+    <updated>2023-05-20T17:04:23.531Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>练习赛Memos</p><a id="more"></a><ul><li><p>Algorithm</p><ul><li><a href="https://codeforces.com/contests" target="_blank" rel="noopener">Codeforce比赛</a></li><li><a href="https://www.luogu.com.cn/contest/list" target="_blank" rel="noopener">洛谷比赛</a></li><li><a href="https://pintia.cn/problem-sets/my" target="_blank" rel="noopener">PTA题目练习集赛</a></li><li><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank" rel="noopener">牛客竞赛</a></li></ul></li><li><p>CTF</p><ul><li><a href="https://iscc.isclab.org.cn/" target="_blank" rel="noopener">ISCC</a></li><li><a href="https://adworld.xctf.org.cn/contest/list" target="_blank" rel="noopener">攻防世界赛事中心</a></li><li><a href="https://www.ctfhub.com/#/calendar" target="_blank" rel="noopener">CTFHub赛事中心</a></li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;练习赛Memos&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Blog安卓版</title>
@@ -191,27 +208,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>板子-数据结构</title>
-    <link href="https://bolerat.github.io/posts/55177/"/>
-    <id>https://bolerat.github.io/posts/55177/</id>
-    <published>2022-12-02T16:45:00.000Z</published>
-    <updated>2023-05-17T07:13:20.488Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>数据结构模板收集</p><a id="more"></a><h3 id="单链表（数组模拟–静态）"><a href="#单链表（数组模拟–静态）" class="headerlink" title="单链表（数组模拟–静态）"></a>单链表（数组模拟–静态）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">## 单链表操作（数组模拟链表--静态链表） </span><br><span class="line">const int N&#x3D;100010;</span><br><span class="line">int head,e[N],ne[N],idx;</span><br><span class="line">void init()&#123;</span><br><span class="line">head&#x3D;-1;</span><br><span class="line">idx&#x3D;0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;x插入到头结点 </span><br><span class="line">void add_to_head(int x)&#123;</span><br><span class="line">ne[idx]&#x3D;head;</span><br><span class="line">head&#x3D;idx;</span><br><span class="line">e[idx]&#x3D;x;</span><br><span class="line">idx++;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;x插入到第k个节点后 </span><br><span class="line">void add(int x,int k)&#123;</span><br><span class="line">ne[idx]&#x3D;ne[k];</span><br><span class="line">ne[k]&#x3D;idx;</span><br><span class="line">e[idx]&#x3D;x;</span><br><span class="line">idx++;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;将下标是k的点后面的点删除 </span><br><span class="line">void remove(int k) &#123;</span><br><span class="line">ne[k]&#x3D;ne[ne[k]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;数据结构模板收集&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="数据结构" scheme="https://bolerat.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="算法竞赛" scheme="https://bolerat.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"/>
     
   </entry>
   
