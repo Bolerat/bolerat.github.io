@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>CTF PWN打基础</title>
+      <link href="/posts/7491/"/>
+      <url>/posts/7491/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>PWN基础知识</p><a id="more"></a><h3 id="寄存器大小"><a href="#寄存器大小" class="headerlink" title="寄存器大小"></a>寄存器大小</h3><ul><li>64位cpu对应RSP（栈顶寄存器）,RBP（栈基寄存器）,RIP（程序计数寄存器）三个寄存器。</li></ul><ul><li>32位cpu则对应ESP（栈指针寄存器），EBP（扩展基址指针寄存器），EIP（指令指针寄存器）三个寄存器。</li><li>R开头：64bit, 8字节（1字节=8bit）</li><li>E开头：32bit, 4字节</li><li>EAX（累加寄存器）是32位， AX 是EAX的低16位 ， AL 和AH是AX的低8位和高8位。</li><li>AX,BX,CX：16bit, 2字节</li><li>AH, AL: 8bit, 1字节</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul><li><a href="https://blog.csdn.net/weixin_43780092/article/details/126694251" target="_blank" rel="noopener">CTF PWN基础知识</a></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>练习赛Memos</title>
       <link href="/posts/52558/"/>
       <url>/posts/52558/</url>
