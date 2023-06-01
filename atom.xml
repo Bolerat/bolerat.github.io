@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-06-01T05:46:11.617Z</updated>
+  <updated>2023-06-01T05:48:39.632Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>CTF PWN打基础（寄存器）</title>
     <link href="https://bolerat.github.io/posts/7491/"/>
     <id>https://bolerat.github.io/posts/7491/</id>
-    <published>2023-05-29T11:46:52.000Z</published>
-    <updated>2023-06-01T05:46:11.617Z</updated>
+    <published>2023-05-29T11:46:00.000Z</published>
+    <updated>2023-06-01T05:48:39.632Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>PWN基础知识</p><a id="more"></a><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>寄存器是计算机暂存指令、数据和地址的地方.</p><h3 id="常用寄存器及其功能整理"><a href="#常用寄存器及其功能整理" class="headerlink" title="常用寄存器及其功能整理"></a>常用寄存器及其功能整理</h3><ul><li>RIP：程序计数寄存器，来存放下一条即将用来执行的指令的地址，它决定程序执行的流程。（较常用）</li><li>RBP：栈基寄存器，存放当前栈帧的栈底地址（较常用）</li><li>RAX：通用寄存器。存放函数返回值</li><li>RSP：栈顶寄存器，存放当前栈帧的栈顶地址（较常用）</li><li>RAX：随机存取寄存器</li><li>AX：累加寄存器，分为AH高八位和AL低八位</li><li>AH：累加寄存器，AX（16位）寄存器的高八位</li><li>AL：累加寄存器，AX（16位）寄存器的低八位</li><li>EAX:累加寄存器，是很多加法乘法指令的缺省寄存器</li><li>EBX：基地址寄存器，在内存寻址时存放基地址</li><li>ECX：计数器</li><li>EDX：数据寄存器，被用于来放整数除法产生的余数</li><li>ESI：源变址寄存器</li><li>EDI：目的变址寄存器</li><li>EBP：扩展基址指针寄存器，EBP来存储当前函数状态的基地址，在函数运行时不变，可以用来索引|确定函数参数或局部变量 的位置。（较常用）</li><li>ESP：栈指针寄存器，ESP用来存储函数调用栈的栈顶地址，在压栈和退栈时 发生变化。（较常用）</li><li>EIP：指令指针寄存器，EIP用来存储即将执行的程序指令的地址, cpu依照EIP的存储内容读取指令并执行，EIP 随之指向相 邻的下一条指令,如此反复,程序就得以连续执行指令。（较常用）</li></ul><h3 id="寄存器大小"><a href="#寄存器大小" class="headerlink" title="寄存器大小"></a>寄存器大小</h3><ul><li>64位cpu对应RSP（栈顶寄存器）,RBP（栈基寄存器）,RIP（程序计数寄存器）三个寄存器。</li><li>32位cpu则对应ESP（栈指针寄存器），EBP（扩展基址指针寄存器），EIP（指令指针寄存器）三个寄存器。</li><li>R开头：64bit, 8字节（1字节=8bit）</li><li>E开头：32bit, 4字节</li><li>EAX（累加寄存器）是32位， AX 是EAX的低16位 ， AL 和AH是AX的低8位和高8位。</li><li>AX,BX,CX：16bit, 2字节</li><li>AH, AL: 8bit, 1字节</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul><li><a href="https://blog.csdn.net/weixin_43780092/article/details/126694251" target="_blank" rel="noopener">CTF PWN基础知识</a></li></ul>]]></content>
     
@@ -30,6 +30,10 @@
     
     
     
+    
+    <category term="PWN" scheme="https://bolerat.github.io/tags/PWN/"/>
+    
+    <category term="寄存器" scheme="https://bolerat.github.io/tags/%E5%AF%84%E5%AD%98%E5%99%A8/"/>
     
   </entry>
   
