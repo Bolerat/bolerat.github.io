@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Kali的升级失败</title>
+      <link href="/posts/59374/"/>
+      <url>/posts/59374/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>关于我的kali今天崩掉了。</p><a id="more"></a><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>   最开始，我在安装盲水印需要用到的opencv-python库时，一切都还好，后来一直无法安装成功，返回“无法定位opencv-python”的结果，阅读了网上的教程，我觉得可以更新一下系统。</p><p>   于是我update了，在快要结束的时候报错了，浏览器也用不了，整个系统瘫痪，重启之后，正确的密码无法登入系统了。于是在尝试各种策略后，我成功地无法进入登录界面了，开机即报错，于是就有了以下状态：</p><img src="/pic/lk2.jpg" alt="1" style="zoom:50%" /><h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><p>与其反复报错，我自然地重装了kali，只是可惜我之前安装了那么多库和工具…</p><img src="/pic/lk1.jpg" alt="1" style="zoom:50%" />]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CTF PWN打基础（寄存器）</title>
       <link href="/posts/7491/"/>
       <url>/posts/7491/</url>

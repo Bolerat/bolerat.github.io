@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-06-01T05:53:06.282Z</updated>
+  <updated>2023-06-03T15:57:23.964Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kali的升级失败</title>
+    <link href="https://bolerat.github.io/posts/59374/"/>
+    <id>https://bolerat.github.io/posts/59374/</id>
+    <published>2023-06-03T15:47:00.000Z</published>
+    <updated>2023-06-03T15:57:23.964Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>关于我的kali今天崩掉了。</p><a id="more"></a><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>   最开始，我在安装盲水印需要用到的opencv-python库时，一切都还好，后来一直无法安装成功，返回“无法定位opencv-python”的结果，阅读了网上的教程，我觉得可以更新一下系统。</p><p>   于是我update了，在快要结束的时候报错了，浏览器也用不了，整个系统瘫痪，重启之后，正确的密码无法登入系统了。于是在尝试各种策略后，我成功地无法进入登录界面了，开机即报错，于是就有了以下状态：</p><img src="/pic/lk2.jpg" alt="1" style="zoom:50%" /><h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><p>与其反复报错，我自然地重装了kali，只是可惜我之前安装了那么多库和工具…</p><img src="/pic/lk1.jpg" alt="1" style="zoom:50%" />]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;关于我的kali今天崩掉了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="linux" scheme="https://bolerat.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>CTF PWN打基础（寄存器）</title>
@@ -184,27 +203,6 @@
     
     
     <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://www.ctfer.vip/problem/384&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.ctfer.vip/problem/384&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[NSSCTF][SWPUCTF 2021 新生赛]gift_F12</title>
-    <link href="https://bolerat.github.io/posts/11193/"/>
-    <id>https://bolerat.github.io/posts/11193/</id>
-    <published>2022-12-08T14:48:00.000Z</published>
-    <updated>2023-05-17T07:13:08.997Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接：<a href="https://www.ctfer.vip/problem/382" target="_blank" rel="noopener">https://www.ctfer.vip/problem/382</a></p><a id="more"></a><h2 id="进入环境，发现是个有趣-的gift"><a href="#进入环境，发现是个有趣-的gift" class="headerlink" title="进入环境，发现是个有趣~的gift"></a>进入环境，发现是个有趣~的gift</h2><img src="/pic/ctf_2 (1).jpg" alt="1" style="zoom:50%" /><h2 id="由题目f12，我直接按f12，就发现："><a href="#由题目f12，我直接按f12，就发现：" class="headerlink" title="由题目f12，我直接按f12，就发现："></a>由题目f12，我直接按f12，就发现：</h2><img src="/pic/ctf_2 (3).jpg" alt="1" style="zoom:50%" /><h2 id="but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了"><a href="#but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了" class="headerlink" title="but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了"></a>but我更改了一下他的目标时间，结果，到了预定时间，仍然没有flag，真的就是“皇帝的礼物”了</h2><img src="/pic/ctf_2 (2).jpg" alt="1" style="zoom:50%" />]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://www.ctfer.vip/problem/382&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.ctfer.vip/problem/382&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
