@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-06-03T15:57:23.964Z</updated>
+  <updated>2023-06-12T16:53:27.826Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模板注入</title>
+    <link href="https://bolerat.github.io/posts/17608/"/>
+    <id>https://bolerat.github.io/posts/17608/</id>
+    <published>2023-06-12T16:51:00.000Z</published>
+    <updated>2023-06-12T16:53:27.826Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习资料</p><a id="more"></a><ul><li>学习<ul><li><a href="https://www.cnblogs.com/GoIcejio/p/16593990.html" target="_blank" rel="noopener">SSTI模板注入 </a></li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;学习资料&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+    <category term="CTF" scheme="https://bolerat.github.io/tags/CTF/"/>
+    
+  </entry>
   
   <entry>
     <title>Kali的升级失败</title>
@@ -182,27 +203,6 @@
     
     
     <summary type="html">&lt;p&gt;题目链接: &lt;a href=&quot;https://ctf.bugku.com/challenges/detail/id/196.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ctf.bugku.com/challenges/detail/id/196.html&lt;/a&gt;   &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[NSSCTF][SWPUCTF 2021 新生赛]jicao</title>
-    <link href="https://bolerat.github.io/posts/5696/"/>
-    <id>https://bolerat.github.io/posts/5696/</id>
-    <published>2022-12-08T15:52:00.000Z</published>
-    <updated>2023-05-17T07:15:07.834Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接：<a href="https://www.ctfer.vip/problem/384" target="_blank" rel="noopener">https://www.ctfer.vip/problem/384</a></p><a id="more"></a><h3 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h3><p><strong>在阅读代码后发现，当对网站传入一个post型的参数id和一个get型的参数json且满足if条件的内容，则能传回一个flag<br>于是在查阅相关资料后</strong>   </p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">json_decode这个函数是对JSON格式的字符串进行编码</span><br><span class="line"></span><br><span class="line">参数json：待解码的json string格式的字符串，所以我们需要传入get型的参数json并且对他进行解码</span><br><span class="line"></span><br><span class="line">JSON 格式的字符串</span><br><span class="line">$json &#x3D; &#39;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#39;;</span><br><span class="line">其中a为键，php为a的键值。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">实例：</span><br><span class="line"></span><br><span class="line">  &lt;?php$json &#x3D; &#39;&#123;&quot;a&quot;:&quot;php&quot;,&quot;b&quot;:&quot;mysql&quot;,&quot;c&quot;:3&#125;&#39;;</span><br><span class="line">  $json_Class&#x3D;json_decode($json);</span><br><span class="line">  $json_Array&#x3D;json_decode($json, true);</span><br><span class="line">  print_r($json_Class);</span><br><span class="line">  print_r($json_Array);</span><br><span class="line">  ?&gt;</span><br><span class="line">  程序输出：</span><br><span class="line"></span><br><span class="line">  stdClass Object (</span><br><span class="line">  [a] &#x3D;&gt; php</span><br><span class="line">  [b] &#x3D;&gt; mysql</span><br><span class="line">  [c] &#x3D;&gt; 3 )</span><br><span class="line">  Array (</span><br><span class="line">  [a] &#x3D;&gt; php</span><br><span class="line">  [b] &#x3D;&gt; mysql</span><br><span class="line">  [c] &#x3D;&gt; 3 )</span><br></pre></td></tr></table></figure><p><strong>于是我们利用传入一个post为id=wllNB，再传入json为{“x”:”wllm”}，即可获得动态的flag</strong></p><img src="/pic/ctf_3.jpg" alt="1" style="zoom:50%" />    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;kode00&#x2F;p&#x2F;16856963.html</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;题目链接：&lt;a href=&quot;https://www.ctfer.vip/problem/384&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.ctfer.vip/problem/384&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
