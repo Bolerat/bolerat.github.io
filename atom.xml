@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-06-12T16:55:07.136Z</updated>
+  <updated>2023-06-12T16:59:46.833Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://bolerat.github.io/posts/17608/"/>
     <id>https://bolerat.github.io/posts/17608/</id>
     <published>2023-06-12T16:51:00.000Z</published>
-    <updated>2023-06-12T16:55:07.136Z</updated>
+    <updated>2023-06-12T16:59:46.833Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习</p><a id="more"></a><ul><li>学习<ul><li><a href="https://www.cnblogs.com/GoIcejio/p/16593990.html" target="_blank" rel="noopener">SSTI模板注入 </a></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习</p><a id="more"></a><ul><li>学习<ul><li><a href="https://blog.csdn.net/m0_61607810/article/details/121568121" target="_blank" rel="noopener">模板引擎</a></li><li><a href="https://www.cnblogs.com/GoIcejio/p/16593990.html" target="_blank" rel="noopener">SSTI模板注入 </a></li></ul></li></ul>]]></content>
     
     
     <summary type="html">&lt;p&gt;学习&lt;/p&gt;</summary>
