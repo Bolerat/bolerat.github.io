@@ -31,9 +31,9 @@
     
     
     
-    <category term="CTF" scheme="https://bolerat.github.io/tags/CTF/"/>
-    
     <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+    <category term="CTF" scheme="https://bolerat.github.io/tags/CTF/"/>
     
   </entry>
   
