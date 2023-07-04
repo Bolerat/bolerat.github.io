@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-06-12T16:59:46.833Z</updated>
+  <updated>2023-07-04T07:03:55.881Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在linux上使用小皮搭建sqli靶场</title>
+    <link href="https://bolerat.github.io/posts/46934/"/>
+    <id>https://bolerat.github.io/posts/46934/</id>
+    <published>2023-07-04T06:48:00.000Z</published>
+    <updated>2023-07-04T07:03:55.881Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在linux上使用小皮搭建sqli靶场</p><a id="more"></a><h3 id="安装小皮面板"><a href="#安装小皮面板" class="headerlink" title="安装小皮面板"></a>安装小皮面板</h3><p>kali是基于Debian的，所以按照Debian无docker的版本安装的</p><img src="/pic/l1.png" alt="1" style="zoom:70%" /><p>安装成功，可以看到内网网址，直接登入小皮</p><img src="/pic/l2.png" alt="1" style="zoom:70%" /><p>然后安装基本套件，并启动SQL</p><img src="/pic/l3.png" alt="1" style="zoom:50%" /><h3 id="安装sqli-labs靶场"><a href="#安装sqli-labs靶场" class="headerlink" title="安装sqli-labs靶场"></a>安装sqli-labs靶场</h3><p>图个方便，给sqli-labs设置了域名</p><img src="/pic/l4.png" alt="1" style="zoom:50%" /><p>给靶场文件夹设置755权限（所有者拥有可读、可写、可执行权限,所属组与其他用户仅拥有可读与可执行权限）</p><img src="/pic/l5.png" alt="1" style="zoom:100%" /><p>从网页配置靶场</p><img src="/pic/l6.png" alt="1" style="zoom:50%" /><p>第一关SQL注入尝试</p><img src="/pic/l7.png" alt="1" style="zoom:50%" /><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考资料：http:&#x2F;&#x2F;www.xbhp.cn&#x2F;news&#x2F;20895.html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;在linux上使用小皮搭建sqli靶场&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+    <category term="linux" scheme="https://bolerat.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>模板注入</title>
@@ -189,27 +210,6 @@
     
     
     <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Bugku CTF]Simple_SSTI_1</title>
-    <link href="https://bolerat.github.io/posts/13499/"/>
-    <id>https://bolerat.github.io/posts/13499/</id>
-    <published>2022-12-11T06:04:00.000Z</published>
-    <updated>2023-05-17T07:12:44.942Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目链接: <a href="https://ctf.bugku.com/challenges/detail/id/196.html" target="_blank" rel="noopener">https://ctf.bugku.com/challenges/detail/id/196.html</a>   </p><a id="more"></a>    <h1 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h1><p>通过查看源代码，发现：   </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You know, in the flask, We often set a secret_key variable.</span><br></pre></td></tr></table></figure><p>果然没有思路就看看源代码，就会有发现。<br>于是就读取所有config变量，其中secret_key变量，就是需要找的flag所在。so:    </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?flag&#x3D;&#123;&#123;config.items()&#125;&#125;</span><br></pre></td></tr></table></figure><p>于是得到：    </p><img src="/pic/ctf_4.jpg" alt="1" style="zoom:50%" />    <h1 id="flask之ssti模版注入"><a href="#flask之ssti模版注入" class="headerlink" title="flask之ssti模版注入"></a>flask之ssti模版注入</h1><p>算了，还是贴大佬的教程吧，Orz。    </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xz.aliyun.com&#x2F;t&#x2F;3679</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;题目链接: &lt;a href=&quot;https://ctf.bugku.com/challenges/detail/id/196.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ctf.bugku.com/challenges/detail/id/196.html&lt;/a&gt;   &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="信息安全" scheme="https://bolerat.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
     
   </entry>
   
