@@ -137,19 +137,16 @@
   </entry>
   
   <entry>
-    <title>Blog安卓版</title>
+    <title>Blog安卓端</title>
     <link href="https://bolerat.github.io/posts/25776/"/>
     <id>https://bolerat.github.io/posts/25776/</id>
     <published>2023-05-18T04:07:00.000Z</published>
-    <updated>2023-06-01T05:57:28.417Z</updated>
+    <updated>2023-07-13T01:41:05.231Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="/assets/blog.apk">安卓安装包</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>安卓安装包</p><a id="more"></a><p><a href="/assets/blog.apk">点击下载|安卓端</a></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
+    <summary type="html">&lt;p&gt;安卓安装包&lt;/p&gt;</summary>
     
     
     

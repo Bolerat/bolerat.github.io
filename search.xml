@@ -120,11 +120,11 @@
     
     
     <entry>
-      <title>Blog安卓版</title>
+      <title>Blog安卓端</title>
       <link href="/posts/25776/"/>
       <url>/posts/25776/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="/assets/blog.apk">安卓安装包</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>安卓安装包</p><a id="more"></a><p><a href="/assets/blog.apk">点击下载|安卓端</a></p>]]></content>
       
       
       
