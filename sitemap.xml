@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bolerat.github.io/birthday/customize.json</loc>
+    
+    <lastmod>2023-07-21T13:09:34.611Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://bolerat.github.io/birthday/index.html</loc>
     
     <lastmod>2023-07-21T13:00:16.657Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://bolerat.github.io/birthday/package-lock.json</loc>
     
     <lastmod>2023-07-21T12:57:31.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bolerat.github.io/birthday/customize.json</loc>
-    
-    <lastmod>2023-07-21T12:57:31.861Z</lastmod>
     
   </url>
   
