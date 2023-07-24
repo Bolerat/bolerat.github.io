@@ -6,7 +6,7 @@
   <link href="https://bolerat.github.io/atom.xml" rel="self"/>
   
   <link href="https://bolerat.github.io/"/>
-  <updated>2023-07-24T06:22:03.571Z</updated>
+  <updated>2023-07-24T17:00:49.950Z</updated>
   <id>https://bolerat.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://bolerat.github.io/posts/46105/"/>
     <id>https://bolerat.github.io/posts/46105/</id>
     <published>2023-07-23T16:07:00.000Z</published>
-    <updated>2023-07-24T06:22:03.571Z</updated>
+    <updated>2023-07-24T17:00:49.950Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>文件上传与数据库交互</p><a id="more"></a><h3 id="上传步骤"><a href="#上传步骤" class="headerlink" title="上传步骤"></a>上传步骤</h3><ul><li>选择文件 </li><li>提交文件到服务器</li><li>服务器进行上传操作</li><li>服务器反馈上传结果</li></ul><h3 id="上传限制"><a href="#上传限制" class="headerlink" title="上传限制"></a>上传限制</h3><h5 id="大小与时间限制"><a href="#大小与时间限制" class="headerlink" title="大小与时间限制"></a>大小与时间限制</h5><p>对于服务器而言，能够承受的上传文件大小是有限的，不能让用户上传超大的文件。可以在php.ini配置文件中设置</p><ul><li>upload_max_filesize：上传文件大小限制</li><li>post_max_size：最大POST数据限制</li><li>memory_limit：内存限制，PHP5.2之前（默认8M）、PHP5.2(16M)、PHP5.2之后（128M）</li></ul><p>逻辑顺序上：</p><ul><li>memory_limit&gt;post_max_size&gt;upload_max_filesize </li></ul><p>对于时间限制：</p><ul><li>max_execution_time：程序执行时间限制</li><li>set_time_limit(0)：0表示没有时间限制</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max_execution_time &#x3D; 30&#x2F;&#x2F;单位默认为second，时间默认为30秒</span><br><span class="line">upload_max_filesize &#x3D; 100M&#x2F;&#x2F;文件上传最大限制100M</span><br></pre></td></tr></table></figure><h5 id="文件类型限制"><a href="#文件类型限制" class="headerlink" title="文件类型限制"></a>文件类型限制</h5><p>通过对上传的文件的mimeType过滤处理。在PHP中利用$_FILES’file’来获取上传文件的mimeType。并使用in_array()函数对文件的mimeType进行判断，再决定是否能够上传。</p><h5 id="安全检查"><a href="#安全检查" class="headerlink" title="安全检查"></a>安全检查</h5><p>对于上传的文件，需要检查用户是否上传不安全的文件，诸如木马、病毒、脚本等等。</p><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP文件上传代码实例(来源自PHP中文网)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">$allow_exts &#x3D; array(&#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;png&#39;, &#39;txt&#39;);</span><br><span class="line"></span><br><span class="line">$upload_dir &#x3D; &#39;uploads&#x2F;&#39;;</span><br><span class="line"></span><br><span class="line">$max_size &#x3D; 1024 * 1024;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if ($_FILES[&#39;file&#39;][&#39;error&#39;] !&#x3D; UPLOAD_ERR_OK) &#123;</span><br><span class="line"></span><br><span class="line">    echo &#39;上传失败，请稍后再试&#39;;</span><br><span class="line"></span><br><span class="line">    exit;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">$temp_file &#x3D; $_FILES[&#39;file&#39;][&#39;tmp_name&#39;];</span><br><span class="line"></span><br><span class="line">$file_name &#x3D; $_FILES[&#39;file&#39;][&#39;name&#39;];</span><br><span class="line"></span><br><span class="line">$file_ext &#x3D; strtolower(pathinfo($file_name, PATHINFO_EXTENSION));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if (!in_array($file_ext, $allow_exts)) &#123;</span><br><span class="line"></span><br><span class="line">    echo &#39;文件类型不符合要求，请上传指定类型的文件&#39;;</span><br><span class="line"></span><br><span class="line">    exit;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if ($_FILES[&#39;file&#39;][&#39;size&#39;] &gt; $max_size) &#123;</span><br><span class="line"></span><br><span class="line">    echo &#39;文件大小不能超过1MB，请重新上传&#39;;</span><br><span class="line"></span><br><span class="line">    exit;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if (!is_uploaded_file($temp_file)) &#123;</span><br><span class="line"></span><br><span class="line">    echo &#39;非法上传，请重新上传&#39;;</span><br><span class="line"></span><br><span class="line">    exit;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if (!file_exists($upload_dir)) &#123;</span><br><span class="line"></span><br><span class="line">    mkdir($upload_dir);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if (move_uploaded_file($temp_file, $upload_dir . $file_name)) &#123;</span><br><span class="line"></span><br><span class="line">    echo &#39;上传成功&#39;;</span><br><span class="line"></span><br><span class="line">    exit;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">echo &#39;上传失败，请稍后再试&#39;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>上述代码中，使用了几个PHP内置函数来实现文件上传的基本功能。其中，in_array()函数用来判断上传的文件类型是否符合要求。pathinfo()函数用来获取上传文件的后缀名。is_uploaded_file()函数用来校验是否是合法的上传文件，防止非法上传。move_uploaded_file()函数则用来将上传缓存文件移动到指定目录，完成文件上传过程。</p><h3 id="数据库交互"><a href="#数据库交互" class="headerlink" title="数据库交互"></a>数据库交互</h3><p>还在写，别急…</p>]]></content>
     
@@ -33,6 +33,8 @@
     
     <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
     
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
   </entry>
   
   <entry>
@@ -40,7 +42,7 @@
     <link href="https://bolerat.github.io/posts/35232/"/>
     <id>https://bolerat.github.io/posts/35232/</id>
     <published>2023-07-07T09:46:00.000Z</published>
-    <updated>2023-07-09T12:33:11.180Z</updated>
+    <updated>2023-07-24T17:00:41.213Z</updated>
     
     <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">输入密码，查看文章</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="112097225404c515fcc0605d41eb10e0124859e63817fa7b7ef12586c56bdfcf">efefacb2b086a20a19dfbda11f33fd914768c8f5f2c1217314d4bd2ce8da3aa3a94df65caf5e5c0641fcb4e27fc6410fcf735e0fb5e58de1890fb90c712ad1f16a0b1671b9454ff8cb8040b051f9871a627885a0745c42b58290a92835640bc313e4d41d11135392e765f2dcfa3c6db34d5b2396ddecbf166006de9e4a49cbbbae91976611deaab03877d0d29badccc7d6050291b358188539e473628b18c3093fca7b5c505b372fb79d33d37271e1a5d6395ab24746d7fb926d6a4638ae4f9d88787ca57f8d337e5f1700bd967c2f0cdd74b5ce73ae0d4074c1000756c77047c8833865c100e6e1384e6776e27841b410b436da8dc7b3a702194ea7415c009b32423f67656987cca226dbe739cec16535e1a10ed9aa29e57612c9ed172a00399355707b7d5750ffbaac0d3b03b9322647f6c4cf1358bcc1037a68273eff0808cc3b2825cb2f120cb2006245b2de3cfa8e80342350008aea160a8d1744cdd8228562b9e0a6bdafe0e243dd4ab4263ee11e05d3a6dbc36b673b82d32709866802392899136df63f15d840c9a353b6747279d9647d430815978410f71f1497c4b41205c616e1dcbae693307161108ed26fe98e25aeba1233c3e08fad7da140046f39b979e9c6ed8d43f72cdf7ca41dd1a8fb565437f2c6ed52a0126615d4dc366067be5cfed110825d48de31b4e7012a43d6392d7043ae87f63911715c416d57a14821db4e023f4a46ee89b9967787174c26b01f853ef5f6c8f0f2f477f89eefd48ea05ee9077cd184aff446e0c3bb1e7b9b01c8a296983ce9010a2413288d422066ac55dd6d789aa5c5912cf04fcb740200a3e9bd4204d874ee1c690e50842b1a185d94d4615df777c122d05df79db9c708c2a89a2dbc1053d141eb9f6148488c8010b4df8717cd4ec6d4c8f926f32c59d6f55f8b03c44d21b741c34a716f53dbfc43c2db113b8214d28e91726b403f779ddafe368b2256608f27f94ddd30779d8c5c74e8e7821d7ea4eb5c7bcc8dbb05b16a221370b1823c2d5ed9ad2427c39735aee98ab4f4d6b9d34280d96c4f5fbf1273bdace91189f88fa4192a1529cfc592513406aeeff397bbf37447fcee6dfdf0c2c78cdca5f560b36b0aea4fd5f68f2872b627cc4a03b374f42c01ebcaa7e5e032c39d22223ace7b910368f57c836005a49e6b179b0671a2cdafc3dafba1386f8cab8a509377c1fee7e598c0f655a4bfac1d991a39e483b2971b23414ce44fdd5bdd69dff76bdff41cef391f5624f787faf96df70c078169744c3ea8dcef32bc17e04d422a3497c5785d29fc53dbbd7715396172d0bad8612cdc5700d526627484633b0b48cd95658367dcbae8f95ecb7b47420165f8dc6467f8e7227b955bded887d204871c2fe71d682d294d3f54ac4dbf0cd6e1eb5f447f7ec279a016aca19016404a9b49cf44521325c10a68127ad66ac0cbb82b7567832b7771c26ad91e30807aa2550ad35a90718d71147d1a2a2454f6255285cdcc23698508a7e980a4da125628021b4240d6d93b02e612092133ade58f659c930b39f9dbc3a75f3f4604762d2715e0f2038519f5cb5b41b1b766fbaff35d6040f2c72b0ee0cf5b3bec69ab7bfbfa7f365d714bdc545e67c6b525019d45c78fc05027ac9ef98ea207d0dd5eb8525bbae5c8ae11a6199dfaa8edf6d0e8214b4279f27a6787daf27e11b54e5d6db2254f4c34ef7d417cd16ba532d15d82a350faad676605acc41572032bc3c45d9c4fda2045ceced4d95ef8b03bc629172de984baa734f9f636c66655d2781c2effcf9df7949b73b4cf687fbae2f8ab6632a52befdaf65f6c407fdf451cb667dc987cbb6255c479492f7dd0d8fa5368aa7cb37c1fe8b3fc315f2a3b1da6ce977f776b1e47a9fc734bfa219d4c2cf07d3ee03c2dc723ebd992f8689e59f73fe0493f09dddf6239362d6000445198c2d7713dd32e95935c2e77b197b6dfa6c59359b8bd23e89aa7f290e2027da13dd710131a0c24103532014be21a5448fb021c2134326a343b268068fd46d3aa3532475936fb80397b115b9cb708d7dab23887b6a8406a8861d72949a7cdf41905417afc2fc241abf6904d8d01d65af511d5cfce06d8c17b55a6d0b9bfc03dcfa40d854d76b90dcf6617193914fefd0fbe4077dcc2df58e321d77ae289ee6fec420b282bb4125944827e5f4d7c7eec6106145e0a2779f334df3fd5fba778266330fea7636ea3104cba072e94e992363a57260c3dda2331efbda7ba1ab97654bac8ca9d5347aa9e06e6987e0c3aca1ff53955c96d1d7d65efad570813dee5e1785948e5817978c4ac9a98a9d3f52feccea7f742f139e3d812d0df1454a4a24fde8d40242139ca52772c4790c4e454a3a66d7b20fff5365f1007ae9f647b65cd45448f380280cc45c9a2cac6eb6fe7049178c5793b1fce2086588ba7df3f9e2a449b8277a42fe0f3d8233ba88f0f6d9fc4eca54106c3665ab9fb136005c6f4eb4331743fce47ad9572fc9a5b7a2ff14fecdd0fcd7659ecc4aac8e0fd414bffe6e4518045ddbba62cfc7806d135d1dd25353e31c4a22e091cf1a0a8d66a566ac01d6f440210b92084a0b2611fc73afe0125a6d09733cccfd8c639dc31d562922fc3a1d9c46f2094f2506a39aa76e235bcfa22fdec1008f88fd9516e6f089fd4dcac1fdc1f4e829507da440c2f0e85f14f82</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
     
@@ -54,6 +56,8 @@
     
     <category term="plan" scheme="https://bolerat.github.io/tags/plan/"/>
     
+    <category term="4" scheme="https://bolerat.github.io/tags/4/"/>
+    
   </entry>
   
   <entry>
@@ -61,7 +65,7 @@
     <link href="https://bolerat.github.io/posts/46934/"/>
     <id>https://bolerat.github.io/posts/46934/</id>
     <published>2023-07-04T06:48:00.000Z</published>
-    <updated>2023-07-04T07:04:49.335Z</updated>
+    <updated>2023-07-24T17:00:34.413Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在linux上使用小皮搭建sqli靶场</p><a id="more"></a><h3 id="安装小皮面板"><a href="#安装小皮面板" class="headerlink" title="安装小皮面板"></a>安装小皮面板</h3><p>kali是基于Debian的，所以按照Debian无docker的版本安装的</p><img src="/pic/l1.png" alt="1" style="zoom:70%" /><p>安装成功，可以看到内网网址，直接登入小皮</p><img src="/pic/l2.png" alt="1" style="zoom:70%" /><p>然后安装基本套件，并启动SQL</p><img src="/pic/l3.png" alt="1" style="zoom:50%" /><h3 id="安装sqli-labs靶场"><a href="#安装sqli-labs靶场" class="headerlink" title="安装sqli-labs靶场"></a>安装sqli-labs靶场</h3><p>图个方便，给sqli-labs设置了域名</p><img src="/pic/l4.png" alt="1" style="zoom:50%" /><p>给靶场文件夹设置755权限（所有者拥有可读、可写、可执行权限,所属组与其他用户仅拥有可读与可执行权限）</p><img src="/pic/l5.png" alt="1" style="zoom:100%" /><p>从网页配置靶场</p><img src="/pic/l6.png" alt="1" style="zoom:50%" /><p>第一关SQL注入尝试</p><img src="/pic/l7.png" alt="1" style="zoom:50%" /><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考资料：http:&#x2F;&#x2F;www.xbhp.cn&#x2F;news&#x2F;20895.html</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -75,6 +79,8 @@
     
     <category term="linux" scheme="https://bolerat.github.io/tags/linux/"/>
     
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
   </entry>
   
   <entry>
@@ -82,7 +88,7 @@
     <link href="https://bolerat.github.io/posts/17608/"/>
     <id>https://bolerat.github.io/posts/17608/</id>
     <published>2023-06-12T16:51:00.000Z</published>
-    <updated>2023-06-12T16:59:46.833Z</updated>
+    <updated>2023-07-24T17:00:26.644Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习</p><a id="more"></a><ul><li>学习<ul><li><a href="https://blog.csdn.net/m0_61607810/article/details/121568121" target="_blank" rel="noopener">模板引擎</a></li><li><a href="https://www.cnblogs.com/GoIcejio/p/16593990.html" target="_blank" rel="noopener">SSTI模板注入 </a></li></ul></li></ul>]]></content>
     
@@ -96,6 +102,8 @@
     
     <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
     
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
   </entry>
   
   <entry>
@@ -103,7 +111,7 @@
     <link href="https://bolerat.github.io/posts/59374/"/>
     <id>https://bolerat.github.io/posts/59374/</id>
     <published>2023-06-03T15:47:00.000Z</published>
-    <updated>2023-06-03T15:57:23.964Z</updated>
+    <updated>2023-07-24T17:00:19.351Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>关于我的kali今天崩掉了。</p><a id="more"></a><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>   最开始，我在安装盲水印需要用到的opencv-python库时，一切都还好，后来一直无法安装成功，返回“无法定位opencv-python”的结果，阅读了网上的教程，我觉得可以更新一下系统。</p><p>   于是我update了，在快要结束的时候报错了，浏览器也用不了，整个系统瘫痪，重启之后，正确的密码无法登入系统了。于是在尝试各种策略后，我成功地无法进入登录界面了，开机即报错，于是就有了以下状态：</p><img src="/pic/lk2.jpg" alt="1" style="zoom:50%" /><h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><p>与其反复报错，我自然地重装了kali，只是可惜我之前安装了那么多库和工具…</p><img src="/pic/lk1.jpg" alt="1" style="zoom:50%" />]]></content>
     
@@ -115,6 +123,8 @@
     
     <category term="linux" scheme="https://bolerat.github.io/tags/linux/"/>
     
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
   </entry>
   
   <entry>
@@ -122,7 +132,7 @@
     <link href="https://bolerat.github.io/posts/7491/"/>
     <id>https://bolerat.github.io/posts/7491/</id>
     <published>2023-05-29T11:46:00.000Z</published>
-    <updated>2023-06-01T05:53:06.282Z</updated>
+    <updated>2023-07-24T17:00:12.478Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>寄存器</p><a id="more"></a><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>寄存器是计算机暂存指令、数据和地址的地方.</p><h3 id="常用寄存器及其功能整理"><a href="#常用寄存器及其功能整理" class="headerlink" title="常用寄存器及其功能整理"></a>常用寄存器及其功能整理</h3><ul><li>RIP：程序计数寄存器，来存放下一条即将用来执行的指令的地址，它决定程序执行的流程。（较常用）</li><li>RBP：栈基寄存器，存放当前栈帧的栈底地址（较常用）</li><li>RAX：通用寄存器。存放函数返回值</li><li>RSP：栈顶寄存器，存放当前栈帧的栈顶地址（较常用）</li><li>RAX：随机存取寄存器</li><li>AX：累加寄存器，分为AH高八位和AL低八位</li><li>AH：累加寄存器，AX（16位）寄存器的高八位</li><li>AL：累加寄存器，AX（16位）寄存器的低八位</li><li>EAX:累加寄存器，是很多加法乘法指令的缺省寄存器</li><li>EBX：基地址寄存器，在内存寻址时存放基地址</li><li>ECX：计数器</li><li>EDX：数据寄存器，被用于来放整数除法产生的余数</li><li>ESI：源变址寄存器</li><li>EDI：目的变址寄存器</li><li>EBP：扩展基址指针寄存器，EBP来存储当前函数状态的基地址，在函数运行时不变，可以用来索引|确定函数参数或局部变量 的位置。（较常用）</li><li>ESP：栈指针寄存器，ESP用来存储函数调用栈的栈顶地址，在压栈和退栈时 发生变化。（较常用）</li><li>EIP：指令指针寄存器，EIP用来存储即将执行的程序指令的地址, cpu依照EIP的存储内容读取指令并执行，EIP 随之指向相 邻的下一条指令,如此反复,程序就得以连续执行指令。（较常用）</li></ul><h3 id="寄存器大小"><a href="#寄存器大小" class="headerlink" title="寄存器大小"></a>寄存器大小</h3><ul><li>64位cpu对应RSP（栈顶寄存器）,RBP（栈基寄存器）,RIP（程序计数寄存器）三个寄存器。</li><li>32位cpu则对应ESP（栈指针寄存器），EBP（扩展基址指针寄存器），EIP（指令指针寄存器）三个寄存器。</li><li>R开头：64bit, 8字节（1字节=8bit）</li><li>E开头：32bit, 4字节</li><li>EAX（累加寄存器）是32位， AX 是EAX的低16位 ， AL 和AH是AX的低8位和高8位。</li><li>AX,BX,CX：16bit, 2字节</li><li>AH, AL: 8bit, 1字节</li></ul><h3 id="附加知识"><a href="#附加知识" class="headerlink" title="附加知识"></a>附加知识</h3><ul><li>BX是基（base）地址寄存器：四个寄存器中唯一可作为存储器指针使用的寄存器。</li><li>CX寄存器是计数(count)寄存器：在字符串操作和循环操作时，用它来控制重复循环操作次数。在移位操作时，cl寄存器用来保存移位的位数。</li><li>BP和SP寄存器称为指针寄存器：BP主要用于给出堆栈中数据区基址的偏移，从而方便地实现直接存取堆栈中的数据，所以BP也称为基指针寄存器，正常情况下SP只作为堆栈指针使用，即保存堆栈栈顶地址的偏移。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul><li><a href="https://blog.csdn.net/weixin_43780092/article/details/126694251" target="_blank" rel="noopener">CTF PWN基础知识</a></li></ul>]]></content>
     
@@ -136,14 +146,16 @@
     
     <category term="寄存器" scheme="https://bolerat.github.io/tags/%E5%AF%84%E5%AD%98%E5%99%A8/"/>
     
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
   </entry>
   
   <entry>
     <title>练习赛Memos</title>
     <link href="https://bolerat.github.io/posts/52558/"/>
     <id>https://bolerat.github.io/posts/52558/</id>
-    <published>2023-05-20T16:39:48.000Z</published>
-    <updated>2023-05-20T17:05:35.030Z</updated>
+    <published>2023-05-20T16:39:00.000Z</published>
+    <updated>2023-07-24T17:00:04.261Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>赛事直达</p><a id="more"></a><ul><li><p>Algorithm</p><ul><li><a href="https://codeforces.com/contests" target="_blank" rel="noopener">Codeforce比赛</a></li><li><a href="https://www.luogu.com.cn/contest/list" target="_blank" rel="noopener">洛谷比赛</a></li><li><a href="https://pintia.cn/problem-sets/my" target="_blank" rel="noopener">PTA题目练习集赛</a></li><li><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank" rel="noopener">牛客竞赛</a></li></ul></li><li><p>CTF</p><ul><li><a href="https://iscc.isclab.org.cn/" target="_blank" rel="noopener">ISCC</a></li><li><a href="https://adworld.xctf.org.cn/contest/list" target="_blank" rel="noopener">攻防世界赛事中心</a></li><li><a href="https://www.ctfhub.com/#/calendar" target="_blank" rel="noopener">CTFHub赛事中心</a></li></ul></li></ul>]]></content>
     
@@ -153,6 +165,10 @@
     
     
     
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="4" scheme="https://bolerat.github.io/tags/4/"/>
+    
   </entry>
   
   <entry>
@@ -160,7 +176,7 @@
     <link href="https://bolerat.github.io/posts/25776/"/>
     <id>https://bolerat.github.io/posts/25776/</id>
     <published>2023-05-18T04:07:00.000Z</published>
-    <updated>2023-07-24T14:11:35.315Z</updated>
+    <updated>2023-07-24T16:59:41.224Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>安卓安装包</p><a id="more"></a><p><a href="/assets/blog.apk">点击下载|安卓端</a></p>]]></content>
     
@@ -172,6 +188,8 @@
     
     <category term="博客搭建" scheme="https://bolerat.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
+    <category term="1" scheme="https://bolerat.github.io/tags/1/"/>
+    
   </entry>
   
   <entry>
@@ -179,7 +197,7 @@
     <link href="https://bolerat.github.io/posts/38459/"/>
     <id>https://bolerat.github.io/posts/38459/</id>
     <published>2023-05-17T09:02:00.000Z</published>
-    <updated>2023-05-17T09:13:36.824Z</updated>
+    <updated>2023-07-24T16:59:31.986Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对左侧层数进行调整</p><a id="more"></a><h3 id="z-index属性"><a href="#z-index属性" class="headerlink" title="z-index属性"></a>z-index属性</h3><p>   <strong>z-index</strong>是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系。（来自<strong>百度百科</strong>）</p><h3 id="设置z-index属性"><a href="#设置z-index属性" class="headerlink" title="设置z-index属性"></a>设置z-index属性</h3><p><strong>注意</strong>：z-index只对定位元素有作用。要设置非static的定位属性（position），z-index才会生效。</p><p>将<code>yilia\layout\layout.ejs</code>中的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;container&quot; q-class&#x3D;&quot;show:isCtnShow&quot;&gt;</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;container&quot; q-class&#x3D;&quot;show:isCtnShow&quot; style&#x3D;&quot;position:relative; z-index:  0;&quot;&gt;</span><br></pre></td></tr></table></figure><p>本解决方法是针对<a href="https://www.yansheng.fun/article/bf60dd05.html" target="_blank" rel="noopener">hexo+yilia添加APlayer音乐播放器</a><br>中的问题：<code>播放器在pc端反而不显示，会被左侧栏挡住，只在手机端显示</code>进行解决，同时也因为我也遇到这种情况，就做了优化。</p>]]></content>
     
@@ -191,6 +209,8 @@
     
     <category term="博客搭建" scheme="https://bolerat.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
+    <category term="1" scheme="https://bolerat.github.io/tags/1/"/>
+    
   </entry>
   
   <entry>
@@ -198,7 +218,7 @@
     <link href="https://bolerat.github.io/posts/39627/"/>
     <id>https://bolerat.github.io/posts/39627/</id>
     <published>2023-05-15T14:30:00.000Z</published>
-    <updated>2023-05-17T07:15:23.673Z</updated>
+    <updated>2023-07-24T16:59:22.302Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>直接用<code>pip install</code>安装Python包<strong>太慢了</strong>，经常<strong>time out</strong>，所以用国内镜像源来进行pip安装会更快。</p><a id="more"></a><h3 id="pip是什么"><a href="#pip是什么" class="headerlink" title="pip是什么"></a>pip是什么</h3><p> pip 是一个现代的，通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。注：pip 已内置于 Python 3.4 和 2.7 及以上版本，其他版本需另行安装。（来自<strong>百度百科</strong>）</p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip install -i http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple</span><br><span class="line">&#x2F;&#x2F;阿里云 ，其中-i表示用后面的镜像源下载包</span><br><span class="line"></span><br><span class="line">pip install  -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple jwt</span><br><span class="line">&#x2F;&#x2F;例子，用清华源下载jwt（ctf常用的一个库）</span><br></pre></td></tr></table></figure><p>更多用法可见 <a href="https://pip.pypa.io/en/stable/cli/pip_install/" target="_blank" rel="noopener">pip install</a></p><h3 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">阿里云：</span><br><span class="line">https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;</span><br><span class="line">百度：</span><br><span class="line">https:&#x2F;&#x2F;mirror.baidu.com&#x2F;pypi&#x2F;simple&#x2F;</span><br><span class="line">豆瓣：</span><br><span class="line">http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F;</span><br><span class="line">清华：</span><br><span class="line">https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple&#x2F;</span><br><span class="line">中科大：</span><br><span class="line">https:&#x2F;&#x2F;pypi.mirrors.ustc.edu.cn&#x2F;simple&#x2F;</span><br></pre></td></tr></table></figure><p>你也可以访问<a href="https://mirrors.cernet.edu.cn/" target="_blank" rel="noopener">校园网镜像站</a></p><h3 id="常用pip命令"><a href="#常用pip命令" class="headerlink" title="常用pip命令"></a>常用pip命令</h3><p>来自<strong>百度百科</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">pip  [options]</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">install  安装包安装</span><br><span class="line">download 下载下载包</span><br><span class="line">uninstall  卸载卸载包</span><br><span class="line">freeze  冻结按需求格式安装的包的输出</span><br><span class="line">list 列表列出已安装的包</span><br><span class="line">show  显示已安装软件包的信息</span><br><span class="line">check  检查已安装的软件包是否具有兼容的依赖项</span><br><span class="line">config  配置管理本地和全局配置</span><br><span class="line">search  搜索PyPI查找包</span><br><span class="line">wheel  根据您的需求构建轮子</span><br><span class="line">hash  包存档的哈希计算值</span><br><span class="line">completion 用于命令完成的辅助命令</span><br><span class="line">debug  显示对调试有用的信息</span><br><span class="line">help  帮助显示命令的帮助</span><br></pre></td></tr></table></figure><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">百度百科（pip）：https:&#x2F;&#x2F;baike.baidu.com&#x2F;item&#x2F;PIP&#x2F;20435212</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -209,6 +229,8 @@
     
     
     <category term="pip" scheme="https://bolerat.github.io/tags/pip/"/>
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
     
   </entry>
   
