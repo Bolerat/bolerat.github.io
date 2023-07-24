@@ -5,7 +5,7 @@ $(".highlight").wrap("<div class='code-wrapper' style='position:relative'></div>
     var initCopyCode = function () {
         var copyHtml = '';
         copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-        copyHtml += '  <i class="fa fa-clipboard"></i><span>复制</span>';
+        copyHtml += '  <i class="fa fa-clipboard"></i><span>📋复制</span>';
         copyHtml += '</button>';
         $(".highlight .code").before(copyHtml);
         var clipboard = new ClipboardJS('.btn-copy', {
@@ -16,7 +16,7 @@ $(".highlight").wrap("<div class='code-wrapper' style='position:relative'></div>
         clipboard.on('success', function (e) {
             e.trigger.innerHTML = "<i class='fa fa-clipboard'></i><span>复制成功</span>"
             setTimeout(function () {
-                e.trigger.innerHTML = "<i class='fa fa-clipboard'></i><span>复制</span>"
+                e.trigger.innerHTML = "<i class='fa fa-clipboard'></i><span>📋复制</span>"
             }, 1000)
            
             e.clearSelection();
@@ -24,7 +24,7 @@ $(".highlight").wrap("<div class='code-wrapper' style='position:relative'></div>
         clipboard.on('error', function (e) {
             e.trigger.innerHTML = "<i class='fa fa-clipboard'></i><span>复制失败</span>"
             setTimeout(function () {
-                e.trigger.innerHTML = "<i class='fa fa-clipboard'></i><span>复制</span>"
+                e.trigger.innerHTML = "<i class='fa fa-clipboard'></i><span>📋复制</span>"
             }, 1000)
             e.clearSelection();
         });
