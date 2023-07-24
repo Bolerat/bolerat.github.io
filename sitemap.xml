@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bolerat.github.io/date/index.html</loc>
+    
+    <lastmod>2023-07-24T17:14:37.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://bolerat.github.io/posts/46105/</loc>
     
     <lastmod>2023-07-24T17:00:49.950Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>https://bolerat.github.io/posts/7053/</loc>
     
     <lastmod>2023-07-24T16:56:37.521Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bolerat.github.io/date/index.html</loc>
-    
-    <lastmod>2023-07-24T16:56:29.524Z</lastmod>
     
   </url>
   
