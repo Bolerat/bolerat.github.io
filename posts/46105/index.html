@@ -45,7 +45,7 @@ var _hmt = _hmt || [];
 <meta property="og:description" content="文件上传与数据库交互">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-23T16:07:00.000Z">
-<meta property="article:modified_time" content="2023-07-25T05:17:14.150Z">
+<meta property="article:modified_time" content="2023-07-25T05:59:13.736Z">
 <meta property="article:author" content="Bolerat">
 <meta property="article:tag" content="2">
 <meta property="article:tag" content="web">
@@ -325,30 +325,17 @@ var _hmt = _hmt || [];
 
 
 <h3 id="数据库交互"><a href="#数据库交互" class="headerlink" title="数据库交互"></a>数据库交互</h3><p>使用PHP实现数据交互需要用到以下两个组件：</p>
-<ol>
-<li><p>HTTP请求：PHP能够处理HTTP请求，就能够获取到从客户端发送来的数据。最常用的HTTP请求方法是GET和POST，分别用于向服务器请求数据和向服务器发送数据。</p>
-</li>
-<li><p>数据库连接：PHP提供了一种称为mysqli的内置库，能够让你轻松地与MySQL数据库进行交互。</p>
-</li>
-</ol>
+<p>1.HTTP请求：PHP能够处理HTTP请求，就能够获取到从客户端发送来的数据。最常用的HTTP请求方法是GET和POST，分别用于向服务器请求数据和向服务器发送数据。</p>
+<p>2.数据库连接：PHP提供了一种称为mysqli的内置库，能够让你轻松地与MySQL数据库进行交互。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 建立数据库连接</span><br><span class="line">$conn &#x3D; new mysqli(&quot;localhost&quot;, &quot;数据库用户名&quot;, &quot;数据库密码&quot;, &quot;数据库名称&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 检查连接是否成功</span><br><span class="line">if ($conn-&gt;connect_error) &#123;</span><br><span class="line">    die(&quot;连接失败: &quot; . $conn-&gt;connect_error);</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 如果有POST请求</span><br><span class="line">if ($_SERVER[&quot;REQUEST_METHOD&quot;] &#x3D;&#x3D; &quot;POST&quot;) &#123;</span><br><span class="line">    &#x2F;&#x2F; 获取POST请求中的数据</span><br><span class="line">    $data &#x3D; $_POST[&quot;data&quot;];</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; 执行SQL语句</span><br><span class="line">    $sql &#x3D; &quot;INSERT INTO 测试表 (数据) VALUES (&#39;$data&#39;)&quot;;</span><br><span class="line">    if ($conn-&gt;query($sql) &#x3D;&#x3D;&#x3D; TRUE) &#123;</span><br><span class="line">        &#x2F;&#x2F; 数据插入成功</span><br><span class="line">        echo &quot;新纪录插入成功&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; 数据插入失败</span><br><span class="line">        echo &quot;Error: &quot; . $sql . &quot;&quot; . $conn-&gt;error;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 关闭数据库连接</span><br><span class="line">$conn-&gt;close();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>创建mysqli连接，并将连接信息保存在$conn变量中。</p>
-</li>
-<li><p>检查连接是否成功， 如果没有连接成功，程序将输出连接错误，并中止程序的执行。</p>
-</li>
-<li><p>如果当前的HTTP请求是一个POST请求，从请求中获取所发送的数据, 并将数据保存在$data 变量中。</p>
-</li>
-<li><p>执行SQL语句以将所接收的数据插入到MySQL数据库中。可以使用mysqli的query()方法来执行SQL语句。</p>
-</li>
-<li><p>如果插入操作成功了，则向浏览器发送一条消息表明新记录插入成功。</p>
-</li>
-<li><p>如果插入操作失败，则输出错误信息并关闭连接。</p>
-</li>
-<li><p>最后，关闭数据库连接以释放资源。</p>
-</li>
-</ol>
+<p>1.创建mysqli连接，并将连接信息保存在$conn变量中。</p>
+<p>2.检查连接是否成功， 如果没有连接成功，程序将输出连接错误，并中止程序的执行。</p>
+<p>3.如果当前的HTTP请求是一个POST请求，从请求中获取所发送的数据, 并将数据保存在$data 变量中。</p>
+<p>4.执行SQL语句以将所接收的数据插入到MySQL数据库中。可以使用mysqli的query()方法来执行SQL语句。</p>
+<p>5.如果插入操作成功了，则向浏览器发送一条消息表明新记录插入成功。</p>
+<p>6.如果插入操作失败，则输出错误信息并关闭连接。</p>
+<p>7.最后，关闭数据库连接以释放资源。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参考资料：</span><br><span class="line">后盾人文档-PHP文件上传：https:&#x2F;&#x2F;doc.houdunren.com&#x2F;系统课程&#x2F;php&#x2F;7 文件上传.html</span><br><span class="line">如何使用PHP来实现数据交互：https:&#x2F;&#x2F;www.itshiye.com&#x2F;03&#x2F;10300.html</span><br></pre></td></tr></table></figure>
       
 
