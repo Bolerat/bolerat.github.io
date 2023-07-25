@@ -40,7 +40,7 @@ const ap = new APlayer({
             name: '抖音榜',
             artist: 'Artist',
             lrc: '/music/lrc/请倾听.lrc',
-            cover: 'https://tvax2.sinaimg.cn/crop.0.0.690.690.180/006zpFxaly8gdi6j9n49zj30j60j6jrq.jpg?KID=imgbed,tva&Expires=1684321167&ssig=e%2F%2BRUJK4uA',
+            cover: '/pic/douyin.jpg',
             url: 'https://api.uomg.com/api/rand.music?sort=抖音榜&format=mp3'
                   },
 		
