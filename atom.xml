@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bolerat</title>
+  
+  
+  <link href="https://bolerat.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://bolerat.github.io/"/>
+  <updated>2023-07-30T07:46:48.408Z</updated>
+  <id>https://bolerat.github.io/</id>
+  
+  <author>
+    <name>Bolerat</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL基础操作</title>
+    <link href="https://bolerat.github.io/posts/33509/"/>
+    <id>https://bolerat.github.io/posts/33509/</id>
+    <published>2023-07-30T07:20:00.000Z</published>
+    <updated>2023-07-30T07:46:48.408Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>SQL入门</p><a id="more"></a><h3 id="SQL基础知识"><a href="#SQL基础知识" class="headerlink" title="SQL基础知识"></a>SQL基础知识</h3><h5 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL?"></a>什么是SQL?</h5><ul><li>SQL 指结构化查询语言，全称是 Structured Query Language。</li><li>SQL 可以访问和处理数据库，包括数据的增删改查。</li><li>SQL 在1986年成为 ANSI（American National Standards Institute 美国国家标准化组织）的一项标准，在 1987 年成为国际标准化组织（ISO）标准。</li><li>通过SQL语言可以管理RDBMS（关系数据库系统），例如Oracle、IBM的DB2和微软的SQL Server等。</li></ul><h5 id="一些名词："><a href="#一些名词：" class="headerlink" title="一些名词："></a>一些名词：</h5><ol><li>DB：database 数据库。</li><li>DBMS：Database Management System 数据库管理系统：用来管理数据库的计算机系统。分为RDBMS（关系数据库系统）、OODBMS（面向对象的数据库系统）和ORDBMS（对象关系数据库系统） 或者是 RDBMS和NoSQL（非关系型数据库系统）。</li></ol><h3 id="代码部分（基本操作）"><a href="#代码部分（基本操作）" class="headerlink" title="代码部分（基本操作）"></a>代码部分（基本操作）</h3><details><summary>实操代码（点击可展开）</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">-- 基本操作</span><br><span class="line">CREATE DATABASE &#96;sql_1&#96;;</span><br><span class="line">SHOW DATABASES;</span><br><span class="line">CREATE DATABASE &#96;sql_2&#96;;</span><br><span class="line">SHOW DATABASES;</span><br><span class="line">DROP DATABASE &#96;sql_2&#96;;</span><br><span class="line">SHOW DATABASES;</span><br><span class="line"></span><br><span class="line">-- sql资料类型</span><br><span class="line">USE &#96;sql_1&#96;;</span><br><span class="line">-- int 整数 </span><br><span class="line">-- decimal(3,2) 小数两位一共三位数</span><br><span class="line">-- varchar(10) 10个字符</span><br><span class="line">-- blob 二进制资料 图片影片档案</span><br><span class="line">-- date &#39;YYYY-MM-DD&#39;</span><br><span class="line">-- timestamp &#39;YYYY-MM-DD HH:MM:SS&#39;记录时间</span><br><span class="line"></span><br><span class="line">-- 创建表单</span><br><span class="line">create table student(</span><br><span class="line">&#96;student_id&#96; INT primary key,</span><br><span class="line">-- primary key(&#96;student_id&#96;),</span><br><span class="line">&#96;name&#96; varchar(30),</span><br><span class="line">&#96;major&#96; varchar(20)</span><br><span class="line">);</span><br><span class="line">describe &#96;student&#96;;</span><br><span class="line">drop table &#96;student&#96;;</span><br><span class="line">alter table &#96;student&#96; add gpa decimal(3,2);</span><br><span class="line">alter table &#96;student&#96; drop column gpa;</span><br><span class="line"></span><br><span class="line">-- 添加 查询</span><br><span class="line">insert into &#96;student&#96; values(1,&quot;小白&quot;,&quot;历史&quot;);</span><br><span class="line">select * from &#96;student&#96;;</span><br><span class="line">insert into &#96;student&#96; values(2,&quot;小黑&quot;,&quot;生物&quot;);</span><br><span class="line">insert into &#96;student&#96; values(3,&quot;小绿&quot;,NULL);</span><br><span class="line">insert into &#96;student&#96;(&#96;name&#96;,&#96;major&#96;,&#96;student_id&#96;) values(&quot;小蓝&quot;,&quot;英语&quot;,3);</span><br><span class="line">insert into &#96;student&#96;(&#96;name&#96;,&#96;student_id&#96;) values(&quot;小紫&quot;,5);</span><br><span class="line"></span><br><span class="line">-- 限制约束</span><br><span class="line">create table student_2(</span><br><span class="line">&#96;student_id&#96; INT primary key auto_increment,</span><br><span class="line">-- primary key(&#96;student_id&#96;),</span><br><span class="line">&#96;name&#96; varchar(30) not null,</span><br><span class="line">&#96;major&#96; varchar(20) default &#39;历史&#39;</span><br><span class="line">);</span><br><span class="line">insert into &#96;student_2&#96;(&#96;name&#96;) values(&quot;小白&quot;);</span><br><span class="line">describe &#96;student_2&#96;;</span><br><span class="line">select * from &#96;student_2&#96;;</span><br><span class="line">insert into &#96;student_2&#96;(&#96;name&#96;) values(&quot;小黑&quot;);</span><br><span class="line">insert into &#96;student_2&#96;(&#96;name&#96;) values(&quot;小蓝&quot;);</span><br><span class="line">drop table &#96;student_2&#96;;</span><br><span class="line"></span><br><span class="line">-- 修改删除</span><br><span class="line">set SQL_SAFE_UPDATES &#x3D; 0;</span><br><span class="line">select * from &#96;student&#96;;</span><br><span class="line">update &#96;student&#96;</span><br><span class="line">SET &#96;major&#96; &#x3D; &#39;英语文学&#39;</span><br><span class="line">WHERE &#96;major&#96; &#x3D; &#39;英语&#39;;</span><br><span class="line">select * from &#96;student&#96;;</span><br><span class="line">update &#96;student&#96;</span><br><span class="line">SET &#96;major&#96; &#x3D; &#39;生化&#39; </span><br><span class="line">WHERE &#96;major&#96; &#x3D; NULL; -- 有点离谱了。。。</span><br><span class="line">delete from &#96;student&#96;</span><br><span class="line">where &#96;name&#96; &#x3D; &quot;小绿&quot; or &#96;name&#96; &#x3D; &#39;小紫&#39;;</span><br><span class="line">update &#96;student&#96;</span><br><span class="line">set &#96;name&#96; &#x3D; &#39;小白&#39;</span><br><span class="line">where student_id &#x3D;1;</span><br><span class="line"></span><br><span class="line">-- 取得资料</span><br><span class="line">use &#96;sql_1&#96;;</span><br><span class="line">show databases;</span><br><span class="line">select &#96;name&#96;,&#96;major&#96; from &#96;student&#96; </span><br><span class="line">where &#96;major&#96; &#x3D; &#39;英语&#39;</span><br><span class="line">-- order by &#96;major&#96; desc limit 2</span><br><span class="line">;</span><br><span class="line">set SQL_SAFE_UPDATES &#x3D; 0;</span><br><span class="line">update &#96;student&#96; </span><br><span class="line">set &#96;student_id&#96; &#x3D; 3</span><br><span class="line">where &#96;student_id&#96; &#x3D; 4;</span><br><span class="line">select * from &#96;student&#96;;</span><br><span class="line">select *</span><br><span class="line">from &#96;student&#96;</span><br><span class="line">where &#96;major&#96; in(&#39;英语&#39;,&#39;语文&#39;);</span><br><span class="line">-- 等价于 where &#96;major&#96; &#x3D; &#39;英语&#39; or &#96;major&#96; &#x3D; &#39;语文&#39;;</span><br></pre></td></tr></table></figure></details>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;SQL入门&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+    <category term="SQL" scheme="https://bolerat.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php实现文件上传与数据库交互</title>
+    <link href="https://bolerat.github.io/posts/46105/"/>
+    <id>https://bolerat.github.io/posts/46105/</id>
+    <published>2023-07-23T16:07:00.000Z</published>
+    <updated>2023-07-25T06:00:45.230Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>文件上传与数据库交互</p><a id="more"></a><h3 id="上传步骤"><a href="#上传步骤" class="headerlink" title="上传步骤"></a>上传步骤</h3><ul><li>选择文件 </li><li>提交文件到服务器</li><li>服务器进行上传操作</li><li>服务器反馈上传结果</li></ul><h3 id="上传限制"><a href="#上传限制" class="headerlink" title="上传限制"></a>上传限制</h3><h5 id="大小与时间限制"><a href="#大小与时间限制" class="headerlink" title="大小与时间限制"></a>大小与时间限制</h5><p>对于服务器而言，能够承受的上传文件大小是有限的，不能让用户上传超大的文件。可以在php.ini配置文件中设置</p><ul><li>upload_max_filesize：上传文件大小限制</li><li>post_max_size：最大POST数据限制</li><li>memory_limit：内存限制，PHP5.2之前（默认8M）、PHP5.2(16M)、PHP5.2之后（128M）</li></ul><p>逻辑顺序上：</p><ul><li>memory_limit&gt;post_max_size&gt;upload_max_filesize </li></ul><p>对于时间限制：</p><ul><li>max_execution_time：程序执行时间限制</li><li>set_time_limit(0)：0表示没有时间限制</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max_execution_time &#x3D; 30&#x2F;&#x2F;单位默认为second，时间默认为30秒</span><br><span class="line">upload_max_filesize &#x3D; 100M&#x2F;&#x2F;文件上传最大限制100M</span><br></pre></td></tr></table></figure><h5 id="文件类型限制"><a href="#文件类型限制" class="headerlink" title="文件类型限制"></a>文件类型限制</h5><p>通过对上传的文件的mimeType过滤处理。在PHP中利用$_FILES’file’来获取上传文件的mimeType。并使用in_array()函数对文件的mimeType进行判断，再决定是否能够上传。</p><h5 id="安全检查"><a href="#安全检查" class="headerlink" title="安全检查"></a>安全检查</h5><p>对于上传的文件，需要检查用户是否上传不安全的文件，诸如木马、病毒、脚本等等。</p><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><h5 id="实例-1"><a href="#实例-1" class="headerlink" title="实例 1"></a>实例 1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP文件上传代码实例(来源自PHP中文网)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$allow_exts &#x3D; array(&#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;png&#39;, &#39;txt&#39;);</span><br><span class="line"></span><br><span class="line">$upload_dir &#x3D; &#39;uploads&#x2F;&#39;;</span><br><span class="line"></span><br><span class="line">$max_size &#x3D; 1024 * 1024;</span><br><span class="line"></span><br><span class="line">if ($_FILES[&#39;file&#39;][&#39;error&#39;] !&#x3D; UPLOAD_ERR_OK) &#123;</span><br><span class="line">    echo &#39;上传失败，请稍后再试&#39;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$temp_file &#x3D; $_FILES[&#39;file&#39;][&#39;tmp_name&#39;];</span><br><span class="line"></span><br><span class="line">$file_name &#x3D; $_FILES[&#39;file&#39;][&#39;name&#39;];</span><br><span class="line"></span><br><span class="line">$file_ext &#x3D; strtolower(pathinfo($file_name, PATHINFO_EXTENSION));</span><br><span class="line"></span><br><span class="line">if (!in_array($file_ext, $allow_exts)) &#123;</span><br><span class="line">    echo &#39;文件类型不符合要求，请上传指定类型的文件&#39;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if ($_FILES[&#39;file&#39;][&#39;size&#39;] &gt; $max_size) &#123;</span><br><span class="line">    echo &#39;文件大小不能超过1MB，请重新上传&#39;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (!is_uploaded_file($temp_file)) &#123;</span><br><span class="line">    echo &#39;非法上传，请重新上传&#39;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (!file_exists($upload_dir)) &#123;</span><br><span class="line">    mkdir($upload_dir);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">if (move_uploaded_file($temp_file, $upload_dir . $file_name)) &#123;</span><br><span class="line">    echo &#39;上传成功&#39;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line">echo &#39;上传失败，请稍后再试&#39;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>上述代码中，使用了几个PHP内置函数来实现文件上传的基本功能。其中，in_array()函数用来判断上传的文件类型是否符合要求。pathinfo()函数用来获取上传文件的后缀名。is_uploaded_file()函数用来校验是否是合法的上传文件，防止非法上传。move_uploaded_file()函数则用来将上传缓存文件移动到指定目录，完成文件上传过程。</p><h5 id="实例-2（实战）"><a href="#实例-2（实战）" class="headerlink" title="实例 2（实战）"></a>实例 2（实战）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表单上传-前台html代码</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;upload.php&quot; method&#x3D;&quot;post&quot; enctype&#x3D;&quot;multipart&#x2F;form-data&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;file&quot; name&#x3D;&quot;file&quot;&#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure><p>enctype属性有两个，“application/x-www-form-urlencoded”，enctype属性值设为这个表示上传的内容为文本，所以一般我们只是上传文本信息的时候不需要设定enctype属性，因为浏览器给的enctype默认值就是它。而当我们上传文件的时候，则需要显性的设置enctype为“multipart/form-data”，表示以二进制形式把数据传到服务器。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP-后台文件上传</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$fileinfo&#x3D;$_FILES[&#39;file&#39;][&#39;tmp_name&#39;];</span><br><span class="line">$filepath&#x3D;&quot;files&#x2F;&quot;.$_FILES[&#39;file&#39;][&#39;name&#39;];</span><br><span class="line">move_uploaded_file($fileinfo,$filepath);</span><br><span class="line"> ?&gt;</span><br></pre></td></tr></table></figure><h3 id="数据库交互"><a href="#数据库交互" class="headerlink" title="数据库交互"></a>数据库交互</h3><p>使用PHP实现数据交互需要用到以下两个组件：</p><ol><li><p>HTTP请求：PHP能够处理HTTP请求，就能够获取到从客户端发送来的数据。最常用的HTTP请求方法是GET和POST，分别用于向服务器请求数据和向服务器发送数据。</p></li><li><p>数据库连接：PHP提供了一种称为mysqli的内置库，能够让你轻松地与MySQL数据库进行交互。</p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 建立数据库连接</span><br><span class="line">$conn &#x3D; new mysqli(&quot;localhost&quot;, &quot;数据库用户名&quot;, &quot;数据库密码&quot;, &quot;数据库名称&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 检查连接是否成功</span><br><span class="line">if ($conn-&gt;connect_error) &#123;</span><br><span class="line">    die(&quot;连接失败: &quot; . $conn-&gt;connect_error);</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 如果有POST请求</span><br><span class="line">if ($_SERVER[&quot;REQUEST_METHOD&quot;] &#x3D;&#x3D; &quot;POST&quot;) &#123;</span><br><span class="line">    &#x2F;&#x2F; 获取POST请求中的数据</span><br><span class="line">    $data &#x3D; $_POST[&quot;data&quot;];</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; 执行SQL语句</span><br><span class="line">    $sql &#x3D; &quot;INSERT INTO 测试表 (数据) VALUES (&#39;$data&#39;)&quot;;</span><br><span class="line">    if ($conn-&gt;query($sql) &#x3D;&#x3D;&#x3D; TRUE) &#123;</span><br><span class="line">        &#x2F;&#x2F; 数据插入成功</span><br><span class="line">        echo &quot;新纪录插入成功&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; 数据插入失败</span><br><span class="line">        echo &quot;Error: &quot; . $sql . &quot;&quot; . $conn-&gt;error;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 关闭数据库连接</span><br><span class="line">$conn-&gt;close();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><ol><li><p>创建mysqli连接，并将连接信息保存在$conn变量中。</p></li><li><p>检查连接是否成功， 如果没有连接成功，程序将输出连接错误，并中止程序的执行。</p></li><li><p>如果当前的HTTP请求是一个POST请求，从请求中获取所发送的数据, 并将数据保存在$data 变量中。</p></li><li><p>执行SQL语句以将所接收的数据插入到MySQL数据库中。可以使用mysqli的query()方法来执行SQL语句。</p></li><li><p>如果插入操作成功了，则向浏览器发送一条消息表明新记录插入成功。</p></li><li><p>如果插入操作失败，则输出错误信息并关闭连接。</p></li><li><p>最后，关闭数据库连接以释放资源。</p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参考资料：</span><br><span class="line">后盾人文档-PHP文件上传：https:&#x2F;&#x2F;doc.houdunren.com&#x2F;系统课程&#x2F;php&#x2F;7 文件上传.html</span><br><span class="line">如何使用PHP来实现数据交互：https:&#x2F;&#x2F;www.itshiye.com&#x2F;03&#x2F;10300.html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;文件上传与数据库交互&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023—Summer Vacation</title>
+    <link href="https://bolerat.github.io/posts/35232/"/>
+    <id>https://bolerat.github.io/posts/35232/</id>
+    <published>2023-07-07T09:46:00.000Z</published>
+    <updated>2023-07-25T10:39:14.137Z</updated>
+    
+    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">输入密码，查看文章</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="04e9620d1c02939cf8f0f8c8813073a728d3203ddb6bc2b2171a10c64ffe1b94">efefacb2b086a20a19dfbda11f33fd914768c8f5f2c1217314d4bd2ce8da3aa3a94df65caf5e5c0641fcb4e27fc6410fcf735e0fb5e58de1890fb90c712ad1f16a0b1671b9454ff8cb8040b051f9871a627885a0745c42b58290a92835640bc313e4d41d11135392e765f2dcfa3c6db34d5b2396ddecbf166006de9e4a49cbbbae91976611deaab03877d0d29badccc7d6050291b358188539e473628b18c3093fca7b5c505b372fb79d33d37271e1a5d6395ab24746d7fb926d6a4638ae4f9d88787ca57f8d337e5f1700bd967c2f0cdd74b5ce73ae0d4074c1000756c77047c8833865c100e6e1384e6776e27841b410b436da8dc7b3a702194ea7415c009b32423f67656987cca226dbe739cec16535e1a10ed9aa29e57612c9ed172a00399355707b7d5750ffbaac0d3b03b9322647f6c4cf1358bcc1037a68273eff0808cc3b2825cb2f120cb2006245b2de3cfa8e80342350008aea160a8d1744cdd8228562b9e0a6bdafe0e243dd4ab4263ee11e05d3a6dbc36b673b82d32709866802392899136df63f15d840c9a353b6747279d9647d430815978410f71f1497c4b41205c616e1dcbae693307161108ed26fe98e25aeba1233c3e08fad7da140046f39b979e9c6ed8d43f72cdf7ca41dd1a8fb565437f2c6ed52a0126615d4dc3660f11302909e364ccce36323b506a44386c03f2a07989ac96b00831cf6b36cc3c28ba744176f8a0cb1131060a7d3e9a9fa3b8c78b420a54d07efd4bf9f05b2cb68eb6987046bfc3d3d82462aa07fd7d60818ac241872e6e564189d1fb4b52e35107d76651500497bdc2861d03d828c34c50ef546e52a8bdb4d6203c026083808c61f693cba8dd2099bc82e96adfeb2243621bad052ab598d0d6320b189d3bed2177ff37bffda94eeb9275003188d192d567a08b2ffa8a396df92bd143cf2138ac262d847db8dc5e6ccda9f5d4390ce8f2c5e41a16a2f291b7228fcaab97e201109b4c3d06f14ccfd530b820a106cd84642e382d0692290a1ba4bd6bb70f8728e6de1119b80d03feda18623b3bc52bc9148da97f9be92ae3bc47e1d1b868f016c4b43ad5f0f1adc9926feb9921c5110b61cfeb08d976fa4ba9b519dd9fc1d803324fa819d4f1efd9436bc7f46269b0ef43ff9fb2778ac3238f5485d827b00a09e66ff9e5a22024c2a80757ff7e191c717dd44dd935ef517a22cac9562c6c7afc4bd0b9c96d9cab0680902d269cff4595bb8b5ddbc1a8ba3b2327eccf145d27b9ddc1dddaf77ebe5ff712cbab0ffaf162e4875367789d1e52c3bd9f77cc67c81e67381f11149f544d0a7a657e3a728fadd136fb36709644918978db791b88de87419f3d7f17c11b7b6ff7fba6eaf466f4bea65b3c6beace32e41897bc3e704e41e7c915f8bfc7ea0d017a0f75baa7866f4bc6c95f5ed56acb6ccb5365e3122fa9db1c15f111e3c1c65e440f6fc6d8d07712135018eef14d1c8ecf6c5add79f1e20bf74a680b4a926cf67622e0b36ccd0356e85461895e2b8ed0296dea2e30a990f5365a9368d7a7f3c0e9d1750c5ab051aa3159a0f224371ad2913a7abebe81f048118acc543c38a4ac15709c73498cd513b5ba0a64e04d6029f1e34989514d7c202f8091cdef025ffe88c6fa48fcbdc79c319ecf06420021d277ef55db41668775b25f3a700ff332374d65b29da996732dec491a46ecd23b3e342b641b1593296cfcdf3d99f2f0e7ea329be65fb6abe6cbe7afe32f01805a4b65781b8d9a9274780241831d0da11a3d7168604cbfa1213bb86b237d76e1a849faf436f9d235311e9492e5cfd57369aa448f66d1d32db193c42bf0bb7b8667a1d0cc87a81e3b85394ed3aa51502e257ec8feaa40acad5fbbe6c6c0986634ad603b6776b9f9ee50cef218de36e9701c2fafdf778fe8f62795727717dc2d84b859f322f5ec98531639c61cf02fe94dc3e03e1ff30ab4979edb6bb446b2380073897270113b8feabbef143c4c37394b64fffa17446a8ff7c7b63bd9fe48d05c65b2d7f469087b620a20d1135f76ec7aed3243fcbbcfee6aaf08f07fdb796fb43aad63473bb2712b9ef8aafe12c580941bd612d44437940c6d67f0882756d62467c9e4e784f2163963e5d3ba46f33889d1de768c06fa254ea332d50b2b0098080316af67f65d186b9fe74f4c1014fc145d263f98153c60720383f4963b642d9b97f5ee98c9e1409b8402450c1ec59390c37b999bb946097c9f5ae622d731a0ab5e42df8bb8ff9110846d951ac611bfd16e508c680464b926ace0faa8df3ac2817109a3a8e1d511afbd2b49a86df715675d5ae259a4b8f44a183d0ca3e42ccc1e52d37de5095b5df48cb468c26e40865ad3245e3ac038642230864c92c1e97f88d6f45562e81ac2a9527e0e45c2621197d728b0a6d31c4aa88b1affb117717a92cf646f3a5587ef73b301368bfafee3efc6239f145ca5b2b983437760091901bebe52e135b76639e7e1cd3d848b0c72b6805cbe88b23119557a32b2ecc3b3062813137a1523976b2470cde39c6d1e4416554981262da3b12dddb33c04ef9f5b081f30428d2e02cce84e041d9d259d836cba88727360957ff69bcdd479f1c55e2b2dbda97b129e79a6c62983589e075c5562408aec6b31f17df3fb1e37602c682ba2081658afd8d456b0ad69482d1d2f0f3281d3b2cdbf6d19d783d</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    
+    
+    <summary type="html">已加密</summary>
+    
+    
+    
+    
+    <category term="4" scheme="https://bolerat.github.io/tags/4/"/>
+    
+    <category term="暑假" scheme="https://bolerat.github.io/tags/%E6%9A%91%E5%81%87/"/>
+    
+    <category term="plan" scheme="https://bolerat.github.io/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在linux上使用小皮搭建sqli靶场</title>
+    <link href="https://bolerat.github.io/posts/46934/"/>
+    <id>https://bolerat.github.io/posts/46934/</id>
+    <published>2023-07-04T06:48:00.000Z</published>
+    <updated>2023-07-24T17:00:34.413Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在linux上使用小皮搭建sqli靶场</p><a id="more"></a><h3 id="安装小皮面板"><a href="#安装小皮面板" class="headerlink" title="安装小皮面板"></a>安装小皮面板</h3><p>kali是基于Debian的，所以按照Debian无docker的版本安装的</p><img src="/pic/l1.png" alt="1" style="zoom:70%" /><p>安装成功，可以看到内网网址，直接登入小皮</p><img src="/pic/l2.png" alt="1" style="zoom:70%" /><p>然后安装基本套件，并启动SQL</p><img src="/pic/l3.png" alt="1" style="zoom:50%" /><h3 id="安装sqli-labs靶场"><a href="#安装sqli-labs靶场" class="headerlink" title="安装sqli-labs靶场"></a>安装sqli-labs靶场</h3><p>图个方便，给sqli-labs设置了域名</p><img src="/pic/l4.png" alt="1" style="zoom:50%" /><p>给靶场文件夹设置755权限（所有者拥有可读、可写、可执行权限,所属组与其他用户仅拥有可读与可执行权限）</p><img src="/pic/l5.png" alt="1" style="zoom:100%" /><p>从网页配置靶场</p><img src="/pic/l6.png" alt="1" style="zoom:50%" /><p>第一关SQL注入尝试</p><img src="/pic/l7.png" alt="1" style="zoom:50%" /><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考资料：http:&#x2F;&#x2F;www.xbhp.cn&#x2F;news&#x2F;20895.html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;在linux上使用小皮搭建sqli靶场&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+    <category term="linux" scheme="https://bolerat.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模板注入</title>
+    <link href="https://bolerat.github.io/posts/17608/"/>
+    <id>https://bolerat.github.io/posts/17608/</id>
+    <published>2023-06-12T16:51:00.000Z</published>
+    <updated>2023-07-24T17:00:26.644Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习</p><a id="more"></a><ul><li>学习<ul><li><a href="https://blog.csdn.net/m0_61607810/article/details/121568121" target="_blank" rel="noopener">模板引擎</a></li><li><a href="https://www.cnblogs.com/GoIcejio/p/16593990.html" target="_blank" rel="noopener">SSTI模板注入 </a></li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;学习&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+    <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
+    
+    <category term="CTF" scheme="https://bolerat.github.io/tags/CTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kali的升级失败</title>
+    <link href="https://bolerat.github.io/posts/59374/"/>
+    <id>https://bolerat.github.io/posts/59374/</id>
+    <published>2023-06-03T15:47:00.000Z</published>
+    <updated>2023-07-24T17:00:19.351Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>关于我的kali今天崩掉了。</p><a id="more"></a><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p>   最开始，我在安装盲水印需要用到的opencv-python库时，一切都还好，后来一直无法安装成功，返回“无法定位opencv-python”的结果，阅读了网上的教程，我觉得可以更新一下系统。</p><p>   于是我update了，在快要结束的时候报错了，浏览器也用不了，整个系统瘫痪，重启之后，正确的密码无法登入系统了。于是在尝试各种策略后，我成功地无法进入登录界面了，开机即报错，于是就有了以下状态：</p><img src="/pic/lk2.jpg" alt="1" style="zoom:50%" /><h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><p>与其反复报错，我自然地重装了kali，只是可惜我之前安装了那么多库和工具…</p><img src="/pic/lk1.jpg" alt="1" style="zoom:50%" />]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;关于我的kali今天崩掉了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+    <category term="linux" scheme="https://bolerat.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CTF PWN打基础（寄存器）</title>
+    <link href="https://bolerat.github.io/posts/7491/"/>
+    <id>https://bolerat.github.io/posts/7491/</id>
+    <published>2023-05-29T11:46:00.000Z</published>
+    <updated>2023-07-24T17:00:12.478Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>寄存器</p><a id="more"></a><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>寄存器是计算机暂存指令、数据和地址的地方.</p><h3 id="常用寄存器及其功能整理"><a href="#常用寄存器及其功能整理" class="headerlink" title="常用寄存器及其功能整理"></a>常用寄存器及其功能整理</h3><ul><li>RIP：程序计数寄存器，来存放下一条即将用来执行的指令的地址，它决定程序执行的流程。（较常用）</li><li>RBP：栈基寄存器，存放当前栈帧的栈底地址（较常用）</li><li>RAX：通用寄存器。存放函数返回值</li><li>RSP：栈顶寄存器，存放当前栈帧的栈顶地址（较常用）</li><li>RAX：随机存取寄存器</li><li>AX：累加寄存器，分为AH高八位和AL低八位</li><li>AH：累加寄存器，AX（16位）寄存器的高八位</li><li>AL：累加寄存器，AX（16位）寄存器的低八位</li><li>EAX:累加寄存器，是很多加法乘法指令的缺省寄存器</li><li>EBX：基地址寄存器，在内存寻址时存放基地址</li><li>ECX：计数器</li><li>EDX：数据寄存器，被用于来放整数除法产生的余数</li><li>ESI：源变址寄存器</li><li>EDI：目的变址寄存器</li><li>EBP：扩展基址指针寄存器，EBP来存储当前函数状态的基地址，在函数运行时不变，可以用来索引|确定函数参数或局部变量 的位置。（较常用）</li><li>ESP：栈指针寄存器，ESP用来存储函数调用栈的栈顶地址，在压栈和退栈时 发生变化。（较常用）</li><li>EIP：指令指针寄存器，EIP用来存储即将执行的程序指令的地址, cpu依照EIP的存储内容读取指令并执行，EIP 随之指向相 邻的下一条指令,如此反复,程序就得以连续执行指令。（较常用）</li></ul><h3 id="寄存器大小"><a href="#寄存器大小" class="headerlink" title="寄存器大小"></a>寄存器大小</h3><ul><li>64位cpu对应RSP（栈顶寄存器）,RBP（栈基寄存器）,RIP（程序计数寄存器）三个寄存器。</li><li>32位cpu则对应ESP（栈指针寄存器），EBP（扩展基址指针寄存器），EIP（指令指针寄存器）三个寄存器。</li><li>R开头：64bit, 8字节（1字节=8bit）</li><li>E开头：32bit, 4字节</li><li>EAX（累加寄存器）是32位， AX 是EAX的低16位 ， AL 和AH是AX的低8位和高8位。</li><li>AX,BX,CX：16bit, 2字节</li><li>AH, AL: 8bit, 1字节</li></ul><h3 id="附加知识"><a href="#附加知识" class="headerlink" title="附加知识"></a>附加知识</h3><ul><li>BX是基（base）地址寄存器：四个寄存器中唯一可作为存储器指针使用的寄存器。</li><li>CX寄存器是计数(count)寄存器：在字符串操作和循环操作时，用它来控制重复循环操作次数。在移位操作时，cl寄存器用来保存移位的位数。</li><li>BP和SP寄存器称为指针寄存器：BP主要用于给出堆栈中数据区基址的偏移，从而方便地实现直接存取堆栈中的数据，所以BP也称为基指针寄存器，正常情况下SP只作为堆栈指针使用，即保存堆栈栈顶地址的偏移。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul><li><a href="https://blog.csdn.net/weixin_43780092/article/details/126694251" target="_blank" rel="noopener">CTF PWN基础知识</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;寄存器&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="PWN" scheme="https://bolerat.github.io/tags/PWN/"/>
+    
+    <category term="寄存器" scheme="https://bolerat.github.io/tags/%E5%AF%84%E5%AD%98%E5%99%A8/"/>
+    
+    <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>练习赛Memos</title>
+    <link href="https://bolerat.github.io/posts/52558/"/>
+    <id>https://bolerat.github.io/posts/52558/</id>
+    <published>2023-05-20T16:39:00.000Z</published>
+    <updated>2023-07-24T17:00:04.261Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>赛事直达</p><a id="more"></a><ul><li><p>Algorithm</p><ul><li><a href="https://codeforces.com/contests" target="_blank" rel="noopener">Codeforce比赛</a></li><li><a href="https://www.luogu.com.cn/contest/list" target="_blank" rel="noopener">洛谷比赛</a></li><li><a href="https://pintia.cn/problem-sets/my" target="_blank" rel="noopener">PTA题目练习集赛</a></li><li><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank" rel="noopener">牛客竞赛</a></li></ul></li><li><p>CTF</p><ul><li><a href="https://iscc.isclab.org.cn/" target="_blank" rel="noopener">ISCC</a></li><li><a href="https://adworld.xctf.org.cn/contest/list" target="_blank" rel="noopener">攻防世界赛事中心</a></li><li><a href="https://www.ctfhub.com/#/calendar" target="_blank" rel="noopener">CTFHub赛事中心</a></li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;赛事直达&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="4" scheme="https://bolerat.github.io/tags/4/"/>
+    
+    <category term="日常" scheme="https://bolerat.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog安卓端</title>
+    <link href="https://bolerat.github.io/posts/25776/"/>
+    <id>https://bolerat.github.io/posts/25776/</id>
+    <published>2023-05-18T04:07:00.000Z</published>
+    <updated>2023-07-24T16:59:41.224Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>安卓安装包</p><a id="more"></a><p><a href="/assets/blog.apk">点击下载|安卓端</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;安卓安装包&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="博客搭建" scheme="https://bolerat.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="1" scheme="https://bolerat.github.io/tags/1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决优化后的aplayer无法在电脑端置顶</title>
+    <link href="https://bolerat.github.io/posts/38459/"/>
+    <id>https://bolerat.github.io/posts/38459/</id>
+    <published>2023-05-17T09:02:00.000Z</published>
+    <updated>2023-07-24T16:59:31.986Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对左侧层数进行调整</p><a id="more"></a><h3 id="z-index属性"><a href="#z-index属性" class="headerlink" title="z-index属性"></a>z-index属性</h3><p>   <strong>z-index</strong>是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系。（来自<strong>百度百科</strong>）</p><h3 id="设置z-index属性"><a href="#设置z-index属性" class="headerlink" title="设置z-index属性"></a>设置z-index属性</h3><p><strong>注意</strong>：z-index只对定位元素有作用。要设置非static的定位属性（position），z-index才会生效。</p><p>将<code>yilia\layout\layout.ejs</code>中的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;container&quot; q-class&#x3D;&quot;show:isCtnShow&quot;&gt;</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;container&quot; q-class&#x3D;&quot;show:isCtnShow&quot; style&#x3D;&quot;position:relative; z-index:  0;&quot;&gt;</span><br></pre></td></tr></table></figure><p>本解决方法是针对<a href="https://www.yansheng.fun/article/bf60dd05.html" target="_blank" rel="noopener">hexo+yilia添加APlayer音乐播放器</a><br>中的问题：<code>播放器在pc端反而不显示，会被左侧栏挡住，只在手机端显示</code>进行解决，同时也因为我也遇到这种情况，就做了优化。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;对左侧层数进行调整&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="博客搭建" scheme="https://bolerat.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="1" scheme="https://bolerat.github.io/tags/1/"/>
+    
+  </entry>
+  
+</feed>
