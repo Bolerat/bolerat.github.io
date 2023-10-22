@@ -121,11 +121,11 @@
     
     
     
-    <category term="4" scheme="https://bolerat.github.io/tags/4/"/>
-    
     <category term="暑假" scheme="https://bolerat.github.io/tags/%E6%9A%91%E5%81%87/"/>
     
     <category term="plan" scheme="https://bolerat.github.io/tags/plan/"/>
+    
+    <category term="4" scheme="https://bolerat.github.io/tags/4/"/>
     
   </entry>
   
@@ -134,7 +134,7 @@
     <link href="https://bolerat.github.io/posts/46934/"/>
     <id>https://bolerat.github.io/posts/46934/</id>
     <published>2023-07-04T06:48:00.000Z</published>
-    <updated>2023-07-24T17:00:34.413Z</updated>
+    <updated>2023-07-31T13:36:52.186Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在linux上使用小皮搭建sqli靶场</p><a id="more"></a><h3 id="安装小皮面板"><a href="#安装小皮面板" class="headerlink" title="安装小皮面板"></a>安装小皮面板</h3><p>kali是基于Debian的，所以按照Debian无docker的版本安装的</p><img src="/pic/l1.png" alt="1" style="zoom:70%" /><p>安装成功，可以看到内网网址，直接登入小皮</p><img src="/pic/l2.png" alt="1" style="zoom:70%" /><p>然后安装基本套件，并启动SQL</p><img src="/pic/l3.png" alt="1" style="zoom:50%" /><h3 id="安装sqli-labs靶场"><a href="#安装sqli-labs靶场" class="headerlink" title="安装sqli-labs靶场"></a>安装sqli-labs靶场</h3><p>图个方便，给sqli-labs设置了域名</p><img src="/pic/l4.png" alt="1" style="zoom:50%" /><p>给靶场文件夹设置755权限（所有者拥有可读、可写、可执行权限,所属组与其他用户仅拥有可读与可执行权限）</p><img src="/pic/l5.png" alt="1" style="zoom:100%" /><p>从网页配置靶场</p><img src="/pic/l6.png" alt="1" style="zoom:50%" /><p>第一关SQL注入尝试</p><img src="/pic/l7.png" alt="1" style="zoom:50%" /><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考资料：http:&#x2F;&#x2F;www.xbhp.cn&#x2F;news&#x2F;20895.html</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -167,11 +167,11 @@
     
     
     
-    <category term="CTF" scheme="https://bolerat.github.io/tags/CTF/"/>
-    
     <category term="web" scheme="https://bolerat.github.io/tags/web/"/>
     
     <category term="2" scheme="https://bolerat.github.io/tags/2/"/>
+    
+    <category term="CTF" scheme="https://bolerat.github.io/tags/CTF/"/>
     
   </entry>
   
