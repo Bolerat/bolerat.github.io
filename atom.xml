@@ -10,13 +10,13 @@
   <rights>All rights reserved 2026, Admin</rights>
   <subtitle>blog</subtitle>
   <title>bolerat</title>
-  <updated>2026-08-20T04:48:38.215Z</updated>
+  <updated>2026-08-20T05:10:21.809Z</updated>
   <entry>
     <author>
       <name>Admin</name>
     </author>
     <content>
-      <![CDATA[<p>LangChain 是一个用于开发由大型语言模型 (LLMs) 驱动的应用程序的框架。</p><span id="more"></span><h2 id="框架构成">框架构成</h2>]]>
+      <![CDATA[<p>LangChain 是一个用于开发由大型语言模型 (LLMs) 驱动的应用程序的框架。</p><span id="more"></span><h2 id="框架构成">框架构成</h2><p>1</p>]]>
     </content>
     <id>https://bolerat.top/posts/eeea93b8.html</id>
     <link href="https://bolerat.top/posts/eeea93b8.html"/>
@@ -25,6 +25,6 @@
       <![CDATA[<p>LangChain 是一个用于开发由大型语言模型 (LLMs) 驱动的应用程序的框架。</p>]]>
     </summary>
     <title>Langchain</title>
-    <updated>2026-08-20T04:48:38.215Z</updated>
+    <updated>2026-08-20T05:10:21.809Z</updated>
   </entry>
 </feed>
