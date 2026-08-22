@@ -1313,6 +1313,10 @@ time {
   margin: 3em auto 2em;
   max-width: 700px;
 }
+.artalk-comments .atk-copyright,
+.artalk-comments .atk-list-footer {
+  display: none !important;
+}
 @media screen and (max-width: 1024px) {
   .artalk-comments {
     max-width: 100%;
