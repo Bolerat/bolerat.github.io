@@ -173,7 +173,7 @@
 </div>
 <!-- 移动端目录抽屉 -->
 <div class="toc-panel" id="tocPanel">
-    <div class="toc-head">目录</div>
+    <div class="toc-head">目录<button class="toc-close" id="tocClose" type="button" title="关闭">✕</button></div>
     <nav class="toc-list" id="tocList"></nav>
 </div>
 
@@ -192,6 +192,7 @@ var sp = new Pager('data-pager-shell')
   var tocToggle = document.getElementById('tocToggle')
   var tocPanel = document.getElementById('tocPanel')
   var tocList = document.getElementById('tocList')
+  var tocClose = document.getElementById('tocClose')
   var themeToggle = document.getElementById('themeToggle')
   var sideBar = document.querySelector('.SideBar')
   var sideTocOpen = document.getElementById('sideTocOpen')
@@ -320,6 +321,13 @@ var sp = new Pager('data-pager-shell')
   if (sideTocBack) {
     sideTocBack.addEventListener('click', function () {
       sideBar.classList.remove('toc-mode')
+    })
+  }
+
+  // 关闭按钮
+  if (tocClose) {
+    tocClose.addEventListener('click', function () {
+      tocPanel.classList.remove('toc-open')
     })
   }
 

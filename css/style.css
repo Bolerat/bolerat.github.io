@@ -1479,6 +1479,21 @@ body.reading-available .reading-toolbar {
   color: var(--fg);
   border-bottom: 1px solid var(--panel-border);
   letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.toc-close {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.toc-close:hover {
+  color: var(--fg);
 }
 .toc-list {
   padding: 12px 0;
