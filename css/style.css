@@ -870,6 +870,7 @@ footer .recent-updates {
 .avatar {
   height: 150px;
   background-color: #fff;
+  background-image: none !important;
   position: absolute;
   width: 100%;
   top: 0;
@@ -985,24 +986,22 @@ footer .recent-updates {
   margin-top: 1em;
 }
 .SideBar.toc-mode {
-  overflow-y: auto;
-  display: block;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.SideBar.toc-mode::-webkit-scrollbar {
+  display: none;
 }
 .SideBar.toc-mode .menu {
   position: relative;
   top: auto;
-  width: 100%;
-  margin-top: 150px;
-}
-.SideBar.toc-mode .menu > ul {
-  padding-top: 1em;
+  margin-top: 151.5px;
 }
 .SideBar.toc-mode .side-toc-toggle {
   display: block;
 }
 .SideBar.toc-mode .side-toc {
-  display: flex;
-  flex: 1;
+  display: block;
 }
 .SideBar.toc-mode .media {
   position: relative;
@@ -1034,9 +1033,13 @@ footer .recent-updates {
   color: #111;
 }
 .side-toc-list {
-  flex: 1;
   overflow-y: auto;
+  scrollbar-width: none;
   padding: 0.6em 1em 2em;
+  max-height: calc(100vh - 500px);
+}
+.side-toc-list::-webkit-scrollbar {
+  display: none;
 }
 .side-toc-list a {
   display: block;
