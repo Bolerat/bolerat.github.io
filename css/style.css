@@ -1038,6 +1038,143 @@ time {
   padding: 0;
   overflow: hidden;
 }
+:root {
+  --reading-scale: 1;
+}
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 20000;
+  pointer-events: none;
+  background: transparent;
+}
+.reading-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #3a3a3a;
+  transition: width 80ms linear;
+}
+.reading-toolbar {
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 15000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+body.reading-available .reading-toolbar {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.rt-btn {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #333;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.rt-btn:hover {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+.rt-font {
+  display: flex;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+.rt-font button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 12px;
+  cursor: pointer;
+}
+.rt-font button:hover {
+  background: #f2f2f2;
+}
+body.reading-mode .SideBar {
+  display: none;
+}
+body.reading-mode .container {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 46rem !important;
+  padding: 2.6em 1.4em 3em !important;
+}
+body.reading-mode .container::before {
+  display: none;
+}
+body.reading-mode .ContentView {
+  padding-top: 1.5em;
+}
+body.reading-mode .ContentView .PageTitle {
+  margin-bottom: 2.2em;
+}
+body.reading-mode .ContentView .PageTitle h1 {
+  font-size: 2rem;
+  margin-left: 0;
+}
+body.reading-mode .ContentView p {
+  font-size: calc(1.05em * var(--reading-scale, 1));
+  line-height: 1.95;
+  margin: 1.1em 0;
+}
+body.reading-mode .ContentView h2,
+body.reading-mode .ContentView h3,
+body.reading-mode .ContentView h4 {
+  line-height: 1.5;
+  margin: 1.6em 0 0.6em;
+}
+body.reading-mode .ContentView img {
+  display: block;
+  margin: 1.4em auto;
+}
+body.reading-mode .ContentView blockquote {
+  margin: 1.4em 0;
+}
+body.reading-mode .ContentView .ArticleMeta {
+  max-width: none;
+}
+body.reading-mode footer {
+  max-width: none;
+}
+@media screen and (max-width: 640px) {
+  .reading-toolbar {
+    right: 12px;
+    bottom: 16px;
+  }
+  .rt-btn {
+    width: 42px;
+    height: 42px;
+  }
+  body.reading-mode .container {
+    padding: 1.8em 1.1em 2.4em;
+  }
+}
 .hljs {
     display: block;
     background: white;

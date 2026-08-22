@@ -115,11 +115,74 @@
     </div>
 </div>
 
+<!-- 阅读进度条 -->
+<div class="reading-progress"><span id="rp-bar"></span></div>
+<!-- 浮动阅读工具栏 -->
+<div class="reading-toolbar" id="readingToolbar">
+    <div class="rt-font">
+        <button data-font="0.9" title="缩小字号">A−</button>
+        <button data-font="1" title="默认字号">A</button>
+        <button data-font="1.15" title="放大字号">A＋</button>
+    </div>
+    <button class="rt-btn" id="readingToggle" title="阅读模式">阅</button>
+</div>
+
+
 <script src="/js/pager/dist/singlepager.js"></script>
 
 <script>
 var sp = new Pager('data-pager-shell')
+</script>
+<script>
+(function () {
+  var shell = document.querySelector('[data-pager-shell]')
+  var body = document.body
+  var bar = document.getElementById('rp-bar')
+  var toggle = document.getElementById('readingToggle')
+  if (!shell || !bar || !toggle) return
 
+  // 判断当前是否为文章页
+  function isArticle () {
+    return !!shell.querySelector('.ContentView .PageTitle h1')
+  }
+  function updateUI () {
+    if (isArticle()) {
+      body.classList.add('reading-available')
+    } else {
+      body.classList.remove('reading-available')
+      body.classList.remove('reading-mode')
+    }
+  }
+
+  // 阅读进度条
+  function onScroll () {
+    var h = document.documentElement
+    var max = h.scrollHeight - h.clientHeight
+    var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0
+    bar.style.width = p + '%'
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+
+  // 阅读模式开关
+  toggle.addEventListener('click', function () {
+    body.classList.toggle('reading-mode')
+    onScroll()
+  })
+
+  // 字号调节
+  var fonts = document.querySelectorAll('.rt-font button')
+  fonts.forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.documentElement.style.setProperty('--reading-scale', b.getAttribute('data-font'))
+    })
+  })
+
+  // SPA 路由切换后重新检测（shell 内容变化）
+  var mo = new MutationObserver(updateUI)
+  mo.observe(shell, { childList: true, subtree: true })
+  updateUI()
+})()
 </script>
 </body>
 </html>
