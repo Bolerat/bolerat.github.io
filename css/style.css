@@ -1495,18 +1495,6 @@ body.reading-available .reading-toolbar {
   align-items: center;
   justify-content: space-between;
 }
-.toc-close {
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 4px 8px;
-}
-.toc-close:hover {
-  color: var(--fg);
-}
 .toc-list {
   overflow-y: auto;
   scrollbar-width: none;
@@ -1535,26 +1523,20 @@ body.reading-available .reading-toolbar {
 }
 @media screen and (min-width: 1025px) {
   body.toc-expanded .SideBar {
-    width: 78px;
+    width: 68px;
     overflow: hidden;
   }
   body.toc-expanded .SideBar .avatar {
-    transform: scale(0.7);
-    transform-origin: top center;
-    opacity: 0.9;
+    display: none;
   }
-  body.toc-expanded .SideBar .menu > div,
-  body.toc-expanded .SideBar .menu > ul,
+  body.toc-expanded .SideBar .menu {
+    display: none;
+  }
   body.toc-expanded .SideBar .media {
-    opacity: 0;
-    pointer-events: none;
-  }
-  body.toc-expanded .SideBar .side-toc-toggle {
-    display: block;
-    left: 22px;
+    display: none;
   }
   body.toc-expanded .container {
-    left: 78px;
+    left: 68px;
   }
 }
 body.reading-mode .SideBar {
@@ -1606,6 +1588,33 @@ body.reading-mode .ContentView blockquote {
 body.reading-mode .ContentView .ArticleMeta {
   max-width: none;
 }
+@media screen and (max-width: 1024px) {
+  .toc-panel {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80vw;
+    max-width: 320px;
+    max-height: none;
+    height: 100vh;
+    border: none;
+    border-left: 1px solid var(--panel-border);
+    border-radius: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: transform 260ms ease;
+  }
+  .toc-panel.toc-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+  .toc-list {
+    flex: 1;
+    max-height: none;
+  }
+}
 @media screen and (max-width: 640px) {
   .reading-toolbar {
     right: 12px;
@@ -1615,13 +1624,6 @@ body.reading-mode .ContentView .ArticleMeta {
   .rt-btn {
     width: 42px;
     height: 42px;
-  }
-  .toc-panel {
-    top: 60px;
-    right: 12px;
-    width: 210px;
-    max-width: 78vw;
-    max-height: 60vh;
   }
   body.reading-mode .container {
     padding: 1.8em 1.1em 2.4em;
