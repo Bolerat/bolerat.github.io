@@ -984,19 +984,19 @@ time {
 }
 .ContentView .ArticleMeta > div:nth-child(1) {
   position: relative;
-  width: 49%;
+  width: 47%;
   text-align: right;
 }
 .ContentView .ArticleMeta > div:nth-child(1)::after {
   content: '/';
-  font-size: 300%;
+  font-size: 200%;
   font-weight: 100;
   position: absolute;
   top: 15px;
-  right: -18px;
+  right: -14px;
 }
 .ContentView .ArticleMeta > div:nth-child(2) {
-  width: 49%;
+  width: 47%;
   margin-left: auto;
   margin-right: 0;
 }
