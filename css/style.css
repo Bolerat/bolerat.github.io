@@ -972,6 +972,7 @@ time {
   font-size: 0.82em;
   color: #999;
   margin: 2.5em auto;
+  position: relative;
 }
 .ContentView .ArticleMeta a {
   border-bottom: 1px #bbb solid;
@@ -982,19 +983,21 @@ time {
 .ContentView .ArticleMeta:hover a {
   border-bottom: 1px #555 solid;
 }
-.ContentView .ArticleMeta > div:nth-child(1) {
-  position: relative;
-  width: 49%;
-  text-align: right;
-}
-.ContentView .ArticleMeta > div:nth-child(1)::after {
+.ContentView .ArticleMeta::after {
   content: '/';
   font-size: 200%;
   font-weight: 100;
   position: absolute;
   top: 15px;
-  right: -13px;
-  transform: translateX(50%);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ContentView .ArticleMeta:has(> div:only-child)::after {
+  display: none;
+}
+.ContentView .ArticleMeta > div:nth-child(1) {
+  width: 49%;
+  text-align: right;
 }
 .ContentView .ArticleMeta > div:nth-child(2) {
   width: 49%;
@@ -1004,9 +1007,6 @@ time {
 .ContentView .ArticleMeta > div:only-child {
   width: 100%;
   text-align: center;
-}
-.ContentView .ArticleMeta > div:only-child::after {
-  display: none;
 }
 #nav-wrapper {
   text-align: center;
