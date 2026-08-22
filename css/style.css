@@ -872,6 +872,9 @@ blockquote {
     text-align: center;
     width: 100%;
   }
+  .menu > div:first-child {
+    padding-top: 0.8em;
+  }
   .menu > ul {
     display: flex;
     align-items: center;
