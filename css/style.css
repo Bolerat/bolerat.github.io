@@ -487,8 +487,8 @@ blockquote {
   left: 260px;
   right: 0;
   margin: auto;
-  max-width: 1080px;
-  width: 62%;
+  max-width: 1240px;
+  width: 72%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
