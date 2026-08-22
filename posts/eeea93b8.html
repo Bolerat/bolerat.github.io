@@ -60,6 +60,14 @@
     <section class="media">
         
     </section>
+    <button class="side-toc-toggle" id="sideTocOpen" type="button" title="目录">☰</button>
+    <section class="side-toc" id="sideToc">
+        <div class="side-toc-head">
+            <span>目录</span>
+            <button class="side-toc-back" id="sideTocBack" type="button">返回</button>
+        </div>
+        <nav class="side-toc-list" id="sideTocList"></nav>
+    </section>
 </aside>
 
     <div class="container">
@@ -110,6 +118,22 @@
 </div>
 
             <footer>
+    <div class="recent-updates">
+        <div class="recent-updates-title">最近更新</div>
+        <ul class="recent-updates-list">
+          
+            <li>
+              <a href="/posts/e9e9e824.html">安全设备| XDR</a>
+              <span class="recent-updates-date">2026-08-22</span>
+            </li>
+          
+            <li>
+              <a href="/posts/eeea93b8.html">Langchain</a>
+              <span class="recent-updates-date">2026-08-19</span>
+            </li>
+          
+        </ul>
+    </div>
     <div>© 2026 - bolerat </div>
     <div>
         <a target="_blank" href="https://beian.miit.gov.cn/" rel="external nofollow noopener">津ICP备2025038187号</a>
@@ -137,7 +161,7 @@
     <button class="rt-btn" id="readingToggle" title="阅读模式">阅</button>
     <button class="rt-btn" id="themeToggle" title="深浅色模式">◐</button>
 </div>
-<!-- 目录抽屉 -->
+<!-- 移动端目录抽屉 -->
 <div class="toc-panel" id="tocPanel">
     <div class="toc-head">目录</div>
     <nav class="toc-list" id="tocList"></nav>
@@ -159,22 +183,64 @@ var sp = new Pager('data-pager-shell')
   var tocPanel = document.getElementById('tocPanel')
   var tocList = document.getElementById('tocList')
   var themeToggle = document.getElementById('themeToggle')
-  if (!shell || !bar || !toggle || !tocToggle || !tocPanel || !tocList || !themeToggle) return
+  var sideBar = document.querySelector('.SideBar')
+  var sideTocOpen = document.getElementById('sideTocOpen')
+  var sideTocBack = document.getElementById('sideTocBack')
+  var sideTocList = document.getElementById('sideTocList')
+  if (!shell || !bar || !toggle || !tocToggle || !tocPanel || !tocList || !themeToggle || !sideBar) return
 
-  // 判断当前是否为文章页
   function isArticle () {
     return !!shell.querySelector('.ContentView .PageTitle h1')
   }
+
+  // 从文章内容提取 h2/h3 标题列表
+  function collectHeadings () {
+    var content = shell.querySelector('.ContentView section')
+    if (!content) return []
+    return Array.prototype.slice.call(content.querySelectorAll('h2, h3'))
+  }
+
+  // 渲染目录（侧边栏目录 + 移动端抽屉共用数据）
+  function buildToc (targetList) {
+    var heads = collectHeadings()
+    var list = targetList || sideTocList
+    list.innerHTML = ''
+    if (!heads.length) {
+      var empty = document.createElement('div')
+      empty.className = 'side-toc-empty'
+      empty.textContent = '暂时没有目录'
+      list.appendChild(empty)
+      return
+    }
+    heads.forEach(function (h, i) {
+      if (!h.id) h.id = 'toc-' + i
+      var a = document.createElement('a')
+      a.href = '#' + h.id
+      a.textContent = h.textContent
+      a.className = h.tagName === 'H3' ? 'toc-l2' : 'toc-l1'
+      a.addEventListener('click', function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        sideBar.classList.remove('toc-mode')
+        tocPanel.classList.remove('toc-open')
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+      list.appendChild(a)
+    })
+  }
+
   function updateUI () {
     var art = isArticle()
-    // 工具栏全局常驻显示（深浅色模式任何页面都可用）
     body.classList.add('reading-available')
-    // 目录按钮：仅文章页显示（有内容可索引）
     if (art) {
+      body.classList.add('toc-available')
       tocToggle.style.display = ''
-      buildToc()
+      sideTocOpen.style.display = ''
     } else {
+      body.classList.remove('toc-available')
       tocToggle.style.display = 'none'
+      sideTocOpen.style.display = 'none'
+      sideBar.classList.remove('toc-mode')
       tocPanel.classList.remove('toc-open')
     }
   }
@@ -192,6 +258,7 @@ var sp = new Pager('data-pager-shell')
   // 阅读模式开关
   toggle.addEventListener('click', function () {
     body.classList.toggle('reading-mode')
+    sideBar.classList.remove('toc-mode')
     tocPanel.classList.remove('toc-open')
     onScroll()
   })
@@ -208,38 +275,37 @@ var sp = new Pager('data-pager-shell')
   }
   themeToggle.addEventListener('click', applyTheme)
 
-  // 目录生成：从文章内容提取 h2/h3
-  function buildToc () {
-    var content = shell.querySelector('.ContentView section')
-    tocList.innerHTML = ''
-    if (!content) return
-    var heads = content.querySelectorAll('h2, h3')
-    if (!heads.length) {
-      tocPanel.classList.remove('toc-open')
-      tocToggle.style.display = 'none'
-      return
+  // 目录开关：桌面端切换侧边栏，移动端弹出抽屉
+  function isDesktop () {
+    return window.innerWidth > 1024
+  }
+  function openMobileToc () {
+    buildToc(tocList)
+    tocPanel.classList.toggle('toc-open')
+  }
+  tocToggle.addEventListener('click', function () {
+    if (isDesktop()) {
+      sideBar.classList.toggle('toc-mode')
+      if (sideBar.classList.contains('toc-mode')) buildToc(sideTocList)
+    } else {
+      openMobileToc()
     }
-    tocToggle.style.display = ''
-    heads.forEach(function (h, i) {
-      if (!h.id) h.id = 'toc-' + i
-      var a = document.createElement('a')
-      a.href = '#' + h.id
-      a.textContent = h.textContent
-      a.className = h.tagName === 'H3' ? 'toc-l2' : 'toc-l1'
-      a.addEventListener('click', function (e) {
-        e.preventDefault()
-        e.stopPropagation()
-        tocPanel.classList.remove('toc-open')
-        h.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      })
-      tocList.appendChild(a)
+  })
+
+  // 侧边栏目录开关 + 返回
+  if (sideTocOpen) {
+    sideTocOpen.addEventListener('click', function () {
+      sideBar.classList.add('toc-mode')
+      buildToc(sideTocList)
+    })
+  }
+  if (sideTocBack) {
+    sideTocBack.addEventListener('click', function () {
+      sideBar.classList.remove('toc-mode')
     })
   }
 
-  // 目录抽屉开关
-  tocToggle.addEventListener('click', function () {
-    tocPanel.classList.toggle('toc-open')
-  })
+  // 点击抽屉外部关闭
   document.addEventListener('click', function (e) {
     if (!tocPanel.classList.contains('toc-open')) return
     if (!tocPanel.contains(e.target) && e.target !== tocToggle) {
@@ -247,7 +313,7 @@ var sp = new Pager('data-pager-shell')
     }
   })
 
-  // SPA 路由切换后重新检测（shell 内容变化）
+  // SPA 路由切换后重新检测
   var mo = new MutationObserver(updateUI)
   mo.observe(shell, { childList: true, subtree: true })
   updateUI()
