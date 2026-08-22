@@ -331,10 +331,9 @@ var sp = new Pager('data-pager-shell')
     })
   }
 
-  // 点击抽屉外部关闭（阅读模式下不关闭，保持常驻）
+  // 点击抽屉外部关闭
   document.addEventListener('click', function (e) {
     if (!tocPanel.classList.contains('toc-open')) return
-    if (body.classList.contains('reading-mode')) return
     if (!tocPanel.contains(e.target) && e.target !== tocToggle) {
       tocPanel.classList.remove('toc-open')
     }
