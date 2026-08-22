@@ -268,21 +268,14 @@ var sp = new Pager('data-pager-shell')
     tocPanel.classList.toggle('toc-open')
   }
   tocToggle.addEventListener('click', function () {
-    var inReading = body.classList.contains('reading-mode')
-    if (inReading || !isDesktop()) {
-      // 阅读模式下侧边栏已隐藏，或移动端：统一用右侧纯净目录抽屉
-      openMobileToc()
-    } else {
-      sideBar.classList.toggle('toc-mode')
-      if (sideBar.classList.contains('toc-mode')) buildToc(sideTocList)
-    }
+    // 统一：点击目录按钮 -> 右侧纯净目录抽屉
+    openMobileToc()
   })
 
   // 侧边栏目录开关 + 返回
   if (sideTocOpen) {
     sideTocOpen.addEventListener('click', function () {
-      sideBar.classList.add('toc-mode')
-      buildToc(sideTocList)
+      openMobileToc()
     })
   }
   if (sideTocBack) {
