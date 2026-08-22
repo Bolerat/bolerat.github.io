@@ -961,7 +961,7 @@ footer .recent-updates {
   display: none;
   position: absolute;
   right: 10px;
-  top: 230px;
+  top: 228px;
   width: 28px;
   height: 28px;
   line-height: 28px;
@@ -980,9 +980,13 @@ footer .recent-updates {
 .side-toc {
   display: none;
   flex-direction: column;
-  position: relative;
-  margin-top: 2em;
+  position: absolute;
+  top: 430px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-top: 1px solid #eee;
+  overflow-y: auto;
 }
 .SideBar.toc-mode .side-toc-toggle {
   display: block;
