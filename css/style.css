@@ -1305,99 +1305,12 @@ time {
 .extend.next {
   left: 100%;
 }
-.valine-comments {
+.artalk-comments {
   margin: 3em auto 2em;
   max-width: 700px;
 }
-.valine-comments .vwrap {
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  background: #fff;
-  transition: border-color 0.2s;
-}
-.valine-comments .vwrap:hover {
-  border-color: #ccc;
-}
-.valine-comments .vheader .vinput {
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  padding: 0.6em 0.8em;
-  font-size: 0.9em;
-  transition: border-color 0.2s;
-}
-.valine-comments .vheader .vinput:focus {
-  border-color: #999;
-  outline: none;
-}
-.valine-comments .vedit .vinput {
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-}
-.valine-comments .vedit .vinput:focus {
-  border-color: #999;
-}
-.valine-comments .vbtn {
-  background: #555;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5em 1.4em;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.valine-comments .vbtn:hover {
-  background: #333;
-}
-.valine-comments .vcards .vcard {
-  padding: 1em 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-.valine-comments .vcards .vcard .vhead .vnick {
-  font-weight: 500;
-  color: #333;
-}
-.valine-comments .vcards .vcard .vhead .vsys {
-  font-size: 0.8em;
-  color: #aaa;
-}
-.valine-comments .vcards .vcard .vcontent {
-  padding: 0.4em 0;
-  font-size: 0.92em;
-  line-height: 1.7;
-  color: #555;
-}
-.valine-comments .vcards .vcard .vcontent p {
-  margin: 0.3em 0;
-}
-.valine-comments .vcards .vcard .vmeta .vat {
-  font-size: 0.8em;
-  color: #aaa;
-  cursor: pointer;
-}
-.valine-comments .vcards .vcard .vmeta .vat:hover {
-  color: #666;
-}
-.valine-comments .vempty {
-  padding: 2em 0;
-  text-align: center;
-  color: #bbb;
-  font-size: 0.9em;
-}
-.valine-comments .vcount {
-  font-size: 0.95em;
-  font-weight: 500;
-  color: #555;
-  margin-bottom: 1em;
-}
-.valine-comments .vcount > span {
-  color: #333;
-}
-.valine-comments .vimg {
-  border-radius: 50%;
-}
 @media screen and (max-width: 1024px) {
-  .valine-comments {
+  .artalk-comments {
     max-width: 100%;
     padding: 0 0.5em;
     margin: 2em auto 1.5em;

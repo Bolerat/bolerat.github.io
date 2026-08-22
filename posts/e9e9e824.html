@@ -149,23 +149,22 @@
 </div>
 
   
-<section class="valine-comments" id="vcomments">
-</section>
-<script src="//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js"></script>
+<!-- Artalk -->
+<link href="https://bolerat.top/artalk/dist/Artalk.css" rel="stylesheet">
+<div class="artalk-comments" id="artalkComments"></div>
+<script src="https://bolerat.top/artalk/dist/Artalk.js"></script>
 <script>
 (function () {
-  var vcomments = document.getElementById('vcomments')
-  if (!vcomments) return
-  new Valine({
-    el: '#vcomments',
-    appId: 'YOUR_LEANCLOUD_APPID',
-    appKey: 'YOUR_LEANCLOUD_APPKEY',
+  var el = document.getElementById('artalkComments')
+  if (!el) return
+  var artalk = Artalk.init({
+    el: '#artalkComments',
+    server: 'https://bolerat.top/artalk',
+    locale: 'zh-CN',
     placeholder: '说点什么吧...',
-    avatar: 'monsterid',
-    pageSize: '10',
-    lang: 'zh-CN',
-    recordIP: false,
-    path: window.location.pathname
+    darkMode: 'auto',
+    pageKey: location.pathname,
+    pageTitle: document.title
   })
 })()
 </script>
