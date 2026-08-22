@@ -1588,33 +1588,6 @@ body.reading-mode .ContentView blockquote {
 body.reading-mode .ContentView .ArticleMeta {
   max-width: none;
 }
-@media screen and (max-width: 1024px) {
-  .toc-panel {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 80vw;
-    max-width: 320px;
-    max-height: none;
-    height: 100vh;
-    border: none;
-    border-left: 1px solid var(--panel-border);
-    border-radius: 0;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%);
-    transition: transform 260ms ease;
-  }
-  .toc-panel.toc-open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-  }
-  .toc-list {
-    flex: 1;
-    max-height: none;
-  }
-}
 @media screen and (max-width: 640px) {
   .reading-toolbar {
     right: 12px;
@@ -1624,6 +1597,13 @@ body.reading-mode .ContentView .ArticleMeta {
   .rt-btn {
     width: 42px;
     height: 42px;
+  }
+  .toc-panel {
+    top: 68px;
+    right: 12px;
+    width: 210px;
+    max-width: 74vw;
+    max-height: 62vh;
   }
   body.reading-mode .container {
     padding: 1.8em 1.1em 2.4em;
