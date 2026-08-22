@@ -317,11 +317,17 @@ var sp = new Pager('data-pager-shell')
   window.addEventListener('scroll', onScroll, { passive: true })
   onScroll()
 
-  // 阅读模式开关
+  // 阅读模式开关（进入时自动展开纯净目录）
   toggle.addEventListener('click', function () {
+    var entering = !body.classList.contains('reading-mode')
     body.classList.toggle('reading-mode')
     sideBar.classList.remove('toc-mode')
-    tocPanel.classList.remove('toc-open')
+    if (entering && isArticle()) {
+      buildToc(tocList)
+      tocPanel.classList.add('toc-open')
+    } else {
+      tocPanel.classList.remove('toc-open')
+    }
     onScroll()
   })
 
@@ -369,9 +375,10 @@ var sp = new Pager('data-pager-shell')
     })
   }
 
-  // 点击抽屉外部关闭
+  // 点击抽屉外部关闭（阅读模式下不关闭，保持常驻）
   document.addEventListener('click', function (e) {
     if (!tocPanel.classList.contains('toc-open')) return
+    if (body.classList.contains('reading-mode')) return
     if (!tocPanel.contains(e.target) && e.target !== tocToggle) {
       tocPanel.classList.remove('toc-open')
     }
