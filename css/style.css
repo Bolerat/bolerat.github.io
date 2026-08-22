@@ -815,7 +815,7 @@ footer .recent-updates {
   position: fixed;
   background-color: #fff;
   z-index: 10000;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #ddd;
 }
 .SideBar > section {
   width: 100%;
