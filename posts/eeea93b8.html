@@ -134,6 +134,28 @@
 </div>
 
   
+<section class="valine-comments" id="vcomments">
+</section>
+<script src="//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js"></script>
+<script>
+(function () {
+  var vcomments = document.getElementById('vcomments')
+  if (!vcomments) return
+  new Valine({
+    el: '#vcomments',
+    appId: 'YOUR_LEANCLOUD_APPID',
+    appKey: 'YOUR_LEANCLOUD_APPKEY',
+    placeholder: '说点什么吧...',
+    avatar: 'monsterid',
+    pageSize: '10',
+    lang: 'zh-CN',
+    recordIP: false,
+    path: window.location.pathname
+  })
+})()
+</script>
+
+
 </div>
 
             <footer>
