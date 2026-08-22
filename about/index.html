@@ -106,12 +106,14 @@
 <div class="reading-progress"><span id="rp-bar"></span></div>
 <!-- 浮动阅读工具栏 -->
 <div class="reading-toolbar" id="readingToolbar">
-    <div class="rt-font">
-        <button data-font="0.9" title="缩小字号">A−</button>
-        <button data-font="1" title="默认字号">A</button>
-        <button data-font="1.15" title="放大字号">A＋</button>
-    </div>
+    <button class="rt-btn" id="tocToggle" title="目录">☰</button>
     <button class="rt-btn" id="readingToggle" title="阅读模式">阅</button>
+    <button class="rt-btn" id="themeToggle" title="深浅色模式">◐</button>
+</div>
+<!-- 目录抽屉 -->
+<div class="toc-panel" id="tocPanel">
+    <div class="toc-head">目录</div>
+    <nav class="toc-list" id="tocList"></nav>
 </div>
 
 
@@ -126,18 +128,25 @@ var sp = new Pager('data-pager-shell')
   var body = document.body
   var bar = document.getElementById('rp-bar')
   var toggle = document.getElementById('readingToggle')
-  if (!shell || !bar || !toggle) return
+  var tocToggle = document.getElementById('tocToggle')
+  var tocPanel = document.getElementById('tocPanel')
+  var tocList = document.getElementById('tocList')
+  var themeToggle = document.getElementById('themeToggle')
+  if (!shell || !bar || !toggle || !tocToggle || !tocPanel || !tocList || !themeToggle) return
 
   // 判断当前是否为文章页
   function isArticle () {
     return !!shell.querySelector('.ContentView .PageTitle h1')
   }
   function updateUI () {
-    if (isArticle()) {
+    var art = isArticle()
+    if (art) {
       body.classList.add('reading-available')
+      buildToc()
     } else {
       body.classList.remove('reading-available')
       body.classList.remove('reading-mode')
+      tocPanel.classList.remove('toc-open')
     }
   }
 
@@ -154,15 +163,59 @@ var sp = new Pager('data-pager-shell')
   // 阅读模式开关
   toggle.addEventListener('click', function () {
     body.classList.toggle('reading-mode')
+    tocPanel.classList.remove('toc-open')
     onScroll()
   })
 
-  // 字号调节
-  var fonts = document.querySelectorAll('.rt-font button')
-  fonts.forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.documentElement.style.setProperty('--reading-scale', b.getAttribute('data-font'))
+  // 深浅色模式切换
+  function applyTheme () {
+    if (body.classList.contains('dark-mode')) {
+      body.classList.remove('dark-mode')
+      body.classList.add('light-mode')
+    } else {
+      body.classList.remove('light-mode')
+      body.classList.add('dark-mode')
+    }
+  }
+  themeToggle.addEventListener('click', applyTheme)
+
+  // 目录生成：从文章内容提取 h2/h3
+  function buildToc () {
+    var content = shell.querySelector('.ContentView section')
+    tocList.innerHTML = ''
+    if (!content) return
+    var heads = content.querySelectorAll('h2, h3')
+    if (!heads.length) {
+      tocPanel.classList.remove('toc-open')
+      tocToggle.style.display = 'none'
+      return
+    }
+    tocToggle.style.display = ''
+    heads.forEach(function (h, i) {
+      if (!h.id) h.id = 'toc-' + i
+      var a = document.createElement('a')
+      a.href = '#' + h.id
+      a.textContent = h.textContent
+      a.className = h.tagName === 'H3' ? 'toc-l2' : 'toc-l1'
+      a.addEventListener('click', function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        tocPanel.classList.remove('toc-open')
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+      tocList.appendChild(a)
     })
+  }
+
+  // 目录抽屉开关
+  tocToggle.addEventListener('click', function () {
+    tocPanel.classList.toggle('toc-open')
+  })
+  document.addEventListener('click', function (e) {
+    if (!tocPanel.classList.contains('toc-open')) return
+    if (!tocPanel.contains(e.target) && e.target !== tocToggle) {
+      tocPanel.classList.remove('toc-open')
+    }
   })
 
   // SPA 路由切换后重新检测（shell 内容变化）
