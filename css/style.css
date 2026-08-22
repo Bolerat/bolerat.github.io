@@ -489,6 +489,9 @@ blockquote {
   margin: auto;
   max-width: 1080px;
   width: 62%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .container > div > footer {
   width: 100%;
@@ -637,6 +640,14 @@ blockquote {
 .route-trans-leave.route-trans-leave-active {
   animation: route-trans-o 0.8s;
   animation-fill-mode: forwards;
+}
+[data-pager-shell] {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+[data-pager-shell] > footer {
+  margin-top: auto;
 }
 @-moz-keyframes route-trans-e {
   0% {

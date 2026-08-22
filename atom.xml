@@ -10,13 +10,33 @@
   <rights>All rights reserved 2026, Admin</rights>
   <subtitle>blog</subtitle>
   <title>bolerat</title>
-  <updated>2026-08-20T05:10:21.809Z</updated>
+  <updated>2026-08-22T05:30:17.515Z</updated>
   <entry>
     <author>
       <name>Admin</name>
     </author>
     <content>
-      <![CDATA[<p>LangChain 是一个用于开发由大型语言模型 (LLMs) 驱动的应用程序的框架。</p><span id="more"></span><h2 id="框架构成">框架构成</h2><p>1</p>]]>
+      <![CDATA[<p>XDR，全名Extended Detection and Response。</p><blockquote><p>通过将来自终端、网络、云、电子邮件、SaaS 应用和标识的信号整合到一个统一平台中，XDR 为安全团队提供了所需的可见性、分析和自动化，以更快、更有效地应对网络威胁。无论是对于大型企业还是成长中的中小型企业，在威胁环境日益复杂的情况下，XDR 都有助于简化运营、减少警报疲劳并加强整体安全状况。</p></blockquote>]]>
+    </content>
+    <id>https://bolerat.top/posts/e9e9e824.html</id>
+    <link href="https://bolerat.top/posts/e9e9e824.html"/>
+    <published>2026-08-22T05:25:19.000Z</published>
+    <summary>
+      <![CDATA[<p>XDR，全名Extended Detection and Response。</p>
+<blockquote>
+<p>通过将来自终端、网络、云、电子邮件、SaaS 应用和标识的信号整合到一个统一平台中，XDR 为安全团队提供了所需的可见性、分析和自动化，以更快、更有效地应对]]>
+    </summary>
+    <title>安全设备| XDR 扩展检测和响应平台</title>
+    <updated>2026-08-22T05:30:17.515Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Admin</name>
+    </author>
+    <category term="AI" scheme="https://bolerat.top/categories/AI/"/>
+    <category term="agent" scheme="https://bolerat.top/tags/agent/"/>
+    <content>
+      <![CDATA[<p>LangChain 是一个用于开发由大型语言模型 (LLMs) 驱动的应用程序的框架。</p><span id="more"></span><h2 id="框架构成">框架构成</h2><p>…</p>]]>
     </content>
     <id>https://bolerat.top/posts/eeea93b8.html</id>
     <link href="https://bolerat.top/posts/eeea93b8.html"/>
@@ -25,6 +45,6 @@
       <![CDATA[<p>LangChain 是一个用于开发由大型语言模型 (LLMs) 驱动的应用程序的框架。</p>]]>
     </summary>
     <title>Langchain</title>
-    <updated>2026-08-20T05:10:21.809Z</updated>
+    <updated>2026-08-22T05:23:10.323Z</updated>
   </entry>
 </feed>
