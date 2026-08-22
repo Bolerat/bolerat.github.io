@@ -1376,9 +1376,26 @@ body.dark-mode .Btn > li:hover,
 body.dark-mode a.Btn.active > li {
   color: #fff;
 }
+body.dark-mode .PageTitle h1,
 body.dark-mode .PageTitle h1 a,
 body.dark-mode .ListView .title a {
-  color: #eee;
+  color: #fff;
+}
+body.dark-mode .PageSubtitle {
+  color: #aaa;
+}
+body.dark-mode .ContentView .PostCard,
+body.dark-mode .ListView {
+  background: #242424;
+  border-color: #343434;
+  box-shadow: 0 3px 8px 6px rgba(0,0,0,0.2);
+}
+body.dark-mode .list-excerpt {
+  color: #c5c5c5;
+}
+body.dark-mode .ArticleMeta,
+body.dark-mode .ListMeta {
+  color: #999;
 }
 body.dark-mode .container::before {
   background-color: #333;
