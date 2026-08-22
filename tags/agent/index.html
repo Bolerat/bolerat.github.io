@@ -131,7 +131,9 @@
   <span class="meta-item meta-comments">
     <span class="meta-sep">|</span>
     <i class="meta-icon meta-icon-comment"></i>
-    <a href="/posts/eeea93b8.html#disqus_thread" class="meta-text disqus-comment-count" data-disqus-identifier="posts/eeea93b8.html">评论</a>
+    <a href="/posts/eeea93b8.html#comments" class="meta-text">
+      <span class="artalk-comment-count" data-page-key="/posts/eeea93b8.html">评论</span>
+    </a>
   </span>
 </div>
 
@@ -253,6 +255,20 @@ var sp = new Pager('data-pager-shell')
       sideBar.classList.remove('toc-mode')
       setTocPanel(false)
     }
+    loadCommentCounts()
+  }
+
+  // 列表页文章卡片的评论数统计（Artalk.loadCountWidget）
+  function loadCommentCounts () {
+    if (!window.Artalk || !window.Artalk.loadCountWidget) return
+    var countEls = shell.querySelectorAll('.artalk-comment-count')
+    if (!countEls.length) return
+    Artalk.loadCountWidget({
+      server: 'https://bolerat.top/artalk',
+      site: 'Bolerat Blog',
+      countEl: '.artalk-comment-count',
+      statPageKeyAttr: 'data-page-key'
+    })
   }
 
   // 阅读进度条

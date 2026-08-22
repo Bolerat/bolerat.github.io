@@ -280,6 +280,20 @@ var sp = new Pager('data-pager-shell')
       sideBar.classList.remove('toc-mode')
       setTocPanel(false)
     }
+    loadCommentCounts()
+  }
+
+  // 列表页文章卡片的评论数统计（Artalk.loadCountWidget）
+  function loadCommentCounts () {
+    if (!window.Artalk || !window.Artalk.loadCountWidget) return
+    var countEls = shell.querySelectorAll('.artalk-comment-count')
+    if (!countEls.length) return
+    Artalk.loadCountWidget({
+      server: 'https://bolerat.top/artalk',
+      site: 'Bolerat Blog',
+      countEl: '.artalk-comment-count',
+      statPageKeyAttr: 'data-page-key'
+    })
   }
 
   // 阅读进度条
