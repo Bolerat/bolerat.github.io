@@ -203,8 +203,7 @@ var sp = new Pager('data-pager-shell')
       a.addEventListener('click', function (e) {
         e.preventDefault()
         e.stopPropagation()
-        sideBar.classList.remove('toc-mode')
-        tocPanel.classList.remove('toc-open')
+        setTocPanel(false)
         h.scrollIntoView({ behavior: 'smooth', block: 'start' })
       })
       list.appendChild(a)
@@ -223,7 +222,7 @@ var sp = new Pager('data-pager-shell')
       tocToggle.style.display = 'none'
       sideTocOpen.style.display = 'none'
       sideBar.classList.remove('toc-mode')
-      tocPanel.classList.remove('toc-open')
+      setTocPanel(false)
     }
   }
 
@@ -244,9 +243,9 @@ var sp = new Pager('data-pager-shell')
     sideBar.classList.remove('toc-mode')
     if (entering && isArticle()) {
       buildToc(tocList)
-      tocPanel.classList.add('toc-open')
+      setTocPanel(true)
     } else {
-      tocPanel.classList.remove('toc-open')
+      setTocPanel(false)
     }
     onScroll()
   })
@@ -263,43 +262,50 @@ var sp = new Pager('data-pager-shell')
   }
   themeToggle.addEventListener('click', applyTheme)
 
-  // 目录开关：桌面端切换侧边栏，移动端弹出抽屉
-  function isDesktop () {
-    return window.innerWidth > 1024
+  // 目录面板开关：统一走左侧内嵌小卡片 + 收缩侧边栏个人页
+  function setTocPanel (open) {
+    tocPanel.classList.toggle('toc-open', open)
+    body.classList.toggle('toc-expanded', open)
   }
-  function openMobileToc () {
+  function openToc () {
     buildToc(tocList)
-    tocPanel.classList.toggle('toc-open')
+    setTocPanel(true)
+  }
+  function closeToc () {
+    setTocPanel(false)
   }
   tocToggle.addEventListener('click', function () {
-    // 统一：点击目录按钮 -> 右侧纯净目录抽屉
-    openMobileToc()
+    if (tocPanel.classList.contains('toc-open')) {
+      closeToc()
+    } else {
+      openToc()
+    }
   })
 
-  // 侧边栏目录开关 + 返回
+  // 侧边栏目录开关（toggle）
   if (sideTocOpen) {
     sideTocOpen.addEventListener('click', function () {
-      openMobileToc()
+      if (tocPanel.classList.contains('toc-open')) {
+        closeToc()
+      } else {
+        openToc()
+      }
     })
   }
   if (sideTocBack) {
-    sideTocBack.addEventListener('click', function () {
-      sideBar.classList.remove('toc-mode')
-    })
+    sideTocBack.addEventListener('click', closeToc)
   }
 
   // 关闭按钮
   if (tocClose) {
-    tocClose.addEventListener('click', function () {
-      tocPanel.classList.remove('toc-open')
-    })
+    tocClose.addEventListener('click', closeToc)
   }
 
-  // 点击抽屉外部关闭
+  // 点击目录卡片外部关闭
   document.addEventListener('click', function (e) {
     if (!tocPanel.classList.contains('toc-open')) return
-    if (!tocPanel.contains(e.target) && e.target !== tocToggle) {
-      tocPanel.classList.remove('toc-open')
+    if (!tocPanel.contains(e.target) && e.target !== tocToggle && e.target !== sideTocOpen) {
+      closeToc()
     }
   })
 
