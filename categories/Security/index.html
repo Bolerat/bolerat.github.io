@@ -316,6 +316,10 @@ var sp = new Pager('data-pager-shell')
       body.classList.remove('light-mode')
       body.classList.add('dark-mode')
     }
+    // 同步评论区（Artalk）深浅色
+    if (window.__artalkSyncDark) {
+      window.__artalkSyncDark(body.classList.contains('dark-mode'))
+    }
   }
   themeToggle.addEventListener('click', applyTheme)
 
