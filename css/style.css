@@ -993,7 +993,7 @@ time {
   font-weight: 100;
   position: absolute;
   top: 15px;
-  right: -9px;
+  right: -13px;
   transform: translateX(50%);
 }
 .ContentView .ArticleMeta > div:nth-child(2) {
