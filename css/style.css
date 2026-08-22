@@ -873,7 +873,7 @@ blockquote {
     width: 100%;
   }
   .menu > div:first-child {
-    padding-top: 0.8em;
+    padding-top: 1.4em;
   }
   .menu > ul {
     display: flex;
