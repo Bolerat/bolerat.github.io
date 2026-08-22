@@ -992,6 +992,7 @@ footer .recent-updates {
   position: relative;
   top: auto;
   width: 100%;
+  margin-top: 150px;
 }
 .SideBar.toc-mode .menu > ul {
   padding-top: 1em;
