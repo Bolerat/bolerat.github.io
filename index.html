@@ -346,11 +346,13 @@ var sp = new Pager('data-pager-shell')
     tocPanel.classList.toggle('toc-open')
   }
   tocToggle.addEventListener('click', function () {
-    if (isDesktop()) {
+    var inReading = body.classList.contains('reading-mode')
+    if (inReading || !isDesktop()) {
+      // 阅读模式下侧边栏已隐藏，或移动端：统一用右侧纯净目录抽屉
+      openMobileToc()
+    } else {
       sideBar.classList.toggle('toc-mode')
       if (sideBar.classList.contains('toc-mode')) buildToc(sideTocList)
-    } else {
-      openMobileToc()
     }
   })
 

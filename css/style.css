@@ -1486,6 +1486,9 @@ body.reading-available .reading-toolbar {
 body.reading-mode .SideBar {
   display: none;
 }
+body.reading-mode footer {
+  display: none !important;
+}
 body.reading-mode .container {
   position: relative !important;
   left: auto !important;
