@@ -139,12 +139,14 @@ var sp = new Pager('data-pager-shell')
   }
   function updateUI () {
     var art = isArticle()
+    // 工具栏全局常驻显示（深浅色模式任何页面都可用）
+    body.classList.add('reading-available')
+    // 目录按钮：仅文章页显示（有内容可索引）
     if (art) {
-      body.classList.add('reading-available')
+      tocToggle.style.display = ''
       buildToc()
     } else {
-      body.classList.remove('reading-available')
-      body.classList.remove('reading-mode')
+      tocToggle.style.display = 'none'
       tocPanel.classList.remove('toc-open')
     }
   }
