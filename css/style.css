@@ -959,16 +959,16 @@ footer .recent-updates {
 }
 .side-toc-toggle {
   display: none;
-  position: absolute;
-  right: 10px;
-  top: 228px;
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
-  border: 1px solid #e8e8e8;
+  position: fixed;
+  left: 220px;
+  top: 1rem;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid transparent;
   background: transparent;
   color: #888;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   z-index: 10010;
   border-radius: 4px;
@@ -980,19 +980,34 @@ footer .recent-updates {
 .side-toc {
   display: none;
   flex-direction: column;
-  position: absolute;
-  top: 430px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   border-top: 1px solid #eee;
+  margin-top: 1em;
+}
+.SideBar.toc-mode {
   overflow-y: auto;
+  display: block;
+}
+.SideBar.toc-mode .menu {
+  position: relative;
+  top: auto;
+  width: 100%;
+}
+.SideBar.toc-mode .menu > ul {
+  padding-top: 1em;
 }
 .SideBar.toc-mode .side-toc-toggle {
   display: block;
 }
 .SideBar.toc-mode .side-toc {
   display: flex;
+  flex: 1;
+}
+.SideBar.toc-mode .media {
+  position: relative;
+  width: 100%;
+  bottom: auto;
+  margin-top: 2em;
 }
 .side-toc-head {
   display: flex;
