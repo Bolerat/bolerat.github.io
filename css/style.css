@@ -1101,20 +1101,25 @@ li.meta-text {
   text-align: left;
   margin-bottom: 3em;
 }
-.PageTitle h1 {
+.PageSubtitle {
+  font-size: 0.82em;
+  color: #999;
+  margin-bottom: 0.2em;
+}
+.PageSubtitle h1 {
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 0.3em;
   margin-left: -10%;
 }
 @media screen and (max-width: 1024px) {
-  .PageTitle h1 {
+  .PageSubtitle h1 {
     font-size: 2rem;
     margin-left: auto;
     padding-top: 3rem;
   }
 }
-.PageTitle a {
+.PageSubtitle a {
   border: none;
   color: #111;
 }
