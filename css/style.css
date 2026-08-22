@@ -649,7 +649,7 @@ blockquote {
 [data-pager-shell] > footer {
   margin-top: auto;
 }
-footer .recent-updates {
+.recent-updates {
   margin-top: 3rem;
   margin-bottom: 2.5rem;
   text-align: left;
