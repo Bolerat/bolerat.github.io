@@ -14,14 +14,13 @@
   <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
+  <link rel="stylesheet" href="/css/style.css?v=202608241420">
   
   <link href="https://bolerat.top/artalk/dist/Artalk.css" rel="stylesheet">
   <script src="https://bolerat.top/artalk/dist/Artalk.js"></script>
   
+  <!-- 不蒜子阅读量统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Bolerat" type="application/atom+xml">
 </head>
 
@@ -83,7 +82,7 @@
           <h1>安全设备| XDR</h1>
           
           <div class='PageSubtitle'>
-              字数：142 ・ 预计阅读 1 分钟
+              字数：142 ・ 预计阅读 1 分钟 ・ 阅读量：<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 次</span>
           </div>
           
       </header>
@@ -140,6 +139,11 @@
   <ul class="recent-updates-list">
     
       <li>
+        <a href="/posts/26426e77.html">字典收集</a>
+        <span class="recent-updates-date">2026-09-15</span>
+      </li>
+    
+      <li>
         <a href="/posts/e9e9e824.html">安全设备| XDR</a>
         <span class="recent-updates-date">2026-08-22</span>
       </li>
@@ -166,8 +170,8 @@
     locale: 'zh-CN',
     placeholder: '说点什么吧...',
     darkMode: false,
-    pageKey: location.pathname,
-    pageTitle: document.title,
+    pageKey: '/posts/e9e9e824.html',
+    pageTitle: "安全设备| XDR",
     uaBadge: false
   })
   var isDark = document.body.classList.contains('dark-mode')
@@ -208,9 +212,22 @@
 <div class="reading-progress"><span id="rp-bar"></span></div>
 <!-- 浮动阅读工具栏 -->
 <div class="reading-toolbar" id="readingToolbar">
+    <button class="rt-btn" id="searchToggle" title="搜索"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg></button>
     <button class="rt-btn" id="tocToggle" title="目录">☰</button>
     <button class="rt-btn" id="readingToggle" title="阅读模式">阅</button>
     <button class="rt-btn" id="themeToggle" title="深浅色模式">◐</button>
+</div>
+<!-- 搜索面板 -->
+<div class="search-panel" id="searchPanel">
+    <div class="search-panel-inner">
+        <div class="search-head">
+            <input class="search-input" id="searchInput" type="text" placeholder="搜索全站文章…" autocomplete="off">
+            <button class="search-close" id="searchClose" type="button">✕</button>
+        </div>
+        <div class="search-results" id="searchResults">
+            <div class="search-hint">输入关键词，搜索所有文章标题与内容</div>
+        </div>
+    </div>
 </div>
 <!-- 目录面板 -->
 <div class="toc-panel" id="tocPanel">
@@ -405,6 +422,133 @@ var sp = new Pager('data-pager-shell')
   var mo = new MutationObserver(updateUI)
   mo.observe(shell, { childList: true, subtree: true })
   updateUI()
+})()
+</script>
+<script>
+/* ===== 全站文章搜索 ===== */
+(function () {
+  var panel = document.getElementById('searchPanel')
+  var toggle = document.getElementById('searchToggle')
+  var closeBtn = document.getElementById('searchClose')
+  var input = document.getElementById('searchInput')
+  var results = document.getElementById('searchResults')
+  if (!panel || !toggle || !closeBtn || !input || !results) return
+
+  var index = null // 缓存的搜索结果 [{title, url, content, text}]
+  var loading = false
+
+  // 加载并解析 search.xml
+  function loadIndex (cb) {
+    if (index) return cb()
+    if (loading) return
+    loading = true
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', '/search.xml', true)
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return
+      loading = false
+      if (xhr.status === 200) {
+        parse(xhr.responseXML)
+        cb()
+      } else {
+        results.innerHTML = '<div class="search-hint">搜索索引加载失败，请刷新重试</div>'
+      }
+    }
+    xhr.onerror = function () {
+      loading = false
+      results.innerHTML = '<div class="search-hint">搜索索引加载失败，请检查网络</div>'
+    }
+    xhr.send()
+  }
+
+  function parse (xml) {
+    index = []
+    var entries = xml.getElementsByTagName('entry')
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i]
+      var title = (e.getElementsByTagName('title')[0] || {}).textContent || ''
+      var url = (e.getElementsByTagName('url')[0] || {}).textContent || ''
+      var content = (e.getElementsByTagName('content')[0] || {}).textContent || ''
+      // 去掉 html 标签得到纯文本用于匹配和高亮
+      var text = content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+      index.push({ title: title.trim(), url: url, text: text })
+    }
+  }
+
+  function esc (s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  }
+
+  function render (kw) {
+    if (!index) return
+    var q = kw.toLowerCase()
+    var hits = []
+    index.forEach(function (item) {
+      var ti = item.title.toLowerCase().indexOf(q)
+      var ci = item.text.toLowerCase().indexOf(q)
+      if (ti >= 0 || ci >= 0) {
+        var snippet = ''
+        if (ci >= 0) {
+          var s = Math.max(0, ci - 30)
+          var e = Math.min(item.text.length, ci + 60)
+          snippet = (s > 0 ? '…' : '') + item.text.slice(s, e) + (e < item.text.length ? '…' : '')
+        }
+        hits.push({ title: item.title, url: item.url, snippet: snippet })
+      }
+    })
+    if (!hits.length) {
+      results.innerHTML = '<div class="search-hint">没有找到相关文章</div>'
+      return
+    }
+    var html = ''
+    hits.forEach(function (h) {
+      html += '<a class="search-item" href="' + esc(h.url) + '">'
+      html += '<div class="search-item-title">' + esc(h.title) + '</div>'
+      if (h.snippet) html += '<div class="search-item-snippet">' + esc(h.snippet) + '</div>'
+      html += '</a>'
+    })
+    results.innerHTML = html
+  }
+
+  function open () {
+    panel.classList.add('search-open')
+    bodyForSearch.style.overflow = 'hidden'
+    setTimeout(function () { input.focus() }, 60)
+  }
+  function close () {
+    panel.classList.remove('search-open')
+    bodyForSearch.style.overflow = ''
+  }
+  var bodyForSearch = document.body
+
+  toggle.addEventListener('click', function () {
+    if (panel.classList.contains('search-open')) close()
+    else open()
+  })
+  closeBtn.addEventListener('click', close)
+
+  var debounce = null
+  input.addEventListener('input', function () {
+    clearTimeout(debounce)
+    var kw = input.value.trim()
+    if (!kw) {
+      results.innerHTML = '<div class="search-hint">输入关键词，搜索所有文章标题与内容</div>'
+      return
+    }
+    debounce = setTimeout(function () {
+      if (index) render(kw)
+      else loadIndex(function () { render(kw) })
+    }, 180)
+  })
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close()
+  })
+
+  // 点击蒙层空白区域关闭，点击搜索卡片内部不关闭
+  panel.addEventListener('click', function (e) {
+    if (e.target === panel) close()
+  })
 })()
 </script>
 </body>
